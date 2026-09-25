@@ -1,0 +1,70 @@
+{
+  "stages": [
+    {
+      "name": "Recruiter screen",
+      "duration": "30 minutes",
+      "focus": "Background, timeline, role fit, and process overview.",
+      "tips": [
+        "Prepare a 90-second pitch aligned to Google scale problems.",
+        "Confirm interview format (virtual vs onsite) and timezone.",
+        "Ask about team matching timing—not compensation details yet.",
+        "Be ready to summarize one strong project with metrics."
+      ]
+    },
+    {
+      "name": "Phone / technical screen",
+      "duration": "45–60 minutes",
+      "focus": "One coding question with strong communication on a shared editor.",
+      "tips": [
+        "Clarify inputs, constraints, and edge cases before coding.",
+        "Propose brute force, then optimize; state time/space complexity.",
+        "Write clean, testable code; dry-run with a small example.",
+        "Google screens often favor medium array/hash/graph questions."
+      ]
+    },
+    {
+      "name": "Onsite / virtual onsite loop",
+      "duration": "4–5 interviews (~45 min each)",
+      "focus": "Mix of coding (2–3), system design (1+ for L4+), and Googleyness/leadership.",
+      "tips": [
+        "Treat each round independently—no carry-over frustration.",
+        "Coding: same clarity as phone; expect follow-ups and extensions.",
+        "Design: requirements, estimates, APIs, data model, bottlenecks, trade-offs.",
+        "Googleyness: STAR stories showing ambiguity, collaboration, and user focus."
+      ]
+    },
+    {
+      "name": "Team matching / hiring committee",
+      "duration": "Days to weeks",
+      "focus": "Packet review, level calibration, and team fit conversations.",
+      "tips": [
+        "Stay responsive to recruiters; prepare questions for hiring managers.",
+        "Reflect consistent signals: strong coding, communication, and values.",
+        "Level discussions weigh scope of past work and interview depth.",
+        "Politely compare teams by product impact and growth—not perks alone."
+      ]
+    }
+  ],
+  "codingTips": [
+    "Start with examples and invariants; Google interviewers reward structured thinking over fast typing.",
+    "Name the pattern (BFS, binary search on answer, interval greedy) out loud—it helps partial credit.",
+    "For graphs, state representation (adj list vs matrix) and why before implementing.",
+    "When stuck, reduce the problem (smaller input, simpler constraint) and bridge back.",
+    "Always propose tests: empty input, single element, duplicates, max constraints.",
+    "Prefer readable variable names; Go/Java/Python style clarity matters at Google scale.",
+    "If you optimize mid-interview, explain what changed in complexity and why it is correct.",
+    "Save 3–5 minutes for follow-ups—they often separate hire vs no-hire at the margin."
+  ],
+  "eligibility": {
+    "l3": "Typically 0–2 years relevant experience (new grad or early career). Emphasis on coding fundamentals, learning velocity, and collaboration signals.",
+    "l4": "Typically ~2–5+ years. Strong independent delivery, medium/hard coding, and introductory system design on real components.",
+    "l5plus": "Staff+ loops add deep design, cross-team influence, and ambiguous problem ownership. Coding still rigorous but scope questions dominate.",
+    "officialQuals": [
+      "Bachelor’s degree in CS or related field (or equivalent practical experience)—wording varies by posting.",
+      "Proficiency in one mainstream language (commonly C++, Java, Python, or Go).",
+      "Demonstrated data structures, algorithms, and software engineering experience.",
+      "Ability to communicate clearly in English for technical discussions."
+    ]
+  },
+  "disclaimer": "Google’s hiring process and rubrics change by region, role, and year. Treat this file as study guidance aligned with public candidate reports—not an official Google document."
+}

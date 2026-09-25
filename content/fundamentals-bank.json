@@ -1,0 +1,669 @@
+{
+  "items": [
+    {
+      "id": "fund001",
+      "title": "Process vs thread",
+      "topic": "os",
+      "minutes": 25,
+      "overview": "A process has isolated address space and OS resources; threads share address space within a process. Context switch cost and communication patterns differ.",
+      "selfCheckQuestions": [
+        "Why is inter-process communication slower than sharing memory between threads?",
+        "What happens to threads when a process exits?",
+        "How does Go's goroutine model relate to OS threads?"
+      ],
+      "checklist": [
+        "Define process and thread in one sentence each",
+        "Name two IPC mechanisms",
+        "Explain why races are easier with shared memory"
+      ],
+      "youtubeSearch": "operating system process vs thread",
+      "whyGoogle": "Systems fundamentals underpin concurrency and performance discussions in loops."
+    },
+    {
+      "id": "fund002",
+      "title": "User space vs kernel space",
+      "topic": "os",
+      "minutes": 20,
+      "overview": "Syscalls transition to kernel mode for privileged work (I/O, scheduling). Frequent syscalls can dominate latency.",
+      "selfCheckQuestions": [
+        "What triggers a context switch besides time slices?",
+        "Why can excessive small reads be slow on files?",
+        "What role does the page table play in isolation?"
+      ],
+      "checklist": [
+        "Explain syscall at high level",
+        "Connect blocking I/O to scheduler",
+        "Mention mode switch cost qualitatively"
+      ],
+      "youtubeSearch": "user mode kernel mode syscall explained",
+      "whyGoogle": "Explains why batching and async I/O matter at scale."
+    },
+    {
+      "id": "fund003",
+      "title": "Virtual memory and paging",
+      "topic": "os",
+      "minutes": 30,
+      "overview": "Virtual addresses map to physical frames via page tables. Demand paging and TLB misses affect performance; swapping causes thrashing.",
+      "selfCheckQuestions": [
+        "What is a page fault and when is it benign?",
+        "How does virtual memory enable overcommit?",
+        "What is locality of reference?"
+      ],
+      "checklist": [
+        "Draw virtual to physical mapping verbally",
+        "Explain why contiguous virtual != physical",
+        "Name working set intuition"
+      ],
+      "youtubeSearch": "virtual memory paging explained",
+      "whyGoogle": "Memory-heavy services and GC tuning connect to this mental model."
+    },
+    {
+      "id": "fund004",
+      "title": "CPU scheduling basics",
+      "topic": "os",
+      "minutes": 25,
+      "overview": "Schedulers pick runnable tasks using policies (CFS on Linux). CPU-bound vs I/O-bound workloads need different parallelism.",
+      "selfCheckQuestions": [
+        "What is preemptive scheduling?",
+        "Why might more threads hurt CPU-bound work?",
+        "How do niceness and cgroups relate to priority?"
+      ],
+      "checklist": [
+        "Contrast FCFS vs priority at concept level",
+        "Define I/O-bound vs CPU-bound",
+        "Relate GOMAXPROCS to physical cores pragmatically"
+      ],
+      "youtubeSearch": "CPU scheduling operating system",
+      "whyGoogle": "Capacity planning and tail latency stories use scheduling vocabulary."
+    },
+    {
+      "id": "fund005",
+      "title": "Locks, mutexes, and deadlocks",
+      "topic": "os",
+      "minutes": 30,
+      "overview": "Mutual exclusion prevents races. Deadlock needs four conditions; prevention via ordering, timeouts, or lock-free structures.",
+      "selfCheckQuestions": [
+        "State the four Coffman conditions for deadlock.",
+        "How does lock ordering prevent deadlock?",
+        "What is livelock?"
+      ],
+      "checklist": [
+        "Give a deadlock example with two locks",
+        "Explain try-lock and backoff",
+        "Connect to Go mutex best practices"
+      ],
+      "youtubeSearch": "deadlock operating system four conditions",
+      "whyGoogle": "Distributed and multithreaded Google systems fail in subtle lock-related ways."
+    },
+    {
+      "id": "fund006",
+      "title": "Memory hierarchy and caching",
+      "topic": "os",
+      "minutes": 25,
+      "overview": "Registers, L1/L2/L3, RAM, disk—latency jumps by orders of magnitude. Cache-friendly access patterns improve throughput.",
+      "selfCheckQuestions": [
+        "Why does sequential array scan beat linked list traversal often?",
+        "What is false sharing?",
+        "How does cache line size affect concurrent counters?"
+      ],
+      "checklist": [
+        "Order memory levels by latency",
+        "Explain temporal vs spatial locality",
+        "Mention false sharing mitigation briefly"
+      ],
+      "youtubeSearch": "CPU cache memory hierarchy explained",
+      "whyGoogle": "Performance interviews reference cache even for high-level engineers."
+    },
+    {
+      "id": "fund007",
+      "title": "File systems and durability",
+      "topic": "os",
+      "minutes": 20,
+      "overview": "Files are metadata + blocks. fsync and journal modes trade durability for speed. Crash consistency is hard.",
+      "selfCheckQuestions": [
+        "What does fsync guarantee after success?",
+        "Difference between page cache and disk?",
+        "Why is append-only log common for durability?"
+      ],
+      "checklist": [
+        "Explain write-back cache risk",
+        "Connect WAL to databases",
+        "Name one consistency scenario after power loss"
+      ],
+      "youtubeSearch": "filesystem journaling fsync explained",
+      "whyGoogle": "Storage design questions assume OS durability basics."
+    },
+    {
+      "id": "fund008",
+      "title": "B-tree and hash indexes",
+      "topic": "dbms",
+      "minutes": 30,
+      "overview": "B-trees support range scans and ordered indexes; hash indexes excel at point lookups. Composite indexes follow left-prefix rule.",
+      "selfCheckQuestions": [
+        "When does a query use a covering index?",
+        "Why can't you skip the leftmost column in a composite index?",
+        "Compare index selectivity."
+      ],
+      "checklist": [
+        "Sketch B-tree vs hash trade-offs",
+        "Explain index-only scan concept",
+        "Warn about over-indexing write cost"
+      ],
+      "youtubeSearch": "database index B tree explained",
+      "whyGoogle": "SQL performance tuning is common in backend onsite topics."
+    },
+    {
+      "id": "fund009",
+      "title": "ACID properties",
+      "topic": "dbms",
+      "minutes": 25,
+      "overview": "Atomicity, Consistency, Isolation, Durability—transactions bundle work with guarantees enforced by the engine.",
+      "selfCheckQuestions": [
+        "Which ACID property does WAL primarily support?",
+        "Is consistency only the database's job?",
+        "Give an example violating atomicity."
+      ],
+      "checklist": [
+        "Define each letter with an example",
+        "Relate Commit/Rollback to atomicity",
+        "Connect to business invariants"
+      ],
+      "youtubeSearch": "ACID properties database transaction",
+      "whyGoogle": "Financial and ads systems require crisp transaction language."
+    },
+    {
+      "id": "fund010",
+      "title": "Isolation levels and anomalies",
+      "topic": "dbms",
+      "minutes": 35,
+      "overview": "Read committed, repeatable read, serializable—each prevents some of dirty read, non-repeatable read, phantom read.",
+      "selfCheckQuestions": [
+        "Which anomaly does SELECT FOR UPDATE address?",
+        "What is snapshot isolation?",
+        "Why might you accept read committed?"
+      ],
+      "checklist": [
+        "Table-match isolation to anomalies",
+        "Explain phantom vs non-repeatable",
+        "Mention optimistic concurrency control"
+      ],
+      "youtubeSearch": "transaction isolation levels explained",
+      "whyGoogle": "Correctness under concurrency is a Google bar for data engineers."
+    },
+    {
+      "id": "fund011",
+      "title": "SQL joins and query plans",
+      "topic": "dbms",
+      "minutes": 30,
+      "overview": "Inner, left, semi joins combine relations. Optimizer picks nested loop, hash join, merge join based on stats and indexes.",
+      "selfCheckQuestions": [
+        "When is hash join preferred?",
+        "What does EXPLAIN ANALYZE show you?",
+        "Difference between WHERE and ON in LEFT JOIN?"
+      ],
+      "checklist": [
+        "Write join for many-to-many via bridge table",
+        "Read a simple EXPLAIN plan",
+        "Explain N+1 query problem"
+      ],
+      "youtubeSearch": "SQL joins hash merge nested loop",
+      "whyGoogle": "Debugging slow queries appears in practical interviews."
+    },
+    {
+      "id": "fund012",
+      "title": "Normalization vs denormalization",
+      "topic": "dbms",
+      "minutes": 25,
+      "overview": "Normal forms reduce redundancy; denormalization speeds reads at update anomaly cost. OLTP vs OLAP bias differs.",
+      "selfCheckQuestions": [
+        "Give an example of update anomaly in unnormalized data.",
+        "When is star schema appropriate?",
+        "How do materialized views fit?"
+      ],
+      "checklist": [
+        "Explain 3NF in plain language",
+        "Name one denormalization tactic",
+        "Balance with read QPS in design"
+      ],
+      "youtubeSearch": "database normalization denormalization",
+      "whyGoogle": "Schema design trade-offs surface in system design deep dives."
+    },
+    {
+      "id": "fund013",
+      "title": "Replication and leader-follower",
+      "topic": "dbms",
+      "minutes": 30,
+      "overview": "Primary handles writes; replicas serve reads with lag. Failover promotes new leader; split-brain requires fencing.",
+      "selfCheckQuestions": [
+        "What is replication lag and user-visible symptom?",
+        "Sync vs async replication trade-off?",
+        "How does quorum relate to writes?"
+      ],
+      "checklist": [
+        "Diagram single-leader replication",
+        "Explain read-your-writes strategies",
+        "Mention binlog/WAL shipping"
+      ],
+      "youtubeSearch": "database replication primary replica",
+      "whyGoogle": "Google-scale storage discussions assume replication fluency."
+    },
+    {
+      "id": "fund014",
+      "title": "Sharding and partitioning",
+      "topic": "dbms",
+      "minutes": 30,
+      "overview": "Horizontal split by shard key; hotspots if skewed. Resharding and cross-shard queries are operational pain.",
+      "selfCheckQuestions": [
+        "What makes a good shard key?",
+        "How do you handle range vs hash sharding?",
+        "What is a scatter-gather query cost?"
+      ],
+      "checklist": [
+        "Contrast vertical vs horizontal scaling",
+        "Explain hot partition mitigation",
+        "Connect to consistent hashing idea"
+      ],
+      "youtubeSearch": "database sharding explained",
+      "whyGoogle": "Large Google products are sharded by default mentally."
+    },
+    {
+      "id": "fund015",
+      "title": "CAP and PACELC intuition",
+      "topic": "dbms",
+      "minutes": 25,
+      "overview": "Under partition, choose consistency or availability for writes. PACELC extends trade-offs when network is normal.",
+      "selfCheckQuestions": [
+        "Is CAP a theorem you optimize away?",
+        "Where does Spanner sit in practice?",
+        "Eventual consistency user example?"
+      ],
+      "checklist": [
+        "Define partition tolerance practically",
+        "Give CP vs AP example systems",
+        "Avoid absolutist CAP slogans in interviews"
+      ],
+      "youtubeSearch": "CAP theorem explained simply",
+      "whyGoogle": "Design interviews expect nuanced CAP, not memes."
+    },
+    {
+      "id": "fund016",
+      "title": "SOLID principles overview",
+      "topic": "oop",
+      "minutes": 30,
+      "overview": "SRP, OCP, LSP, ISP, DIP guide maintainable OO. In Go, interfaces and small packages echo these ideas.",
+      "selfCheckQuestions": [
+        "Which SOLID principle do interfaces in Go emphasize most?",
+        "Give a violation of Liskov substitution.",
+        "How does DI relate to DIP?"
+      ],
+      "checklist": [
+        "Name each SOLID letter and one line meaning",
+        "Map SRP to a microservice boundary",
+        "Avoid god classes in examples"
+      ],
+      "youtubeSearch": "SOLID principles software design",
+      "whyGoogle": "OO design still appears in LLD and code review scenarios."
+    },
+    {
+      "id": "fund017",
+      "title": "Polymorphism and dynamic dispatch",
+      "topic": "oop",
+      "minutes": 20,
+      "overview": "Single interface, many implementations. Virtual methods enable substitution; overuse hides performance costs.",
+      "selfCheckQuestions": [
+        "Compile-time vs runtime polymorphism examples?",
+        "How does Go achieve polymorphism without inheritance?",
+        "When is switch on type an anti-pattern?"
+      ],
+      "checklist": [
+        "Show interface-based polymorphism sketch",
+        "Contrast inheritance vs interface satisfaction",
+        "Relate to strategy pattern"
+      ],
+      "youtubeSearch": "polymorphism object oriented programming",
+      "whyGoogle": "Clean abstractions matter in million-line codebases."
+    },
+    {
+      "id": "fund018",
+      "title": "Composition over inheritance",
+      "topic": "oop",
+      "minutes": 20,
+      "overview": "Build behavior by combining types rather than deep hierarchies. Reduces fragile base class problems.",
+      "selfCheckQuestions": [
+        "Why can deep inheritance hurt testing?",
+        "How does embedding in Go relate?",
+        "Example of favoring has-a over is-a?"
+      ],
+      "checklist": [
+        "Draw composition diagram for a feature",
+        "Explain fragile base class",
+        "Cite decorator or wrapper example"
+      ],
+      "youtubeSearch": "composition over inheritance",
+      "whyGoogle": "Google style guides discourage heavy inheritance trees."
+    },
+    {
+      "id": "fund019",
+      "title": "Encapsulation and invariants",
+      "topic": "oop",
+      "minutes": 20,
+      "overview": "Hide representation; enforce invariants through constructors and methods. Invalid states should be unrepresentable when possible.",
+      "selfCheckQuestions": [
+        "Why expose getters instead of public fields sometimes?",
+        "What is an invariant for a BankAccount?",
+        "How do builders help complex objects?"
+      ],
+      "checklist": [
+        "Define invariant with example",
+        "Explain law of Demeter lightly",
+        "Connect to API design"
+      ],
+      "youtubeSearch": "encapsulation object oriented design",
+      "whyGoogle": "Interview LLD prompts test whether types protect rules."
+    },
+    {
+      "id": "fund020",
+      "title": "Design patterns: strategy and factory",
+      "topic": "oop",
+      "minutes": 25,
+      "overview": "Strategy swaps algorithms; factory hides construction. Use when variation points are real—not speculatively.",
+      "selfCheckQuestions": [
+        "When is a factory overkill?",
+        "Strategy vs template method?",
+        "Map strategy to Go interfaces."
+      ],
+      "checklist": [
+        "Sketch strategy for payment providers",
+        "Avoid pattern name-dropping without need",
+        "Show testability win"
+      ],
+      "youtubeSearch": "strategy factory design pattern",
+      "whyGoogle": "LLD rounds ask for extensible designs without over-engineering."
+    },
+    {
+      "id": "fund021",
+      "title": "Paging vs segmentation (historical context)",
+      "topic": "os",
+      "minutes": 15,
+      "overview": "Paging fixed-size frames dominate; segmentation logical but fragmented. Modern OSes combine concepts via virtual memory.",
+      "selfCheckQuestions": [
+        "What problem does paging solve vs segmentation?",
+        "What is internal fragmentation in pages?",
+        "Where do TLB misses fit?"
+      ],
+      "checklist": [
+        "Compare page vs segment unit",
+        "Mention internal vs external fragmentation",
+        "Keep answer modern-OS focused"
+      ],
+      "youtubeSearch": "paging vs segmentation memory management",
+      "whyGoogle": "Shows academic OS knowledge applied succinctly."
+    },
+    {
+      "id": "fund022",
+      "title": "Thrashing and working set",
+      "topic": "os",
+      "minutes": 20,
+      "overview": "When processes exceed RAM, excessive paging drops throughput. Working set model guides provisioning.",
+      "selfCheckQuestions": [
+        "Symptoms of thrashing in metrics?",
+        "How does swap affect tail latency?",
+        "Relation to OOM killer?"
+      ],
+      "checklist": [
+        "Define thrashing",
+        "Suggest monitoring signals",
+        "Connect to container memory limits"
+      ],
+      "youtubeSearch": "thrashing virtual memory operating system",
+      "whyGoogle": "SRE-minded answers reference real observability."
+    },
+    {
+      "id": "fund023",
+      "title": "Write-ahead logging (WAL)",
+      "topic": "dbms",
+      "minutes": 25,
+      "overview": "Log changes before applying to pages—enables crash recovery and replication. Checkpointing bounds recovery time.",
+      "selfCheckQuestions": [
+        "Why log before data page update?",
+        "What does checkpoint do?",
+        "How does WAL relate to Postgres?"
+      ],
+      "checklist": [
+        "Explain redo vs undo intuitively",
+        "Connect WAL to durability",
+        "Mention group commit optimization"
+      ],
+      "youtubeSearch": "write ahead logging database",
+      "whyGoogle": "Storage interviews love WAL for correctness stories."
+    },
+    {
+      "id": "fund024",
+      "title": "Optimistic vs pessimistic locking",
+      "topic": "dbms",
+      "minutes": 25,
+      "overview": "Pessimistic locks rows upfront; optimistic checks version at commit. Optimistic wins low contention; retries under conflict.",
+      "selfCheckQuestions": [
+        "What column supports optimistic locking?",
+        "When does pessimistic lock cause deadlocks?",
+        "HTTP If-Match analogy?"
+      ],
+      "checklist": [
+        "Compare conflict rates impact",
+        "Show version column update pattern",
+        "Pick strategy for inventory checkout"
+      ],
+      "youtubeSearch": "optimistic vs pessimistic locking database",
+      "whyGoogle": "Concurrency control choices appear in LLD and SQL deep dives."
+    },
+    {
+      "id": "fund025",
+      "title": "Aggregate queries and GROUP BY",
+      "topic": "dbms",
+      "minutes": 20,
+      "overview": "Aggregates summarize rows; HAVING filters groups. Indexes may not help heavy aggregates without precomputation.",
+      "selfCheckQuestions": [
+        "WHERE vs HAVING difference?",
+        "When materialized view helps?",
+        "Count(*) vs count(column)?"
+      ],
+      "checklist": [
+        "Write GROUP BY with HAVING example",
+        "Explain map-reduce analogy",
+        "Spot full table scan risk"
+      ],
+      "youtubeSearch": "SQL GROUP BY HAVING explained",
+      "whyGoogle": "Analytics-flavored SQL shows up in practical screens."
+    },
+    {
+      "id": "fund026",
+      "title": "Observer and pub-sub (conceptual)",
+      "topic": "oop",
+      "minutes": 20,
+      "overview": "Publishers notify subscribers decoupled in time. Foundation for event-driven architectures and UI patterns.",
+      "selfCheckQuestions": [
+        "Back-pressure problem in pub-sub?",
+        "How is this not the same as message queue?",
+        "Memory leak with forgotten subscribers?"
+      ],
+      "checklist": [
+        "Diagram pub-sub flow",
+        "Name delivery guarantees separately",
+        "Relate to notifications design"
+      ],
+      "youtubeSearch": "observer pattern pub sub explained",
+      "whyGoogle": "Event-driven systems are ubiquitous at Google."
+    },
+    {
+      "id": "fund027",
+      "title": "Abstraction vs encapsulation",
+      "topic": "oop",
+      "minutes": 15,
+      "overview": "Abstraction simplifies via models; encapsulation hides details. Both reduce cognitive load but address different axes.",
+      "selfCheckQuestions": [
+        "API as abstraction example?",
+        "Can you have encapsulation without OO classes?",
+        "Leak of abstraction example?"
+      ],
+      "checklist": [
+        "Give one example of each",
+        "Mention leaky abstraction (e.g., fs)",
+        "Tie to module boundaries"
+      ],
+      "youtubeSearch": "abstraction vs encapsulation",
+      "whyGoogle": "Clarifies design vocabulary under interview pressure."
+    },
+    {
+      "id": "fund028",
+      "title": "Mutex vs semaphore",
+      "topic": "os",
+      "minutes": 20,
+      "overview": "Mutex binary lock for critical section; semaphore counts resources allowing N concurrent holders.",
+      "selfCheckQuestions": [
+        "Can a semaphore act like mutex?",
+        "Priority inversion problem?",
+        "Go does not expose semaphores—what instead?"
+      ],
+      "checklist": [
+        "Define both precisely",
+        "Give counting semaphore example",
+        "Connect to worker pool limits"
+      ],
+      "youtubeSearch": "mutex vs semaphore difference",
+      "whyGoogle": "Synchronization vocabulary crosses OS and Go interviews."
+    },
+    {
+      "id": "fund029",
+      "title": "Secondary indexes and write amplification",
+      "topic": "dbms",
+      "minutes": 20,
+      "overview": "Each index updates on write—more indexes, higher write cost. Choose indexes from query patterns.",
+      "selfCheckQuestions": [
+        "Partial index use case?",
+        "Unique index enforcement cost?",
+        "When composite index replaces two singles?"
+      ],
+      "checklist": [
+        "List queries before indexing",
+        "Explain write amplification",
+        "Review redundant indexes"
+      ],
+      "youtubeSearch": "database index write amplification",
+      "whyGoogle": "Production DB tuning is a credibility signal."
+    },
+    {
+      "id": "fund030",
+      "title": "Connection pooling",
+      "topic": "dbms",
+      "minutes": 20,
+      "overview": "Pools reuse TCP+auth sessions to DB. Size pool from concurrency and DB max_connections—not unbounded goroutines.",
+      "selfCheckQuestions": [
+        "Symptom of pool too small?",
+        "Why is one connection per request bad?",
+        "Prepared statements and pooling?"
+      ],
+      "checklist": [
+        "Relate pool size to latency",
+        "Mention connection storms on deploy",
+        "Connect to Go sql.DB settings"
+      ],
+      "youtubeSearch": "database connection pool explained",
+      "whyGoogle": "Backend onsite expects pool awareness with Go sql."
+    },
+    {
+      "id": "fund031",
+      "title": "Template method pattern",
+      "topic": "oop",
+      "minutes": 15,
+      "overview": "Skeleton algorithm in base type; subclasses override steps. Alternative: composition with injected functions in Go.",
+      "selfCheckQuestions": [
+        "Downside of inheritance-based template?",
+        "Go equivalent with function parameters?",
+        "When hooks become fragile?"
+      ],
+      "checklist": [
+        "Outline template method steps",
+        "Compare to strategy pattern",
+        "Prefer hooks over deep override trees"
+      ],
+      "youtubeSearch": "template method design pattern",
+      "whyGoogle": "LLD discussions compare patterns to idiomatic Go."
+    },
+    {
+      "id": "fund032",
+      "title": "Copy-on-write and fork",
+      "topic": "os",
+      "minutes": 20,
+      "overview": "fork copies address space lazily via COW pages. Understanding COW helps with memory accounting and container images.",
+      "selfCheckQuestions": [
+        "What breaks COW sharing?",
+        "Relation to Go GC heap?",
+        "Why is fork less central on Windows?"
+      ],
+      "checklist": [
+        "Explain COW on write fault",
+        "Connect to process spawn cost",
+        "Keep Linux-focused clarity"
+      ],
+      "youtubeSearch": "copy on write fork operating system",
+      "whyGoogle": "Demonstrates depth beyond application-layer trivia."
+    },
+    {
+      "id": "fund033",
+      "title": "Idempotency keys in data systems",
+      "topic": "dbms",
+      "minutes": 20,
+      "overview": "Retries duplicate requests; idempotent operations or dedup keys prevent double effects. Store key with unique constraint.",
+      "selfCheckQuestions": [
+        "PUT vs POST idempotency HTTP tie-in?",
+        "How long to retain idempotency keys?",
+        "Exactly-once illusion components?"
+      ],
+      "checklist": [
+        "Design table for idempotency store",
+        "Explain at-least-once + idempotent handler",
+        "Give payment example"
+      ],
+      "youtubeSearch": "idempotency keys API design",
+      "whyGoogle": "Google APIs emphasize safe retries at scale."
+    },
+    {
+      "id": "fund034",
+      "title": "Star schema for analytics",
+      "topic": "dbms",
+      "minutes": 20,
+      "overview": "Fact table surrounded by dimension tables—optimized for aggregations in warehouses, not OLTP updates.",
+      "selfCheckQuestions": [
+        "Why denormalize dimensions?",
+        "Slowly changing dimension problem?",
+        "Columnar storage benefit?"
+      ],
+      "checklist": [
+        "Sketch star for click analytics",
+        "Contrast OLTP normalized schema",
+        "Mention BigQuery-style columnar briefly"
+      ],
+      "youtubeSearch": "star schema data warehouse",
+      "whyGoogle": "Ads and analytics context at Google references star schemas."
+    },
+    {
+      "id": "fund035",
+      "title": "Interface segregation in practice",
+      "topic": "oop",
+      "minutes": 20,
+      "overview": "Clients should not depend on methods they do not use—split fat interfaces into role-specific ones.",
+      "selfCheckQuestions": [
+        "Fat interface smell in standard library counterexample?",
+        "How small should Go interfaces be?",
+        "Testing benefit of ISP?"
+      ],
+      "checklist": [
+        "Refactor one fat interface on paper",
+        "Relate ISP to micro API surfaces",
+        "Show mock simplification"
+      ],
+      "youtubeSearch": "interface segregation principle example",
+      "whyGoogle": "Aligns with Google Go readability and testability norms."
+    }
+  ]
+}

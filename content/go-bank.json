@@ -1,0 +1,765 @@
+{
+  "items": [
+    {
+      "id": "go001",
+      "title": "Slices: length, capacity, and sharing",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 25,
+      "overview": "A slice is a view over an array. Length is visible elements; capacity is room from the underlying array header. Sub-slicing shares storage—mutations alias.",
+      "practicePrompt": "Without AI, write a function that removes index i from a slice in O(1) amortized when order need not be preserved, and one that preserves order. Explain aliasing with a sub-slice example.",
+      "checklist": [
+        "Explain len vs cap on append",
+        "Show when two slices share backing array",
+        "Avoid leaking large arrays via small subslices"
+      ],
+      "youtubeSearch": "Go slices length capacity explained",
+      "whyGoogle": "Google Go interviews often probe slice aliasing and append reallocation—common source of subtle bugs in services.",
+      "resources": [
+        { "label": "Go Slices intro", "url": "https://go.dev/blog/slices-intro" },
+        { "label": "Slice internals", "url": "https://go.dev/ref/spec#Slice_types" }
+      ]
+    },
+    {
+      "id": "go002",
+      "title": "Maps: zero value, existence, and iteration order",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 20,
+      "overview": "Maps are reference types with nil meaning 'no map'. The comma-ok idiom distinguishes missing keys from zero values. Iteration order is randomized.",
+      "practicePrompt": "Attempt without AI first: implement word frequency from a string using map[string]int and handle punctuation your way.",
+      "checklist": [
+        "Use v, ok := m[k] correctly",
+        "Never assume map iteration order in tests",
+        "Initialize with make before write"
+      ],
+      "youtubeSearch": "Golang maps comma ok idiom",
+      "whyGoogle": "Hash maps mirror DSA rounds; idiomatic Go map usage signals production readiness.",
+      "resources": [
+        { "label": "Go maps", "url": "https://go.dev/blog/maps" }
+      ]
+    },
+    {
+      "id": "go003",
+      "title": "Interfaces and implicit satisfaction",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 25,
+      "overview": "Types satisfy interfaces by implementing methods—no explicit implements keyword. Empty interface holds any value; prefer small interfaces at call sites.",
+      "practicePrompt": "Without AI, define a Storage interface with Get/Put and two fake implementations; write a function that accepts Storage.",
+      "checklist": [
+        "Keep interfaces small (io.Reader style)",
+        "Explain nil interface vs typed nil",
+        "Accept interfaces, return structs"
+      ],
+      "youtubeSearch": "Go interfaces best practices",
+      "whyGoogle": "Interface design is central to testable Go at Google-scale codebases.",
+      "resources": [
+        { "label": "Laws of Reflection (interfaces)", "url": "https://go.dev/blog/laws-of-reflection" }
+      ]
+    },
+    {
+      "id": "go004",
+      "title": "Errors: values, wrapping, and errors.Is/As",
+      "topic": "language",
+      "level": "intermediate",
+      "minutes": 30,
+      "overview": "Errors are values. fmt.Errorf with %w wraps for inspection. errors.Is and errors.As replace fragile string comparisons.",
+      "practicePrompt": "Attempt solo: create sentinel errors ErrNotFound and ErrInvalid; wrap in a repository layer and test with errors.Is.",
+      "checklist": [
+        "Use %w for wrap chains",
+        "Prefer Is/As over == on wrapped errors",
+        "Document error semantics on exported APIs"
+      ],
+      "youtubeSearch": "Go error handling errors.Is errors.As",
+      "whyGoogle": "Clear error contracts matter in large monorepos and RPC boundaries.",
+      "resources": [
+        { "label": "Working with Errors", "url": "https://go.dev/blog/go1.13-errors" }
+      ]
+    },
+    {
+      "id": "go005",
+      "title": "Pointers, structs, and method receivers",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 25,
+      "overview": "Pointer receivers mutate and avoid copies for large structs. Value receivers are fine for small immutable types. Consistency on a type matters.",
+      "practicePrompt": "Without AI, implement a linked-list Node with pointer-receiver Insert and explain when value receivers would copy too much.",
+      "checklist": [
+        "Choose pointer vs value receiver deliberately",
+        "Avoid mixing receiver types without reason",
+        "Explain nil pointer receiver calls"
+      ],
+      "youtubeSearch": "Go pointer vs value receiver",
+      "whyGoogle": "Receiver choices affect API stability and concurrency safety in reviews.",
+      "resources": [
+        { "label": "Effective Go - Methods", "url": "https://go.dev/doc/effective_go#methods" }
+      ]
+    },
+    {
+      "id": "go006",
+      "title": "defer, panic, and recover",
+      "topic": "language",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "defer runs LIFO at function return. panic is for unrecoverable programmer errors; libraries should return errors. recover only inside deferred functions.",
+      "practicePrompt": "Attempt without AI: write a defer that closes a file and logs close errors without overwriting the primary return error (outline approach in comments if stuck).",
+      "checklist": [
+        "Use defer for close/unlock patterns",
+        "Do not use panic for normal control flow",
+        "Know recover scope limits"
+      ],
+      "youtubeSearch": "Golang defer panic recover",
+      "whyGoogle": "Interviewers check whether you treat panic like exceptions in other languages.",
+      "resources": [
+        { "label": "Defer, Panic, and Recover", "url": "https://go.dev/blog/defer-panic-and-recover" }
+      ]
+    },
+    {
+      "id": "go007",
+      "title": "append and variadic patterns",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 15,
+      "overview": "append may reallocate when len exceeds cap. Spread with append(s, other...). Preallocate with make([]T, 0, n) when size is known.",
+      "practicePrompt": "Without AI, merge two sorted int slices into one sorted slice in O(n+m) using append efficiently.",
+      "checklist": [
+        "Preallocate when n is known",
+        "Reassign slice header: s = append(s, x)",
+        "Explain growth factor behavior qualitatively"
+      ],
+      "youtubeSearch": "Go append preallocate capacity",
+      "whyGoogle": "Performance-sensitive Go code avoids unnecessary allocations in hot paths.",
+      "resources": [
+        { "label": "append spec", "url": "https://go.dev/ref/spec#Appending_and_copying_slices" }
+      ]
+    },
+    {
+      "id": "go008",
+      "title": "Type assertions and type switches",
+      "topic": "language",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "x.(T) asserts interface dynamic type. Type switches dispatch on concrete types—useful for parsers and plugin shapes.",
+      "practicePrompt": "Attempt without AI: parse []interface{} JSON-like values into Go types with a type switch and return descriptive errors.",
+      "checklist": [
+        "Use comma-ok form to avoid panic",
+        "Prefer typed APIs over interface{} when possible",
+        "Document supported types in switches"
+      ],
+      "youtubeSearch": "Go type switch type assertion",
+      "whyGoogle": "Shows you can work with semi-structured data without unsafe casts.",
+      "resources": [
+        { "label": "Effective Go - Type assertions", "url": "https://go.dev/doc/effective_go#type_assertions" }
+      ]
+    },
+    {
+      "id": "go009",
+      "title": "Strings, runes, and range loops",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 20,
+      "overview": "Strings are immutable UTF-8 byte sequences. range over string yields runes with byte indices. Use utf8/unicode packages for validation.",
+      "practicePrompt": "Without AI, implement reverse words in a string handling Unicode spaces; test with multi-byte characters.",
+      "checklist": [
+        "Distinguish bytes vs runes",
+        "Use strings.Builder for concatenation in loops",
+        "Avoid indexing string by byte for user-visible chars"
+      ],
+      "youtubeSearch": "Go strings runes utf8",
+      "whyGoogle": "Google products are global; UTF-8 mistakes fail interviews and production.",
+      "resources": [
+        { "label": "Strings, bytes, runes", "url": "https://go.dev/blog/strings" }
+      ]
+    },
+    {
+      "id": "go010",
+      "title": "Package layout and exported names",
+      "topic": "language",
+      "level": "beginner",
+      "minutes": 15,
+      "overview": "Capitalized identifiers are exported. Keep packages cohesive; internal/ hides implementation from other modules.",
+      "practicePrompt": "Attempt without AI: sketch package layout for a tiny URL service (handlers, store, model) with one paragraph rationale.",
+      "checklist": [
+        "Name packages by purpose not util",
+        "Minimize exported surface area",
+        "Use internal for private modules"
+      ],
+      "youtubeSearch": "Go project layout standard",
+      "whyGoogle": "Readable structure mirrors how Google organizes large Go repos.",
+      "resources": [
+        { "label": "Go modules", "url": "https://go.dev/doc/modules/managing-dependencies" }
+      ]
+    },
+    {
+      "id": "go011",
+      "title": "Goroutines and the GOMAXPROCS model",
+      "topic": "concurrency",
+      "level": "beginner",
+      "minutes": 25,
+      "overview": "Goroutines are lightweight; the scheduler multiplexes them onto OS threads. Starting goroutines without lifecycle control leaks work.",
+      "practicePrompt": "Without AI, launch N workers that square numbers and send results on a channel; main collects all results.",
+      "checklist": [
+        "Every goroutine should have an exit path",
+        "Explain M:N scheduling at high level",
+        "Avoid unbounded goroutine creation"
+      ],
+      "youtubeSearch": "Go goroutines scheduler explained",
+      "whyGoogle": "Concurrency questions separate candidates who only know syntax from those who know lifecycle.",
+      "resources": [
+        { "label": "Go concurrency patterns", "url": "https://go.dev/blog/pipelines" }
+      ]
+    },
+    {
+      "id": "go012",
+      "title": "Channels: unbuffered vs buffered",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "Unbuffered channels synchronize sender and receiver. Buffered channels decouple up to capacity; full send blocks.",
+      "practicePrompt": "Attempt without AI: implement a bounded queue using a buffered channel with Enqueue/Dequeue semantics and document blocking behavior.",
+      "checklist": [
+        "Close channels from sender side only",
+        "Range over channel until close",
+        "Pick buffer size with backpressure in mind"
+      ],
+      "youtubeSearch": "Go buffered unbuffered channels",
+      "whyGoogle": "Channel sizing and close semantics are frequent follow-ups in Go loops.",
+      "resources": [
+        { "label": "Share by communicating", "url": "https://go.dev/doc/effective_go#sharing" }
+      ]
+    },
+    {
+      "id": "go013",
+      "title": "select for multiplexing",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "select waits on multiple channel operations. default makes non-blocking attempts. Combine with context for cancellation.",
+      "practicePrompt": "Without AI, merge two input channels into one output until both inputs close; use select.",
+      "checklist": [
+        "Handle closed channels in receive",
+        "Use select with ctx.Done()",
+        "Avoid busy loops with default misuse"
+      ],
+      "youtubeSearch": "Golang select statement tutorial",
+      "whyGoogle": "Multiplexing mirrors event-driven servers and worker shutdown.",
+      "resources": [
+        { "label": "select spec", "url": "https://go.dev/ref/spec#Select_statements" }
+      ]
+    },
+    {
+      "id": "go014",
+      "title": "context.Context cancellation",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 30,
+      "overview": "Context propagates deadlines, cancellation, and request-scoped values. Pass ctx as first param; never store in structs long-term.",
+      "practicePrompt": "Attempt without AI: HTTP handler calls a function that respects context cancel after 100ms simulated work.",
+      "checklist": [
+        "Use context.WithTimeout for outbound calls",
+        "Check ctx.Err() in loops",
+        "Cancel releases resources via defer cancel()"
+      ],
+      "youtubeSearch": "Go context cancellation tutorial",
+      "whyGoogle": "Google invented context—expect deep questions in Go backend interviews.",
+      "resources": [
+        { "label": "context package", "url": "https://pkg.go.dev/context" }
+      ]
+    },
+    {
+      "id": "go015",
+      "title": "sync.Mutex and RWMutex",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "Mutexes protect shared memory. RWMutex allows concurrent readers. Keep critical sections small; prefer channels when ownership is clear.",
+      "practicePrompt": "Without AI, implement a thread-safe counter and a cache map with RWMutex; run with -race.",
+      "checklist": [
+        "Lock/defer Unlock consistently",
+        "Do not copy Mutex",
+        "Explain mutex vs channel trade-off"
+      ],
+      "youtubeSearch": "Go sync Mutex RWMutex race detector",
+      "whyGoogle": "Shared-state bugs are costly; Google expects -race awareness.",
+      "resources": [
+        { "label": "sync package", "url": "https://pkg.go.dev/sync" }
+      ]
+    },
+    {
+      "id": "go016",
+      "title": "sync.WaitGroup for fan-in",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "WaitGroup waits for a collection of goroutines. Add before start, Done in deferred cleanup, Wait after launches.",
+      "practicePrompt": "Attempt without AI: fetch URLs concurrently (fake sleep) with WaitGroup and collect errors in a slice safely.",
+      "checklist": [
+        "Pass WaitGroup by pointer",
+        "Avoid Add after Wait",
+        "Combine with errgroup for error propagation"
+      ],
+      "youtubeSearch": "Go WaitGroup example",
+      "whyGoogle": "Fan-out/fan-in patterns appear in crawl and batch processing questions.",
+      "resources": [
+        { "label": "WaitGroup docs", "url": "https://pkg.go.dev/sync#WaitGroup" }
+      ]
+    },
+    {
+      "id": "go017",
+      "title": "Worker pool pattern",
+      "topic": "concurrency",
+      "level": "advanced",
+      "minutes": 35,
+      "overview": "Fixed workers read jobs from a channel; results and errors need separate handling. Context cancels idle and in-flight work.",
+      "practicePrompt": "Without AI, build a pool of 4 workers processing jobs with graceful shutdown on SIGINT outline using context.",
+      "checklist": [
+        "Bound concurrency explicitly",
+        "Close job channel to signal no more work",
+        "Propagate first error or collect all"
+      ],
+      "youtubeSearch": "Go worker pool pattern",
+      "whyGoogle": "Classic onsite coding prompt for Go-specialized teams.",
+      "resources": [
+        { "label": "Advanced Go Concurrency", "url": "https://go.dev/blog/advanced-go-concurrency-patterns" }
+      ]
+    },
+    {
+      "id": "go018",
+      "title": "Race detector and data races",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "go test -race finds unsynchronized access. Tests must exercise concurrent code paths to be useful.",
+      "practicePrompt": "Attempt without AI: write a failing test that -race catches, then fix with mutex or channel.",
+      "checklist": [
+        "Run -race in CI for concurrent packages",
+        "Understand happens-before intuitively",
+        "Do not rely on race detector in production"
+      ],
+      "youtubeSearch": "Go race detector tutorial",
+      "whyGoogle": "Demonstrates production hygiene expected at Google.",
+      "resources": [
+        { "label": "Race detector", "url": "https://go.dev/doc/articles/race_detector" }
+      ]
+    },
+    {
+      "id": "go019",
+      "title": "sync.Once and singleton init",
+      "topic": "concurrency",
+      "level": "intermediate",
+      "minutes": 15,
+      "overview": "sync.Once guarantees a function runs exactly once—common for lazy initialization.",
+      "practicePrompt": "Without AI, lazy-init a config struct with Once and explain why double-checked locking is unnecessary in Go.",
+      "checklist": [
+        "Store error from initialization",
+        "Do not nest Once incorrectly",
+        "Prefer explicit init in main when simple"
+      ],
+      "youtubeSearch": "Go sync.Once lazy initialization",
+      "whyGoogle": "Shows knowledge of stdlib concurrency primitives beyond channels.",
+      "resources": [
+        { "label": "sync.Once", "url": "https://pkg.go.dev/sync#Once" }
+      ]
+    },
+    {
+      "id": "go020",
+      "title": "errgroup with context",
+      "topic": "concurrency",
+      "level": "advanced",
+      "minutes": 25,
+      "overview": "golang.org/x/sync/errgroup runs goroutines with shared cancel on first error—cleaner than manual WaitGroup+error channels.",
+      "practicePrompt": "Attempt without AI: parallel RPC stubs that fail fast when one returns error using errgroup.",
+      "checklist": [
+        "Use derived context from errgroup",
+        "Limit parallelism with semaphore if needed",
+        "Wait returns first error"
+      ],
+      "youtubeSearch": "Go errgroup example",
+      "whyGoogle": "Idiomatic pattern in Google Go code for parallel steps.",
+      "resources": [
+        { "label": "errgroup", "url": "https://pkg.go.dev/golang.org/x/sync/errgroup" }
+      ]
+    },
+    {
+      "id": "go021",
+      "title": "Table-driven tests",
+      "topic": "testing",
+      "level": "beginner",
+      "minutes": 25,
+      "overview": "Slice of structs {name, input, want} loops t.Run for subtests. Keeps cases readable and parallelizable.",
+      "practicePrompt": "Without AI, table-test a function that validates parentheses including edge cases empty string and nested.",
+      "checklist": [
+        "Name subtests descriptively",
+        "Use t.Parallel where safe",
+        "Compare with cmp.Diff or reflect.DeepEqual knowingly"
+      ],
+      "youtubeSearch": "Go table driven tests",
+      "whyGoogle": "Google Go style strongly favors table tests in review.",
+      "resources": [
+        { "label": "Subtests", "url": "https://go.dev/blog/subtests" }
+      ]
+    },
+    {
+      "id": "go022",
+      "title": "Testing with interfaces and fakes",
+      "topic": "testing",
+      "level": "intermediate",
+      "minutes": 30,
+      "overview": "Depend on interfaces; inject fakes in tests. Avoid testing unexported details—test behavior through public API.",
+      "practicePrompt": "Attempt without AI: Service with Clock interface; fake clock to test timeout logic without sleeping.",
+      "checklist": [
+        "Inject dependencies via constructor",
+        "Keep fakes in _test package or same package",
+        "Assert on behavior not call counts unless needed"
+      ],
+      "youtubeSearch": "Go testing interfaces dependency injection",
+      "whyGoogle": "Testability is a hiring signal for production Go.",
+      "resources": [
+        { "label": "Testing flags", "url": "https://pkg.go.dev/testing" }
+      ]
+    },
+    {
+      "id": "go023",
+      "title": "httptest for handlers",
+      "topic": "testing",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "httptest.NewRecorder and NewServer simulate requests without binding ports. Test status, headers, and body.",
+      "practicePrompt": "Without AI, test a JSON handler for 200 and 400 paths using httptest.",
+      "checklist": [
+        "Set Request method and body correctly",
+        "Table-test status codes",
+        "Close response bodies in client tests"
+      ],
+      "youtubeSearch": "Go httptest handler testing",
+      "whyGoogle": "Backend rounds often include writing or testing HTTP handlers.",
+      "resources": [
+        { "label": "httptest", "url": "https://pkg.go.dev/net/http/httptest" }
+      ]
+    },
+    {
+      "id": "go024",
+      "title": "Benchmarks and profiling basics",
+      "topic": "testing",
+      "level": "advanced",
+      "minutes": 30,
+      "overview": "testing.B loops b.N times. go test -bench and -cpuprofile find hot spots. Read alloc counts in results.",
+      "practicePrompt": "Attempt without AI: benchmark two string concat approaches (+= vs Builder) and interpret ns/op and allocs.",
+      "checklist": [
+        "Reset timer if setup is heavy",
+        "Compare benchmarks on same machine load",
+        "Know pprof entry points at high level"
+      ],
+      "youtubeSearch": "Go benchmarking pprof tutorial",
+      "whyGoogle": "Performance culture at Google ties to measurement, not guessing.",
+      "resources": [
+        { "label": "Profiling Go programs", "url": "https://go.dev/blog/pprof" }
+      ]
+    },
+    {
+      "id": "go025",
+      "title": "net/http Server and HandlerFunc",
+      "topic": "http",
+      "level": "beginner",
+      "minutes": 25,
+      "overview": "Handler serves HTTP; ServeMux routes by pattern. Go 1.22+ improved method and path patterns—know your version semantics.",
+      "practicePrompt": "Without AI, serve /health and /api/v1/items with two handlers using ServeMux.",
+      "checklist": [
+        "Set timeouts on Server struct",
+        "Handle MethodNotAllowed where relevant",
+        "Log request ID from header or generate"
+      ],
+      "youtubeSearch": "Go net/http server tutorial",
+      "whyGoogle": "Many Google teams ship Go microservices behind gRPC or HTTP.",
+      "resources": [
+        { "label": "net/http", "url": "https://pkg.go.dev/net/http" }
+      ]
+    },
+    {
+      "id": "go026",
+      "title": "Middleware chains",
+      "topic": "http",
+      "level": "intermediate",
+      "minutes": 30,
+      "overview": "Middleware wraps handlers for logging, auth, recovery. Pattern: func(next http.Handler) http.Handler.",
+      "practicePrompt": "Attempt without AI: compose logging and panic-recovery middleware around a business handler.",
+      "checklist": [
+        "Preserve http.Handler interface",
+        "Pass context with request values",
+        "Return proper status on panic recovery"
+      ],
+      "youtubeSearch": "Go HTTP middleware pattern",
+      "whyGoogle": "Clean middleware shows you understand request-scoped concerns.",
+      "resources": [
+        { "label": "Writing middleware", "url": "https://www.alexedwards.net/blog/middleware-in-go" }
+      ]
+    },
+    {
+      "id": "go027",
+      "title": "JSON encoding and validation",
+      "topic": "http",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "json.NewEncoder(w).Encode for responses; Decoder for bodies. Struct tags control names; omit empty carefully.",
+      "practicePrompt": "Without AI, POST handler decodes JSON, validates required fields, returns 422 with error list.",
+      "checklist": [
+        "Limit request body size with MaxBytesReader",
+        "Set Content-Type on responses",
+        "Do not leak internal errors to clients"
+      ],
+      "youtubeSearch": "Go json encoder decoder API",
+      "whyGoogle": "REST JSON APIs remain common in interview exercises.",
+      "resources": [
+        { "label": "encoding/json", "url": "https://pkg.go.dev/encoding/json" }
+      ]
+    },
+    {
+      "id": "go028",
+      "title": "Graceful shutdown",
+      "topic": "http",
+      "level": "advanced",
+      "minutes": 30,
+      "overview": "ListenAndServe in goroutine; signal.Notify for SIGTERM; Server.Shutdown with context drains connections.",
+      "practicePrompt": "Attempt without AI: sketch main that shuts down within 10s on interrupt.",
+      "checklist": [
+        "Use Shutdown not Close for drain",
+        "Cancel background workers on signal",
+        "Document readiness vs liveness"
+      ],
+      "youtubeSearch": "Go graceful shutdown http server",
+      "whyGoogle": "Production readiness question in SRE-leaning loops.",
+      "resources": [
+        { "label": "Server.Shutdown", "url": "https://pkg.go.dev/net/http#Server.Shutdown" }
+      ]
+    },
+    {
+      "id": "go029",
+      "title": "database/sql connection pool",
+      "topic": "database",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "sql.DB is a pool. Set MaxOpenConns, MaxIdleConns, ConnMaxLifetime. Always use context-aware QueryContext.",
+      "practicePrompt": "Without AI, write a function GetUser(ctx, id) with QueryRowContext and map sql.ErrNoRows to domain error.",
+      "checklist": [
+        "Defer rows.Close",
+        "Use prepared statements for hot queries",
+        "Ping on startup in main"
+      ],
+      "youtubeSearch": "Go database/sql best practices",
+      "whyGoogle": "Data layer questions appear in full-stack Go interviews.",
+      "resources": [
+        { "label": "database/sql", "url": "https://pkg.go.dev/database/sql" }
+      ]
+    },
+    {
+      "id": "go030",
+      "title": "Transactions and isolation",
+      "topic": "database",
+      "level": "advanced",
+      "minutes": 35,
+      "overview": "BeginTx with options, defer Rollback, Commit on success. Keep transactions short; handle serialization failures with retry policy at app layer.",
+      "practicePrompt": "Attempt without AI: transfer balance between two accounts in one transaction with row-level preconditions.",
+      "checklist": [
+        "Rollback on any error before Commit",
+        "Use context timeout on Tx",
+        "Explain phantom vs write skew qualitatively"
+      ],
+      "youtubeSearch": "Go sql transaction example",
+      "whyGoogle": "Correct money-style updates test ACID understanding in Go.",
+      "resources": [
+        { "label": "sql.Tx", "url": "https://pkg.go.dev/database/sql#Tx" }
+      ]
+    },
+    {
+      "id": "go031",
+      "title": "Migrations and schema discipline",
+      "topic": "database",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "Version schema with migration tools; backward-compatible deploys require expand-contract patterns.",
+      "practicePrompt": "Without AI, write two SQL migrations adding a nullable column then backfilling—describe deploy order.",
+      "checklist": [
+        "Never edit applied migration files",
+        "Index creation concurrency awareness",
+        "Test migrations on copy of prod shape"
+      ],
+      "youtubeSearch": "database migrations golang",
+      "whyGoogle": "Google emphasizes safe rollout even in interview discussions.",
+      "resources": [
+        { "label": "goose migrations", "url": "https://github.com/pressly/goose" }
+      ]
+    },
+    {
+      "id": "go032",
+      "title": "Structured logging with log/slog",
+      "topic": "ops",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "slog emits leveled structured logs with key-value pairs. JSON handler suits production aggregation.",
+      "practicePrompt": "Attempt without AI: add slog middleware logging method, path, status, duration_ms.",
+      "checklist": [
+        "Use consistent attribute keys",
+        "Log errors with slog.Any(\"err\", err)",
+        "Avoid logging secrets or PII"
+      ],
+      "youtubeSearch": "Go slog structured logging",
+      "whyGoogle": "Observability is part of 'production Go' expectations.",
+      "resources": [
+        { "label": "log/slog", "url": "https://pkg.go.dev/log/slog" }
+      ]
+    },
+    {
+      "id": "go033",
+      "title": "Configuration and twelve-factor env",
+      "topic": "ops",
+      "level": "beginner",
+      "minutes": 15,
+      "overview": "Read config from env with os.Getenv; parse durations and ints explicitly; fail fast on missing required vars.",
+      "practicePrompt": "Without AI, Config struct loaded from env with validation and helpful error messages.",
+      "checklist": [
+        "Document env vars in README",
+        "Separate config load from main logic",
+        "Use flags for local dev overrides only"
+      ],
+      "youtubeSearch": "Go configuration environment variables",
+      "whyGoogle": "Deployable services need clear config boundaries.",
+      "resources": [
+        { "label": "os.Getenv", "url": "https://pkg.go.dev/os#Getenv" }
+      ]
+    },
+    {
+      "id": "go034",
+      "title": "Multi-stage Docker builds for Go",
+      "topic": "ops",
+      "level": "intermediate",
+      "minutes": 30,
+      "overview": "Build static binary with CGO_ENABLED=0 in builder stage; copy into distroless or scratch runtime.",
+      "practicePrompt": "Attempt without AI: write Dockerfile for a tiny HTTP server under 20MB image.",
+      "checklist": [
+        "Use go mod download layer cache",
+        "Run as non-root in final stage",
+        "Set GOOS/GOARCH explicitly if cross-building"
+      ],
+      "youtubeSearch": "Docker multi stage build golang",
+      "whyGoogle": "Take-homes and infra questions expect container basics.",
+      "resources": [
+        { "label": "Go Docker official", "url": "https://docs.docker.com/language/golang/" }
+      ]
+    },
+    {
+      "id": "go035",
+      "title": "io.Reader and streaming",
+      "topic": "language",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "Stream with io.Copy; limit reads with io.LimitReader. Compose with io.MultiReader and TeeReader.",
+      "practicePrompt": "Without AI, implement handler that streams file to response with correct Content-Type and error handling.",
+      "checklist": [
+        "Check Copy return values",
+        "Use LimitReader on uploads",
+        "Explain why loading whole file is risky"
+      ],
+      "youtubeSearch": "Go io.Reader io.Copy",
+      "whyGoogle": "Large-file handling distinguishes senior Go instincts.",
+      "resources": [
+        { "label": "io package", "url": "https://pkg.go.dev/io" }
+      ]
+    },
+    {
+      "id": "go036",
+      "title": "Generics maps and slices helpers",
+      "topic": "language",
+      "level": "intermediate",
+      "minutes": 25,
+      "overview": "Go 1.18+ generics enable type-safe containers; prefer stdlib slices/maps packages when available.",
+      "practicePrompt": "Attempt without AI: generic Map function transforming []T to []U; compare to pre-generics interface approach.",
+      "checklist": [
+        "Use constraints.Ordered where needed",
+        "Avoid over-generic APIs",
+        "Know slices.Contains from stdlib"
+      ],
+      "youtubeSearch": "Go generics tutorial 2024",
+      "whyGoogle": "Modern Go interviews may include generics in utility code.",
+      "resources": [
+        { "label": "Generics proposal", "url": "https://go.dev/blog/intro-generics" }
+      ]
+    },
+    {
+      "id": "go037",
+      "title": "Atomic operations and sync/atomic",
+      "topic": "concurrency",
+      "level": "advanced",
+      "minutes": 20,
+      "overview": "atomic types for simple counters and flags when mutex is heavy; still understand visibility limits vs mutexes.",
+      "practicePrompt": "Without AI: implement rate counter with atomic int64; discuss when mutex is safer.",
+      "checklist": [
+        "Use atomic.AddInt64 etc.",
+        "Avoid mixing atomic and non-atomic access",
+        "Prefer mutex for compound invariants"
+      ],
+      "youtubeSearch": "Go sync atomic vs mutex",
+      "whyGoogle": "Low-level concurrency appears in performance-critical services.",
+      "resources": [
+        { "label": "sync/atomic", "url": "https://pkg.go.dev/sync/atomic" }
+      ]
+    },
+    {
+      "id": "go038",
+      "title": "Embedding and composition",
+      "topic": "language",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "Embedding promotes methods for delegation; prefer composition over inheritance analogies from OOP.",
+      "practicePrompt": "Without AI, embed http.HandlerFunc or custom type to add logging to a handler type.",
+      "checklist": [
+        "Understand promoted methods",
+        "Avoid embedding solely for syntax sugar",
+        "Document embedded type behavior"
+      ],
+      "youtubeSearch": "Go embedding structs composition",
+      "whyGoogle": "Composition idioms replace classical inheritance discussion.",
+      "resources": [
+        { "label": "Effective Go - Embedding", "url": "https://go.dev/doc/effective_go#embedding" }
+      ]
+    },
+    {
+      "id": "go039",
+      "title": "SQL NULL and sql.Null types",
+      "topic": "database",
+      "level": "intermediate",
+      "minutes": 20,
+      "overview": "Nullable columns map to sql.NullString, NullTime, etc. Distinguish NULL from zero value in Go.",
+      "practicePrompt": "Attempt without AI: scan optional profile fields into struct with Null types and JSON output omitempty.",
+      "checklist": [
+        "Check Valid field after Scan",
+        "Use pointers for optional JSON fields alternatively",
+        "COALESCE in SQL vs app defaults"
+      ],
+      "youtubeSearch": "Go sql.NullString nullable columns",
+      "whyGoogle": "Schema reality includes NULL—interviews test edge cases.",
+      "resources": [
+        { "label": "NullString", "url": "https://pkg.go.dev/database/sql#NullString" }
+      ]
+    },
+    {
+      "id": "go040",
+      "title": "Health checks and readiness",
+      "topic": "ops",
+      "level": "beginner",
+      "minutes": 20,
+      "overview": "Liveness: process up. Readiness: dependencies OK. Kubernetes uses both for routing and restarts.",
+      "practicePrompt": "Without AI, implement /live and /ready where ready checks DB Ping.",
+      "checklist": [
+        "Keep liveness cheap",
+        "Timeout dependency checks",
+        "Return 503 on not ready"
+      ],
+      "youtubeSearch": "kubernetes liveness readiness probe golang",
+      "whyGoogle": "Connects Go services to how Google runs containers at scale.",
+      "resources": [
+        { "label": "K8s probes", "url": "https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/" }
+      ]
+    }
+  ]
+}

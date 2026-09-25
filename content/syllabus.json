@@ -1,0 +1,108 @@
+{
+  "horizonWeeks": 26,
+  "capacity": {
+    "weekdayMinutes": 120,
+    "weekendMinutes": 240
+  },
+  "aiRule": "Attempt problems yourself first. Use AI only as reviewer/mentor after your attempt.",
+  "goal": "Google SWE interview readiness (L3/early L4) while becoming a stronger independent engineer.",
+  "skillTargets": [
+    {
+      "skill": "DSA",
+      "target": "160+ curated problems with pattern recognition; mediums under ~35 minutes",
+      "problemsOrTopics": ["arrays-hashing", "two-pointers", "sliding-window", "trees", "graphs", "dynamic-programming", "system-style coding"]
+    },
+    {
+      "skill": "Go",
+      "target": "Production-quality idioms for backend coding rounds and take-home clarity",
+      "problemsOrTopics": ["slices-maps", "interfaces-errors", "concurrency", "testing", "net-http", "database-sql", "observability"]
+    },
+    {
+      "skill": "Fundamentals",
+      "target": "Explain OS, DBMS, and OOP trade-offs without slides in under 8 minutes",
+      "problemsOrTopics": ["process-thread", "memory-virtual", "scheduling-deadlock", "indexes-acid", "joins-replication", "solid-composition"]
+    },
+    {
+      "skill": "Networking",
+      "target": "Trace a request path and justify timeout, retry, and auth choices",
+      "problemsOrTopics": ["DNS-TCP-TLS", "HTTP-2", "load-balancing", "CDN", "JWT-OAuth", "WebSockets"]
+    },
+    {
+      "skill": "System Design",
+      "target": "Complete one HLD and one LLD mock per month with explicit trade-offs",
+      "problemsOrTopics": ["requirements-NFRs", "capacity-estimation", "storage-queues", "url-shortener", "rate-limiter", "feed-chat-notifications"]
+    },
+    {
+      "skill": "Communication",
+      "target": "Think-aloud coding, STAR-L behavioral stories, and Googleyness examples",
+      "problemsOrTopics": ["english-think-aloud", "STAR-L", "collaboration-ambiguity", "customer-focus"]
+    }
+  ],
+  "phases": [
+    {
+      "id": "foundations",
+      "weeks": [1, 4],
+      "title": "Foundations",
+      "focus": "DSA patterns, Go language basics, CS fundamentals refresh, daily think-aloud habit",
+      "outcomes": [
+        "Solve array/hash and two-pointer mediums without pattern hints",
+        "Write idiomatic Go with table tests for small utilities",
+        "Explain process vs thread and ACID in plain language",
+        "Complete first weekly retention assessment"
+      ]
+    },
+    {
+      "id": "core-skills",
+      "weeks": [5, 10],
+      "title": "Core Skills",
+      "focus": "Trees, graphs, Go concurrency and HTTP, networking depth, first system design methods",
+      "outcomes": [
+        "BFS/DFS and topo sort under time pressure",
+        "Build a handler chain with context cancellation in Go",
+        "Diagram DNS to TLS handshake for a browser request",
+        "Draft URL shortener HLD with back-of-envelope numbers"
+      ]
+    },
+    {
+      "id": "interview-depth",
+      "weeks": [11, 16],
+      "title": "Interview Depth",
+      "focus": "DP and advanced graphs, DB transactions, distributed design topics, mock interviews",
+      "outcomes": [
+        "Recognize DP state transitions on common Google variants",
+        "Implement SQL transactions and explain isolation anomalies",
+        "Design rate limiter and notification system with failure modes",
+        "Two Pramp or interviewing.io sessions with written retro"
+      ]
+    },
+    {
+      "id": "integration",
+      "weeks": [17, 24],
+      "title": "Integration",
+      "focus": "Mixed timed sets, LLD drills, behavioral bank, weak-area sprints",
+      "outcomes": [
+        "Weekly Saturday mock covering coding + one design prompt",
+        "Ship a small Go service with tests, middleware, and structured logs",
+        "Five polished STAR-L stories mapped to Googleyness attributes",
+        "Revisit bottom-quartile DSA tags until green"
+      ]
+    },
+    {
+      "id": "polish",
+      "weeks": [25, 26],
+      "title": "Polish",
+      "focus": "Full-loop simulations, resume narrative, rest and confidence calibration",
+      "outcomes": [
+        "Two full-day onsite simulations (coding, design, behavioral)",
+        "One-page system design cheat sheet from memory",
+        "Question list for interviewers and thank-you templates ready",
+        "Light review only—no new heavy topics in final 72 hours before real loops"
+      ]
+    }
+  ],
+  "weeklyRhythm": {
+    "weekday": "Sunday–Friday ≈120 min study: DSA practice (60–70) + skill learn (Go/fundamentals/networking/design) (35–40) + communication speak (15). No timed assessments on study days.",
+    "weekend": "Saturday only ≈240 min: weekly mock + assessment (LeetCode/Pramp/interviewing.io). No regular study backlog scheduled on Saturday.",
+    "assessment": "All tests, assessments, and mocks are Saturday-only. Sunday–Friday are study days. You may complete any future day's tasks ahead."
+  }
+}

@@ -1,0 +1,184 @@
+[
+  {
+    "id": "arrays-hashing",
+    "name": "Arrays & Hashing",
+    "googleWeight": 5,
+    "whenToUse": "Need O(1) lookups, frequency counts, complement pairs, or deduplication on sequences.",
+    "whyGoogle": "Dominates phone screens and warm-ups; tests clean API usage and trade-off reasoning under time pressure."
+  },
+  {
+    "id": "two-pointers",
+    "name": "Two Pointers",
+    "googleWeight": 4,
+    "whenToUse": "Sorted arrays, palindromes, pair sums, or shrinking/expanding windows from both ends.",
+    "whyGoogle": "Shows you can optimize brute force to linear time with invariant reasoning."
+  },
+  {
+    "id": "sliding-window",
+    "name": "Sliding Window",
+    "googleWeight": 5,
+    "whenToUse": "Contiguous subarray/substring with a constraint (sum, distinct chars, at most K replacements).",
+    "whyGoogle": "Very common on strings and arrays; mirrors real log/stream aggregation problems."
+  },
+  {
+    "id": "prefix-sums",
+    "name": "Prefix Sums",
+    "googleWeight": 4,
+    "whenToUse": "Range sum queries, subarray sum equals K, or equilibriums on static arrays.",
+    "whyGoogle": "Foundation for scalable analytics-style questions and DP transitions."
+  },
+  {
+    "id": "stack",
+    "name": "Stack",
+    "googleWeight": 4,
+    "whenToUse": "Matching brackets, monotonic next-greater/smaller, parse/evaluate expressions.",
+    "whyGoogle": "Tests structured thinking for parsers and undo/redo style systems."
+  },
+  {
+    "id": "linked-list",
+    "name": "Linked List",
+    "googleWeight": 3,
+    "whenToUse": "In-place reorder, cycle detection, merge lists, or pointer manipulation.",
+    "whyGoogle": "Less frequent but classic for pointer discipline and edge-case hygiene."
+  },
+  {
+    "id": "binary-search",
+    "name": "Binary Search",
+    "googleWeight": 5,
+    "whenToUse": "Sorted data, first/last occurrence, rotated arrays, or monotonic predicate on index.",
+    "whyGoogle": "Google loves log-time reasoning on large datasets and search infrastructure."
+  },
+  {
+    "id": "binary-search-on-answer",
+    "name": "Binary Search on Answer",
+    "googleWeight": 5,
+    "whenToUse": "Minimize maximum, maximize minimum, capacity/time limits with feasible check function.",
+    "whyGoogle": "Separates strong candidates on scheduling and resource allocation style problems."
+  },
+  {
+    "id": "intervals",
+    "name": "Intervals",
+    "googleWeight": 4,
+    "whenToUse": "Merge/overlap, insert, meeting rooms, sweep-line on timelines.",
+    "whyGoogle": "Calendar, capacity, and SLA problems map directly to interval logic."
+  },
+  {
+    "id": "heap-topk",
+    "name": "Heap / Top-K",
+    "googleWeight": 5,
+    "whenToUse": "K largest/smallest, streaming median, merge K sorted lists, scheduling by priority.",
+    "whyGoogle": "Core for ranking, autoscaling, and priority-queue system design tie-ins."
+  },
+  {
+    "id": "trees-dfs",
+    "name": "Trees (DFS)",
+    "googleWeight": 5,
+    "whenToUse": "Path sums, LCA prep, validate BST, serialize, diameter, recursion on subtrees.",
+    "whyGoogle": "Tree DFS is a daily bread question type for recursive decomposition."
+  },
+  {
+    "id": "trees-bfs",
+    "name": "Trees (BFS)",
+    "googleWeight": 4,
+    "whenToUse": "Level order, zigzag, right-side view, min depth, connect nodes at level.",
+    "whyGoogle": "BFS models shortest path on unweighted trees and fan-out traversal."
+  },
+  {
+    "id": "trie",
+    "name": "Trie",
+    "googleWeight": 4,
+    "whenToUse": "Prefix search, autocomplete, word dictionary, XOR maximum on bit trie.",
+    "whyGoogle": "Directly related to search indexes and string-heavy services."
+  },
+  {
+    "id": "backtracking",
+    "name": "Backtracking",
+    "googleWeight": 4,
+    "whenToUse": "Combinations, permutations, subsets, sudoku, partition with constraints.",
+    "whyGoogle": "Tests pruning, state management, and explaining exponential vs optimized search."
+  },
+  {
+    "id": "graphs-bfs",
+    "name": "Graphs (BFS)",
+    "googleWeight": 5,
+    "whenToUse": "Shortest path unweighted, multi-source BFS, grid as graph, level expansion.",
+    "whyGoogle": "Graph BFS appears constantly in onsite loops and system path-finding."
+  },
+  {
+    "id": "graphs-dfs",
+    "name": "Graphs (DFS)",
+    "googleWeight": 5,
+    "whenToUse": "Connected components, cycle detection, flood fill, path existence.",
+    "whyGoogle": "Foundation for dependency analysis and reachability in large graphs."
+  },
+  {
+    "id": "topological-sort",
+    "name": "Topological Sort",
+    "googleWeight": 5,
+    "whenToUse": "DAG ordering, course schedule, build order, alien dictionary.",
+    "whyGoogle": "Models task pipelines, build systems, and dependency resolution."
+  },
+  {
+    "id": "union-find",
+    "name": "Union-Find (DSU)",
+    "googleWeight": 4,
+    "whenToUse": "Dynamic connectivity, counting components, Kruskal-style edge grouping.",
+    "whyGoogle": "Efficient grouping problems mirror cluster and network union scenarios."
+  },
+  {
+    "id": "dijkstra",
+    "name": "Dijkstra / Weighted Shortest Path",
+    "googleWeight": 4,
+    "whenToUse": "Non-negative edge weights, K stops, network delay, cheapest flight within hops.",
+    "whyGoogle": "Weighted graphs connect coding to maps, routing, and latency optimization."
+  },
+  {
+    "id": "dp-1d",
+    "name": "DP (1D)",
+    "googleWeight": 5,
+    "whenToUse": "Fibonacci-style, house robber, decode ways, climbing stairs with constraints.",
+    "whyGoogle": "1D DP checks recurrence design and space optimization habits."
+  },
+  {
+    "id": "dp-2d",
+    "name": "DP (2D)",
+    "googleWeight": 5,
+    "whenToUse": "Grid paths, edit distance, interleaving strings, two-sequence matching.",
+    "whyGoogle": "2D DP is a onsite staple for string and matrix optimization."
+  },
+  {
+    "id": "dp-knapsack",
+    "name": "DP (Knapsack)",
+    "googleWeight": 4,
+    "whenToUse": "0/1 knapsack, subset sum, partition equal subset, coin combinations with limits.",
+    "whyGoogle": "Resource allocation with constraints; common follow-up to greedy failures."
+  },
+  {
+    "id": "dp-lis",
+    "name": "DP (LIS / Patience)",
+    "googleWeight": 4,
+    "whenToUse": "Longest increasing subsequence, Russian doll envelopes, patience sorting trick.",
+    "whyGoogle": "Shows advanced DP reduction and binary search pairing."
+  },
+  {
+    "id": "greedy",
+    "name": "Greedy",
+    "googleWeight": 4,
+    "whenToUse": "Local optimal choices with proof sketch: intervals, jumps, task scheduling.",
+    "whyGoogle": "Google expects you to justify greedy vs DP and cite counterexamples."
+  },
+  {
+    "id": "bit-manipulation",
+    "name": "Bit Manipulation",
+    "googleWeight": 3,
+    "whenToUse": "XOR tricks, single number, bitmask DP subsets, count set bits.",
+    "whyGoogle": "Shows low-level reasoning useful in performance-critical code paths."
+  },
+  {
+    "id": "intervals-greedy",
+    "name": "Intervals + Greedy",
+    "googleWeight": 5,
+    "whenToUse": "Minimum arrows, non-overlapping intervals, meeting rooms II, sweep greedy.",
+    "whyGoogle": "Scheduling and capacity questions heavily weighted in Google loops."
+  }
+]

@@ -1,0 +1,469 @@
+{
+  "skills": [
+    {
+      "skill": "DSA",
+      "description": "Patterns and timed problem solving aligned to Google phone and onsite coding rounds.",
+      "target": "145 curated problems across 24 weeks with Saturday retention tests.",
+      "color": "violet",
+      "modules": [
+        {
+          "slug": "dsa-foundations",
+          "title": "Foundations: arrays, hashing, two pointers",
+          "overview": "Build automatic recognition for linear scans, hash maps, and sorted two-pointer moves—the highest-frequency phone screen building blocks.",
+          "whyGoogle": "Most Google screens start medium-easy on arrays/strings; speed and clean invariants here save onsite energy.",
+          "learnItems": [
+            "Hash map complement and frequency templates",
+            "Two pointers on sorted arrays and palindromes",
+            "Sliding window distinct vs at-most-K variants",
+            "When to sort vs when hashing wins"
+          ],
+          "checklist": [
+            "Solve Two Sum and 3Sum without hints",
+            "Explain duplicate handling in 3Sum",
+            "Code longest substring without repeating chars in one pass",
+            "State complexities before coding on a new problem"
+          ],
+          "youtubeSearch": "NeetCode arrays hashing two pointers playlist",
+          "linkedProblemIds": [
+            "p001",
+            "p002",
+            "p003",
+            "p008",
+            "p009",
+            "p012",
+            "p113"
+          ]
+        },
+        {
+          "slug": "dsa-structures",
+          "title": "Core structures: stacks, heaps, binary search",
+          "overview": "Monotonic stacks, priority queues, and binary search templates including search on answer for scheduling-style questions.",
+          "whyGoogle": "Google infra problems often reduce to heaps (top-K) or binary search on monotonic feasibility.",
+          "learnItems": [
+            "Monotonic stack for next greater element",
+            "Min-heap size K vs quickselect",
+            "Binary search boundary templates (first true)",
+            "Feasibility check functions for BS on answer"
+          ],
+          "checklist": [
+            "Implement Koko Eating Bananas from scratch",
+            "Solve Meeting Rooms II with heap and explain sweep alternative",
+            "Find first/last position in sorted array",
+            "Articulate monotonic property before BS on answer"
+          ],
+          "youtubeSearch": "NeetCode binary search heap stack",
+          "linkedProblemIds": [
+            "p019",
+            "p026",
+            "p030",
+            "p039",
+            "p040",
+            "p115"
+          ]
+        },
+        {
+          "slug": "dsa-trees-graphs",
+          "title": "Trees, graphs, and topological reasoning",
+          "overview": "DFS/BFS on trees and graphs, union-find, topo sort, and weighted shortest paths for onsite depth.",
+          "whyGoogle": "Graph modeling (dependencies, grids, connectivity) is disproportionately common in Google loops.",
+          "learnItems": [
+            "Tree DFS: path, diameter, BST validation",
+            "Graph BFS for shortest unweighted paths",
+            "Topo sort for DAG dependencies",
+            "Dijkstra when edge weights matter"
+          ],
+          "checklist": [
+            "Draw BFS vs DFS choice for Word Ladder",
+            "Code Course Schedule II and explain cycle detection",
+            "Implement Number of Islands both DFS and BFS",
+            "Walk through Network Delay Time priority queue steps"
+          ],
+          "youtubeSearch": "NeetCode graphs trees Google interview",
+          "linkedProblemIds": [
+            "p069",
+            "p072",
+            "p073",
+            "p077",
+            "p079",
+            "p080",
+            "p118"
+          ]
+        },
+        {
+          "slug": "dsa-dp-advanced",
+          "title": "DP, greedy proofs, and hard follow-ups",
+          "overview": "1D/2D DP, knapsack, LIS, interval greedy, and communicating optimizations under time pressure.",
+          "whyGoogle": "Onsite rounds extend mediums into DP or greedy proof sketches—partial progress needs clear narration.",
+          "learnItems": [
+            "1D state transitions (robber, decode ways)",
+            "2D matching (LCS, edit distance)",
+            "Knapsack subset sum recognition",
+            "Greedy interval scheduling proofs"
+          ],
+          "checklist": [
+            "Write edit distance recurrence before table",
+            "Solve LIS with patience sorting",
+            "Explain why greedy works for non-overlapping intervals",
+            "Practice one hard DP (Burst Balloons or Regex) with bounds"
+          ],
+          "youtubeSearch": "NeetCode dynamic programming Google",
+          "linkedProblemIds": [
+            "p089",
+            "p092",
+            "p093",
+            "p095",
+            "p099",
+            "p100",
+            "p101"
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "Go",
+      "description": "Language fluency for Google-style backend interviews and clean on-the-fly implementation.",
+      "target": "Comfort implementing DSA templates in Go with idiomatic slices, maps, and structs.",
+      "color": "sky",
+      "modules": [
+        {
+          "slug": "go-slices-maps",
+          "title": "Slices, maps, and runes",
+          "overview": "Zero-value semantics, append growth, map existence checks, and UTF-8 rune iteration for string problems.",
+          "whyGoogle": "Interviewers accept Go if you are fluent—awkward slice handling costs credibility.",
+          "learnItems": [
+            "make vs var for slices and maps",
+            "Two-value map lookup ok",
+            "Sort.Slice and custom comparators",
+            "Range over string with rune awareness"
+          ],
+          "checklist": [
+            "Implement two-sum in Go with one pass map",
+            "Use sort.Slice for interval problems",
+            "Explain slice backing array pitfalls",
+            "Run go test on a small table-driven test"
+          ],
+          "youtubeSearch": "Go slices maps interview coding",
+          "linkedProblemIds": [
+            "p001",
+            "p036"
+          ]
+        },
+        {
+          "slug": "go-interfaces-errors",
+          "title": "Interfaces, errors, and testing",
+          "overview": "Small interfaces, explicit error handling, and table-driven tests mirroring production Go style.",
+          "whyGoogle": "Design discussions often assume idiomatic error propagation and testability.",
+          "learnItems": [
+            "errors.Is / errors.As patterns",
+            "Constructor functions and struct encapsulation",
+            "Table-driven tests with subtests",
+            "When to use pointers in receivers"
+          ],
+          "checklist": [
+            "Write a tiny LRU or min-stack API in Go",
+            "Return structured errors for invalid input",
+            "Add two table tests including edge cases",
+            "Explain nil interface vs typed nil pointer"
+          ],
+          "youtubeSearch": "Go interfaces errors best practices",
+          "linkedProblemIds": [
+            "p017",
+            "p136"
+          ]
+        },
+        {
+          "slug": "go-concurrency-basics",
+          "title": "Goroutines, channels, and context",
+          "overview": "Enough concurrency to discuss worker pools, fan-in/fan-out, and cancellation—not full systems yet.",
+          "whyGoogle": "Go roles expect sane talk about goroutines even if coding rounds stay sequential.",
+          "learnItems": [
+            "Buffered vs unbuffered channels",
+            "select with context.Done",
+            "Worker pool pattern sketch",
+            "Data race awareness and mutex vs channel"
+          ],
+          "checklist": [
+            "Sketch parallel URL fetcher with timeout",
+            "Explain happens-before for a simple channel",
+            "Know when NOT to use goroutines in interviews",
+            "Pair with Fundamentals OS threads module"
+          ],
+          "youtubeSearch": "Go concurrency interview worker pool",
+          "linkedProblemIds": []
+        }
+      ]
+    },
+    {
+      "skill": "Fundamentals",
+      "description": "OS, memory, and runtime concepts that underpin design and coding follow-ups.",
+      "target": "Crisp explanations for threads, memory hierarchy, and process lifecycle without buzzwords.",
+      "color": "amber",
+      "modules": [
+        {
+          "slug": "fund-os-process",
+          "title": "Processes, threads, and scheduling",
+          "overview": "How CPU time is shared, why goroutines map to threads, and where context switches hurt.",
+          "whyGoogle": "Latency and tail issues often trace back to scheduling and lock contention.",
+          "learnItems": [
+            "Process vs thread address space",
+            "Preemptive scheduling basics",
+            "Syscalls and blocking costs",
+            "Go scheduler M:N model at high level"
+          ],
+          "checklist": [
+            "Explain why busy-wait is bad",
+            "Describe race vs data race",
+            "Connect to Go concurrency module",
+            "Give one real incident tied to thread pool exhaustion"
+          ],
+          "youtubeSearch": "operating systems threads interview",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "fund-memory",
+          "title": "Memory hierarchy and allocation",
+          "overview": "Stack vs heap, cache locality, and why allocation rate affects GC in Go and JVM languages.",
+          "whyGoogle": "Performance discussions at Google often mention allocation, caching, and profiling.",
+          "learnItems": [
+            "Stack frames and call stacks",
+            "Cache lines and locality",
+            "Go GC tri-color sketch",
+            "Big-O vs constant factors at scale"
+          ],
+          "checklist": [
+            "Explain pointer chasing vs array scan",
+            "Relate slice append to realloc",
+            "Name one profiling tool you would use",
+            "Tie to DSA space complexity answers"
+          ],
+          "youtubeSearch": "memory hierarchy software engineer interview",
+          "linkedProblemIds": []
+        }
+      ]
+    },
+    {
+      "skill": "Networking",
+      "description": "HTTP, DNS, TCP, and TLS vocabulary for design and reliability conversations.",
+      "target": "Explain a request path from browser to service with failure modes.",
+      "color": "rose",
+      "modules": [
+        {
+          "slug": "net-dns-http",
+          "title": "DNS, HTTP/2, and REST shape",
+          "overview": "Resolution chain, connection reuse, status codes, idempotency, and pagination patterns.",
+          "whyGoogle": "API design rounds assume you know how clients actually reach services.",
+          "learnItems": [
+            "DNS recursive vs authoritative",
+            "HTTP/1.1 vs HTTP/2 multiplexing",
+            "REST idempotency for POST vs PUT",
+            "Timeouts, retries, and backoff"
+          ],
+          "checklist": [
+            "Walk DNS lookup steps aloud in 2 minutes",
+            "Design retry policy for idempotent GET",
+            "Explain 502 vs 503 vs 504",
+            "Link to Communication module for 6-min recording"
+          ],
+          "youtubeSearch": "DNS HTTP interview system design",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "net-tcp-tls",
+          "title": "TCP lifecycle and TLS handshake",
+          "overview": "Three-way handshake, congestion idea, TLS layers, and where latency hides.",
+          "whyGoogle": "Global-scale services live or die on connection setup and cross-region RTT.",
+          "learnItems": [
+            "SYN/SYN-ACK/ACK purpose",
+            "Head-of-line blocking context",
+            "TLS 1.3 handshake simplification",
+            "Keep-alive and connection pooling"
+          ],
+          "checklist": [
+            "Draw TCP handshake",
+            "Explain why TLS adds RTTs",
+            "Describe SYN flood at high level",
+            "Connect to load balancer design week"
+          ],
+          "youtubeSearch": "TCP TLS handshake interview explained",
+          "linkedProblemIds": []
+        }
+      ]
+    },
+    {
+      "skill": "System design",
+      "description": "Structured design for L4+ loops: requirements, estimates, data model, and scaling paths.",
+      "target": "Two full designs per month with written postmortems and trade-off tables.",
+      "color": "emerald",
+      "modules": [
+        {
+          "slug": "sd-framing",
+          "title": "Framing, estimates, and APIs",
+          "overview": "Repeatable opening: users, QPS, storage, read/write ratio, SLA, and API sketch before boxes.",
+          "whyGoogle": "Google design interviewers penalize jumping to Kafka without numbers.",
+          "learnItems": [
+            "Back-of-envelope QPS and storage",
+            "Define core entities and IDs",
+            "Read path vs write path separation",
+            "Explicit non-goals"
+          ],
+          "checklist": [
+            "Practice URL shortener estimates in 5 minutes",
+            "Write API for create/read/delete",
+            "State three non-functional requirements",
+            "Time-box yourself to 35 minutes total"
+          ],
+          "youtubeSearch": "Google system design interview framework",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "sd-storage-caching",
+          "title": "Storage, indexing, and caching",
+          "overview": "SQL vs NoSQL choice, sharding keys, replication, cache-aside, and invalidation pitfalls.",
+          "whyGoogle": "Search, ads, and user data systems all revisit the same storage trade-offs.",
+          "learnItems": [
+            "Primary key and secondary index costs",
+            "Cache-aside vs read-through",
+            "Hot key mitigation",
+            "Eventual vs strong consistency scenarios"
+          ],
+          "checklist": [
+            "Pick sharding key for social feed",
+            "Explain cache stampede mitigation",
+            "When to introduce CDN vs app cache",
+            "Draw read path with cache miss"
+          ],
+          "youtubeSearch": "system design caching sharding Google",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "sd-case-studies",
+          "title": "Case studies: feed, search, rate limiter",
+          "overview": "Apply framing to news feed, typeahead search, and distributed rate limiting.",
+          "whyGoogle": "These three patterns cover a large fraction of reported Google design prompts.",
+          "learnItems": [
+            "Fan-out on write vs read for feeds",
+            "Inverted index + ranking pipeline sketch",
+            "Token bucket vs sliding window log",
+            "Observability: metrics, logs, traces"
+          ],
+          "checklist": [
+            "Complete one design on whiteboard weekly in weeks 13–20",
+            "Document bottlenecks and second-phase scaling",
+            "Pair with Mock interview module",
+            "Review Google SRE ideas for reliability"
+          ],
+          "youtubeSearch": "Google system design news feed rate limiter",
+          "linkedProblemIds": []
+        }
+      ]
+    },
+    {
+      "skill": "Communication",
+      "description": "Think-aloud coding, concise explanations, and behavioral clarity in English.",
+      "target": "Daily short recordings; every DSA session includes complexity recap aloud.",
+      "color": "indigo",
+      "modules": [
+        {
+          "slug": "comms-coding-voice",
+          "title": "Think-aloud coding",
+          "overview": "Scripts for clarifying, planning, coding, testing, and follow-ups under interview silence pressure.",
+          "whyGoogle": "Google hire decisions weight communication as heavily as final code for many levels.",
+          "learnItems": [
+            "Clarifying question checklist",
+            "Plan narration before typing",
+            "Dry-run test case aloud",
+            "Follow-up bridge phrases"
+          ],
+          "checklist": [
+            "Record one medium solve with voice only",
+            "Cut filler words in second take",
+            "Use googleyness englishPractice eng-03 weekly",
+            "Peer review one recording"
+          ],
+          "youtubeSearch": "coding interview communication Google",
+          "linkedProblemIds": [
+            "p012",
+            "p030"
+          ]
+        },
+        {
+          "slug": "comms-behavioral",
+          "title": "STAR and Googleyness delivery",
+          "overview": "Map stories to rubrics; keep answers under three minutes with measurable results.",
+          "whyGoogle": "Each onsite interviewer covers different rubrics—story reuse must feel fresh.",
+          "learnItems": [
+            "Story bank indexing by rubric",
+            "Metric insertion templates",
+            "Failure story with learning",
+            "Questions to ask interviewer"
+          ],
+          "checklist": [
+            "Prepare 10 STAR stories",
+            "Practice story-01 and story-03 with timer",
+            "List questions for hiring manager",
+            "Cross-link googleyness.json prompts"
+          ],
+          "youtubeSearch": "Googleyness interview STAR examples",
+          "linkedProblemIds": []
+        }
+      ]
+    },
+    {
+      "skill": "Mock interview",
+      "description": "Timed cumulative mocks combining coding, light design, and behavioral.",
+      "target": "Weekly Saturday mocks in latter phases; biweekly before week 17.",
+      "color": "slate",
+      "modules": [
+        {
+          "slug": "mock-coding-timed",
+          "title": "Timed coding mocks",
+          "overview": "45-minute sessions: 5 clarify, 10 plan, 25 code, 5 test—medium/hard from current phase patterns.",
+          "whyGoogle": "Simulates phone screen pacing and follow-up extensions.",
+          "learnItems": [
+            "Pick problem by weekHint pool",
+            "Stop and narrate if stuck 3 minutes",
+            "Write follow-up idea even if not coded",
+            "Log mistakes in progress notes"
+          ],
+          "checklist": [
+            "Complete 12 timed mocks before week 24",
+            "Review recording or scratchpad next day",
+            "Track pattern miss rate",
+            "Alternate Go and Python if allowed"
+          ],
+          "youtubeSearch": "mock coding interview 45 minutes",
+          "linkedProblemIds": [
+            "p015",
+            "p032",
+            "p079",
+            "p099",
+            "p101"
+          ]
+        },
+        {
+          "slug": "mock-full-loop",
+          "title": "Full loop simulation",
+          "overview": "Half-day schedule: two coding, one design, one Googleyness—with breaks.",
+          "whyGoogle": "Build stamina and mental reset between unrelated rounds.",
+          "learnItems": [
+            "Calendar realistic start times",
+            "Use different story per behavioral",
+            "Design immediately after coding reset walk",
+            "Debrief rubric self-score"
+          ],
+          "checklist": [
+            "Run 3 full loops in weeks 21–24",
+            "Invite peer or use timer-only",
+            "Score using googleyness rubrics",
+            "Adjust weak pattern week plan"
+          ],
+          "youtubeSearch": "Google onsite mock interview simulation",
+          "linkedProblemIds": [
+            "p118",
+            "p143"
+          ]
+        }
+      ]
+    }
+  ]
+}

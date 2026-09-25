@@ -1,0 +1,479 @@
+{
+  "items": [
+    {
+      "id": "net001",
+      "title": "DNS resolution end-to-end",
+      "topic": "dns",
+      "minutes": 25,
+      "overview": "Stub resolver → recursive resolver → TLD → authoritative. Caching at each layer affects TTL and propagation delays.",
+      "selfCheckQuestions": [
+        "What record types map hostname to IPv4 vs IPv6?",
+        "Why can DNS cause stale failover?",
+        "Difference between CNAME and A?"
+      ],
+      "checklist": [
+        "Trace lookup steps verbally",
+        "Explain TTL trade-offs",
+        "Mention DNS over HTTPS briefly"
+      ],
+      "youtubeSearch": "how DNS works step by step",
+      "whyGoogle": "Every Google service starts with a resolved endpoint—debugging starts here."
+    },
+    {
+      "id": "net002",
+      "title": "TCP handshake and teardown",
+      "topic": "tcp",
+      "minutes": 25,
+      "overview": "SYN, SYN-ACK, ACK establish connection. FIN/FIN-ACK close gracefully; RST aborts. Three-way handshake costs one RTT before data.",
+      "selfCheckQuestions": [
+        "Why is TCP full-duplex?",
+        "What triggers RST?",
+        "Head-of-line blocking in TCP?"
+      ],
+      "checklist": [
+        "Draw 3-way handshake",
+        "Explain TIME_WAIT purpose",
+        "Relate RTT to latency"
+      ],
+      "youtubeSearch": "TCP three way handshake explained",
+      "whyGoogle": "Connection setup dominates small request latency at scale."
+    },
+    {
+      "id": "net003",
+      "title": "UDP use cases and limits",
+      "topic": "udp",
+      "minutes": 20,
+      "overview": "Connectionless, unordered, unreliable—good for DNS, QUIC base, real-time media when app handles loss.",
+      "selfCheckQuestions": [
+        "Why doesn't video always use TCP?",
+        "UDP amplification attack idea?",
+        "When would you add reliability on UDP?"
+      ],
+      "checklist": [
+        "Contrast TCP vs UDP table",
+        "Name one protocol on UDP",
+        "Discuss MTU and fragmentation lightly"
+      ],
+      "youtubeSearch": "TCP vs UDP difference",
+      "whyGoogle": "Choosing transport correctly signals systems maturity."
+    },
+    {
+      "id": "net004",
+      "title": "HTTP/1.1 vs HTTP/2",
+      "topic": "http",
+      "minutes": 25,
+      "overview": "HTTP/2 multiplexes streams on one TCP connection with header compression. HTTP/1.1 needed multiple connections or pipelining (rare).",
+      "selfCheckQuestions": [
+        "What problem does HPACK solve?",
+        "Does HTTP/2 eliminate head-of-line blocking entirely?",
+        "When is HTTP/1.1 still seen?"
+      ],
+      "checklist": [
+        "Explain multiplexing benefit",
+        "Mention server push deprecation context",
+        "Connect to browser connection limits"
+      ],
+      "youtubeSearch": "HTTP2 vs HTTP1 explained",
+      "whyGoogle": "Frontends and APIs at Google heavily use HTTP/2 and gRPC."
+    },
+    {
+      "id": "net005",
+      "title": "HTTPS and TLS handshake",
+      "topic": "tls",
+      "minutes": 30,
+      "overview": "TLS negotiates cipher suite, authenticates server via certificates, establishes session keys. TLS 1.3 reduces round trips.",
+      "selfCheckQuestions": [
+        "Role of certificate chain?",
+        "What is forward secrecy?",
+        "Why terminate TLS at load balancer?"
+      ],
+      "checklist": [
+        "Outline handshake at high level",
+        "Explain cert CN/SAN mismatch errors",
+        "Mention mTLS for service-to-service"
+      ],
+      "youtubeSearch": "TLS handshake explained",
+      "whyGoogle": "Security questions expect TLS literacy, not cipher memorization."
+    },
+    {
+      "id": "net006",
+      "title": "Load balancing algorithms",
+      "topic": "lb",
+      "minutes": 25,
+      "overview": "Round robin, least connections, consistent hash for stickiness. L4 vs L7 balancers see different headers and paths.",
+      "selfCheckQuestions": [
+        "When is consistent hashing required?",
+        "Health checks and draining nodes?",
+        "Maglev vs ring hash intuition?"
+      ],
+      "checklist": [
+        "Compare L4 and L7 LB",
+        "Explain sticky sessions trade-off",
+        "Discuss active vs passive health checks"
+      ],
+      "youtubeSearch": "load balancing algorithms L4 L7",
+      "whyGoogle": "Google frontends are LB-heavy; interviews probe failure handling."
+    },
+    {
+      "id": "net007",
+      "title": "CDN caching and cache keys",
+      "topic": "cdn",
+      "minutes": 25,
+      "overview": "Edge caches static and cacheable API responses. Cache-Control, ETag, and Vary headers control behavior.",
+      "selfCheckQuestions": [
+        "What makes a response uncacheable?",
+        "Stale-while-revalidate benefit?",
+        "Cache poisoning awareness?"
+      ],
+      "checklist": [
+        "Explain cache hit vs miss path",
+        "Set sensible Cache-Control example",
+        "Relate CDN to latency globally"
+      ],
+      "youtubeSearch": "CDN how it works cache control",
+      "whyGoogle": "Serving billions of users requires CDN mental models."
+    },
+    {
+      "id": "net008",
+      "title": "WebSockets vs long polling",
+      "topic": "websockets",
+      "minutes": 25,
+      "overview": "WebSockets upgrade to full-duplex channel; long polling simulates push with repeated requests. SSE one-way server push over HTTP.",
+      "selfCheckQuestions": [
+        "When prefer SSE over WebSockets?",
+        "LB sticky issues with WebSockets?",
+        "How to heartbeat detect dead connections?"
+      ],
+      "checklist": [
+        "Describe upgrade handshake",
+        "Compare overhead vs polling",
+        "Mention backpressure need"
+      ],
+      "youtubeSearch": "WebSockets vs long polling SSE",
+      "whyGoogle": "Real-time products (chat, docs) need transport trade-off fluency."
+    },
+    {
+      "id": "net009",
+      "title": "JWT structure and validation",
+      "topic": "auth",
+      "minutes": 25,
+      "overview": "Header.payload.signature base64url. Validate alg, exp, aud, iss; never trust payload without signature verify.",
+      "selfCheckQuestions": [
+        "Where should JWT secrets/keys live?",
+        "Refresh token vs access token?",
+        "Why not store PII in JWT?"
+      ],
+      "checklist": [
+        "List standard claims to verify",
+        "Explain stateless vs session auth",
+        "Warn on alg none attack"
+      ],
+      "youtubeSearch": "JWT explained authentication",
+      "whyGoogle": "Identity flows intersect many Google cloud and API designs."
+    },
+    {
+      "id": "net010",
+      "title": "OAuth 2.0 authorization code flow",
+      "topic": "auth",
+      "minutes": 30,
+      "overview": "User consents; client exchanges code for tokens using client secret or PKCE for public clients.",
+      "selfCheckQuestions": [
+        "Why PKCE for mobile/SPA?",
+        "Role of redirect URI validation?",
+        "Difference OAuth vs OpenID Connect?"
+      ],
+      "checklist": [
+        "Draw authorization code flow",
+        "Explain scope least privilege",
+        "Mention token storage best practices"
+      ],
+      "youtubeSearch": "OAuth 2 authorization code PKCE",
+      "whyGoogle": "Google identity products implement these flows at massive scale."
+    },
+    {
+      "id": "net011",
+      "title": "Timeouts and deadline propagation",
+      "topic": "reliability",
+      "minutes": 25,
+      "overview": "Every outbound call needs a timeout derived from user-facing SLO. Propagate deadlines via context/metadata across hops.",
+      "selfCheckQuestions": [
+        "Client timeout vs server timeout mismatch symptom?",
+        "Why shorter than client at each hop?",
+        "gRPC deadline propagation?"
+      ],
+      "checklist": [
+        "Set connect vs read timeouts",
+        "Budget end-to-end latency",
+        "Cancel work on timeout"
+      ],
+      "youtubeSearch": "distributed systems timeout best practices",
+      "whyGoogle": "Tail latency control is core Google SRE culture."
+    },
+    {
+      "id": "net012",
+      "title": "Retries, backoff, and jitter",
+      "topic": "reliability",
+      "minutes": 25,
+      "overview": "Retry idempotent operations with exponential backoff and jitter to avoid thundering herds. Cap retries and fail fast.",
+      "selfCheckQuestions": [
+        "Which HTTP methods safe to retry?",
+        "Retry storm after outage?",
+        "Idempotency key role?"
+      ],
+      "checklist": [
+        "Formula for exponential backoff",
+        "Add full jitter rationale",
+        "Distinguish transient vs permanent errors"
+      ],
+      "youtubeSearch": "exponential backoff jitter retries",
+      "whyGoogle": "Resilience patterns are expected in design and coding discussions."
+    },
+    {
+      "id": "net013",
+      "title": "Circuit breakers and bulkheads",
+      "topic": "reliability",
+      "minutes": 25,
+      "overview": "Stop calling failing dependencies; isolate thread pools to limit blast radius. Half-open probes recovery.",
+      "selfCheckQuestions": [
+        "States of a circuit breaker?",
+        "Bulkhead vs rate limit?",
+        "When breaker hides partial degradation?"
+      ],
+      "checklist": [
+        "Sketch breaker state machine",
+        "Give bulkhead example pools",
+        "Connect to cascading failure story"
+      ],
+      "youtubeSearch": "circuit breaker pattern microservices",
+      "whyGoogle": "Large distributed systems fail partially—patterns are interview staples."
+    },
+    {
+      "id": "net014",
+      "title": "NAT and connection tracking",
+      "topic": "tcp",
+      "minutes": 20,
+      "overview": "NAT maps private IPs to public ports; state tables expire. Affects peer-to-peer and long idle connections.",
+      "selfCheckQuestions": [
+        "Why keepalive helps NAT?",
+        "Symmetric vs cone NAT?",
+        "IPv6 reduces NAT need how?"
+      ],
+      "checklist": [
+        "Explain SNAT on outbound",
+        "Mention ephemeral port limits",
+        "Relate to k8s NodePort briefly"
+      ],
+      "youtubeSearch": "NAT explained networking",
+      "whyGoogle": "Debugging connectivity issues requires NAT awareness."
+    },
+    {
+      "id": "net015",
+      "title": "HTTP status codes and semantics",
+      "topic": "http",
+      "minutes": 20,
+      "overview": "2xx success, 4xx client fault, 5xx server fault. 429 rate limit, 503 overload with Retry-After.",
+      "selfCheckQuestions": [
+        "401 vs 403 difference?",
+        "When 409 vs 422?",
+        "Idempotent DELETE returns?"
+      ],
+      "checklist": [
+        "Pick codes for common API errors",
+        "Use problem+json or structured errors",
+        "Avoid 200 with error body anti-pattern"
+      ],
+      "youtubeSearch": "HTTP status codes REST API",
+      "whyGoogle": "API design clarity is evaluated in backend interviews."
+    },
+    {
+      "id": "net016",
+      "title": "CORS and browser security",
+      "topic": "http",
+      "minutes": 20,
+      "overview": "Browsers enforce same-origin; CORS headers permit cross-origin XHR/fetch. Preflight for non-simple requests.",
+      "selfCheckQuestions": [
+        "Simple vs preflight request?",
+        "Why CORS not server-side security?",
+        "Credentials and Access-Control-Allow-Origin *?"
+      ],
+      "checklist": [
+        "Explain preflight OPTIONS",
+        "List simple request conditions",
+        "Separate CORS from CSRF"
+      ],
+      "youtubeSearch": "CORS explained preflight",
+      "whyGoogle": "Web-facing Google products require solid browser networking knowledge."
+    },
+    {
+      "id": "net017",
+      "title": "QUIC and HTTP/3 overview",
+      "topic": "http",
+      "minutes": 20,
+      "overview": "QUIC runs over UDP with integrated TLS 1.3 and stream multiplexing without TCP HOL blocking.",
+      "selfCheckQuestions": [
+        "Migration between networks benefit?",
+        "Why faster first byte?",
+        "UDP blocked networks issue?"
+      ],
+      "checklist": [
+        "Contrast QUIC vs TCP+TLS",
+        "Mention HTTP/3 naming",
+        "Note adoption trajectory"
+      ],
+      "youtubeSearch": "QUIC HTTP3 explained",
+      "whyGoogle": "Google pioneered QUIC—shows cultural and technical alignment."
+    },
+    {
+      "id": "net018",
+      "title": "Reverse proxy vs forward proxy",
+      "topic": "lb",
+      "minutes": 15,
+      "overview": "Reverse proxy sits before servers (nginx, Envoy); forward proxy for client egress (corporate). Different routing goals.",
+      "selfCheckQuestions": [
+        "Who initiates connection in each?",
+        "TLS termination location?",
+        "Service mesh sidecar role?"
+      ],
+      "checklist": [
+        "Diagram reverse proxy path",
+        "Name one header added (X-Forwarded-For)",
+        "Connect to ingress controllers"
+      ],
+      "youtubeSearch": "reverse proxy vs forward proxy",
+      "whyGoogle": "Edge architecture questions assume proxy vocabulary."
+    },
+    {
+      "id": "net019",
+      "title": "gRPC vs REST trade-offs",
+      "topic": "http",
+      "minutes": 25,
+      "overview": "gRPC uses HTTP/2, protobuf, streaming RPCs—great internal; REST+json broader external compatibility.",
+      "selfCheckQuestions": [
+        "When streaming RPC helps?",
+        "Versioning protobuf safely?",
+        "Browser support limitations?"
+      ],
+      "checklist": [
+        "Compare schema evolution",
+        "Mention deadline propagation built-in",
+        "Pick REST vs gRPC for public API"
+      ],
+      "youtubeSearch": "gRPC vs REST comparison",
+      "whyGoogle": "Google invented gRPC—common in internal service discussions."
+    },
+    {
+      "id": "net020",
+      "title": "TCP congestion control (conceptual)",
+      "topic": "tcp",
+      "minutes": 20,
+      "overview": "Algorithms (Cubic, BBR) adjust send rate based on loss and delay. Affects throughput on lossy or bufferbloated links.",
+      "selfCheckQuestions": [
+        "Goodput vs throughput?",
+        "Why micro-benchmarks on localhost mislead?",
+        "BBR vs loss-based briefly?"
+      ],
+      "checklist": [
+        "Define congestion window intuitively",
+        "Relate packet loss to slowdown",
+        "Avoid over-claiming expertise"
+      ],
+      "youtubeSearch": "TCP congestion control BBR explained",
+      "whyGoogle": "Performance debugging sometimes reaches transport layer."
+    },
+    {
+      "id": "net021",
+      "title": "Anycast and geo routing",
+      "topic": "cdn",
+      "minutes": 20,
+      "overview": "Same IP announced from multiple PoPs; BGP routes to nearest. Used by large DNS and CDN providers.",
+      "selfCheckQuestions": [
+        "Failure modes if PoP unhealthy?",
+        "Anycast vs geo DNS?",
+        "Stateful sessions challenge?"
+      ],
+      "checklist": [
+        "Explain nearest PoP routing",
+        "Contrast unicast anycast multicast",
+        "Mention Google global load balancing idea"
+      ],
+      "youtubeSearch": "anycast explained CDN",
+      "whyGoogle": "Global traffic management is central to Google infrastructure."
+    },
+    {
+      "id": "net022",
+      "title": "Rate limiting headers and 429",
+      "topic": "reliability",
+      "minutes": 20,
+      "overview": "Token bucket and leaky bucket algorithms. Communicate limits via Retry-After and rate limit headers.",
+      "selfCheckQuestions": [
+        "Distributed rate limit coordination?",
+        "Fairness across tenants?",
+        "Drop vs queue excess?"
+      ],
+      "checklist": [
+        "Sketch token bucket",
+        "Design 429 response body",
+        "Separate user vs IP limits"
+      ],
+      "youtubeSearch": "rate limiting token bucket",
+      "whyGoogle": "Protecting shared APIs is a classic design + implementation topic."
+    },
+    {
+      "id": "net023",
+      "title": "IPv4 exhaustion and IPv6",
+      "topic": "tcp",
+      "minutes": 15,
+      "overview": "IPv6 larger address space; dual stack common. Format and zone IDs for link-local.",
+      "selfCheckQuestions": [
+        "Why NAT popular with IPv4?",
+        "AAAA record role?",
+        "Happy eyeballs?"
+      ],
+      "checklist": [
+        "Compare address lengths",
+        "Mention dual stack deployment",
+        "Note localhost ::1"
+      ],
+      "youtubeSearch": "IPv6 vs IPv4 explained",
+      "whyGoogle": "Modern services must plan for IPv6 in infrastructure."
+    },
+    {
+      "id": "net024",
+      "title": "Cookies, sessions, and SameSite",
+      "topic": "auth",
+      "minutes": 20,
+      "overview": "HttpOnly, Secure, SameSite mitigate XSS and CSRF. Session IDs server-side vs client JWT trade-offs.",
+      "selfCheckQuestions": [
+        "SameSite Strict vs Lax?",
+        "Why HttpOnly?",
+        "Session fixation mitigation?"
+      ],
+      "checklist": [
+        "Set cookie flags correctly",
+        "Compare session store vs JWT",
+        "CSRF token pattern"
+      ],
+      "youtubeSearch": "cookies SameSite Secure HttpOnly",
+      "whyGoogle": "Web security basics protect billions of Google accounts."
+    },
+    {
+      "id": "net025",
+      "title": "Tracing a request through the stack",
+      "topic": "http",
+      "minutes": 30,
+      "overview": "Browser → DNS → TCP/TLS → LB → app → DB/cache → response. Correlate with trace IDs and structured logs.",
+      "selfCheckQuestions": [
+        "Where add trace propagation header?",
+        "What spans would you create?",
+        "How find slow hop?"
+      ],
+      "checklist": [
+        "Narrate full path in 90 seconds",
+        "Insert metrics at each hop",
+        "Tie to debugging slow API report"
+      ],
+      "youtubeSearch": "distributed tracing request flow",
+      "whyGoogle": "End-to-end thinking distinguishes strong backend candidates."
+    }
+  ]
+}

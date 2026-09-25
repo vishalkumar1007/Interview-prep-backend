@@ -1,0 +1,351 @@
+{
+  "items": [
+    {
+      "id": "com001",
+      "title": "Opening a coding round clearly",
+      "kind": "english",
+      "minutes": 15,
+      "instruction": "Practice a 30-second opener: restate the problem, confirm inputs/outputs, ask one clarifying question, and state your high-level approach before typing.",
+      "practicePrompt": "Record yourself opening Two Sum or a similar easy problem. Attempt without AI first; then compare to a senior engineer sample for pacing only.",
+      "youtubeSearch": "Google coding interview communication think aloud",
+      "resources": [
+        { "label": "Google: How we hire", "url": "https://careers.google.com/how-we-hire/" },
+        { "label": "Interviewing at Google", "url": "https://careers.google.com/how-we-hire/interview/" }
+      ],
+      "mapsTo": ["DSA", "Go"]
+    },
+    {
+      "id": "com002",
+      "title": "Clarifying ambiguous requirements",
+      "kind": "english",
+      "minutes": 20,
+      "instruction": "Use phrases like 'Can we assume…', 'Should I optimize for time or memory?', and 'What should happen if the input is empty?'",
+      "practicePrompt": "Take an underspecified LeetCode medium; write three clarifying questions before coding. No AI until after your list is done.",
+      "youtubeSearch": "coding interview clarifying questions examples",
+      "resources": [
+        { "label": "Google careers tips", "url": "https://careers.google.com/stories/" }
+      ],
+      "mapsTo": ["DSA", "System Design"]
+    },
+    {
+      "id": "com003",
+      "title": "Think-aloud while coding",
+      "kind": "english",
+      "minutes": 25,
+      "instruction": "Narrate invariants, loop purpose, and why you chose a data structure. Silence longer than 20 seconds should trigger you to explain what you are thinking.",
+      "practicePrompt": "Solve Valid Parentheses out loud with a timer. Attempt solo first; use AI only to critique clarity, not to generate code.",
+      "youtubeSearch": "Google coding interview think aloud example",
+      "resources": [
+        { "label": "YouTube: think-aloud coding", "url": "https://www.youtube.com/results?search_query=google+coding+interview+think+aloud" }
+      ],
+      "mapsTo": ["DSA"]
+    },
+    {
+      "id": "com004",
+      "title": "Recovering from a bug mid-interview",
+      "kind": "english",
+      "minutes": 15,
+      "instruction": "Say 'Let me trace an example' or 'I suspect an off-by-one here' instead of panicking. Verbalize your debug plan.",
+      "practicePrompt": "Introduce a deliberate bug in your solution, then practice fixing it on camera with continuous narration. Attempt without AI first.",
+      "youtubeSearch": "debugging out loud coding interview",
+      "mapsTo": ["DSA", "Go"]
+    },
+    {
+      "id": "com005",
+      "title": "Explaining time and space complexity",
+      "kind": "english",
+      "minutes": 15,
+      "instruction": "Template: 'We visit each element once…', 'The map holds at most n…', 'Recursion depth is…'. Tie Big-O to the code lines.",
+      "practicePrompt": "After solving Merge Intervals, give a 60-second complexity analysis. Record and review before any AI feedback.",
+      "youtubeSearch": "big O explanation interview concise",
+      "mapsTo": ["DSA"]
+    },
+    {
+      "id": "com006",
+      "title": "System design opening script",
+      "kind": "english",
+      "minutes": 20,
+      "instruction": "Start with users, core use cases, scale assumptions, then API sketch before deep diving components.",
+      "practicePrompt": "Open a URL shortener design for five minutes on whiteboard or paper. Attempt without AI first; then check against a reference outline.",
+      "youtubeSearch": "Google system design interview how to start",
+      "resources": [
+        { "label": "YouTube: system design start", "url": "https://www.youtube.com/results?search_query=google+system+design+interview+opening" }
+      ],
+      "mapsTo": ["System Design"]
+    },
+    {
+      "id": "com007",
+      "title": "Trade-off language for design",
+      "kind": "english",
+      "minutes": 20,
+      "instruction": "Use 'We gain X at the cost of Y' and 'At our scale, Z matters more because…'",
+      "practicePrompt": "Compare SQL vs NoSQL for a news feed read path in spoken form (3 minutes). Solo attempt first.",
+      "youtubeSearch": "system design tradeoffs explained",
+      "mapsTo": ["System Design", "Fundamentals"]
+    },
+    {
+      "id": "com008",
+      "title": "STAR-L: Leadership on a hard deadline",
+      "kind": "star",
+      "minutes": 30,
+      "instruction": "Situation, Task, Action, Result, Learnings. Keep Actions specific (you did X, not 'we tried'). Learnings show growth without blaming others.",
+      "practicePrompt": "Draft one story about unblocking a team under deadline pressure. Write bullets first without AI; polish wording after.",
+      "youtubeSearch": "STAR method software engineer Google interview",
+      "resources": [
+        { "label": "Googleyness & Leadership", "url": "https://careers.google.com/how-we-hire/interview/" }
+      ],
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com009",
+      "title": "STAR-L: Technical disagreement",
+      "kind": "star",
+      "minutes": 30,
+      "instruction": "Show data, respect for peers, and outcome—even if your idea was not chosen.",
+      "practicePrompt": "Prepare a story where you disagreed on architecture or implementation. Emphasize how you validated assumptions.",
+      "youtubeSearch": "behavioral interview conflict technical decision Google",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com010",
+      "title": "STAR-L: Mistake and accountability",
+      "kind": "star",
+      "minutes": 30,
+      "instruction": "Google expects ownership: what broke, how you detected it, how you fixed and prevented recurrence.",
+      "practicePrompt": "Write a production incident or serious bug story with measurable Result. Attempt without AI first.",
+      "youtubeSearch": "tell me about a failure interview answer engineer",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com011",
+      "title": "STAR-L: Mentoring or lifting others",
+      "kind": "star",
+      "minutes": 25,
+      "instruction": "Focus on the other person's growth and concrete steps you took (pairing, docs, feedback).",
+      "practicePrompt": "Prepare a story about helping a junior or cross-functional partner succeed. Time to 3 minutes spoken.",
+      "youtubeSearch": "behavioral interview mentoring software engineer",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com012",
+      "title": "STAR-L: Ambiguity and prioritization",
+      "kind": "star",
+      "minutes": 25,
+      "instruction": "Describe unclear requirements, how you narrowed scope, and who you aligned with.",
+      "practicePrompt": "Story about a project with shifting goals. Highlight customer or user impact in Result.",
+      "youtubeSearch": "ambiguous project behavioral interview Google",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com013",
+      "title": "Googleyness: Help others succeed",
+      "kind": "googleyness",
+      "minutes": 20,
+      "instruction": "Prepare examples where you shared credit, unblocked others, or improved team processes without being asked.",
+      "practicePrompt": "List three situations; pick the strongest for a 2-minute answer. No AI until draft exists.",
+      "youtubeSearch": "Googleyness help others succeed interview",
+      "resources": [
+        { "label": "Life at Google", "url": "https://careers.google.com/lifeatgoogle/" }
+      ],
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com014",
+      "title": "Googleyness: Thriving in ambiguity",
+      "kind": "googleyness",
+      "minutes": 20,
+      "instruction": "Show comfort defining the problem, not only executing a spec.",
+      "practicePrompt": "Answer 'Tell me about a time requirements were unclear' using your STAR-L draft from com012.",
+      "youtubeSearch": "Google interview ambiguity example",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com015",
+      "title": "Googleyness: Doing the right thing",
+      "kind": "googleyness",
+      "minutes": 25,
+      "instruction": "Ethics, privacy, security, or pushing back on harmful shortcuts—done respectfully with business context.",
+      "practicePrompt": "Prepare one story about integrity or user trust. Avoid confidential details; use anonymized facts.",
+      "youtubeSearch": "Google behavioral doing the right thing",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com016",
+      "title": "Googleyness: Customer / user focus",
+      "kind": "googleyness",
+      "minutes": 20,
+      "instruction": "Tie technical work to user-visible outcomes or metrics when possible.",
+      "practicePrompt": "Rewrite a past project summary to lead with user impact, then technical approach (90 seconds).",
+      "youtubeSearch": "software engineer user focus behavioral",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com017",
+      "title": "Wrapping a coding solution",
+      "kind": "english",
+      "minutes": 15,
+      "instruction": "Walk through a test case, mention edge cases handled, and optional optimizations you would explore with more time.",
+      "practicePrompt": "After any medium solve, practice a 90-second walkthrough. Record; fix unclear phrases before AI review.",
+      "youtubeSearch": "coding interview wrap up test cases",
+      "mapsTo": ["DSA"]
+    },
+    {
+      "id": "com018",
+      "title": "Asking good questions at the end",
+      "kind": "english",
+      "minutes": 15,
+      "instruction": "Ask about team impact, on-call, tech stack evolution, or mentorship—not perks only.",
+      "practicePrompt": "Write five questions for a Google SWE team. Attempt without searching sample lists first.",
+      "youtubeSearch": "questions to ask interviewer Google engineer",
+      "resources": [
+        { "label": "Google teams & roles", "url": "https://careers.google.com/jobs/results/?company=Google&company=YouTube&company=DeepMind&employment_type=FULL_TIME&jlo=en_US&q=software%20engineer" }
+      ],
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com019",
+      "title": "Explaining Go concurrency choices",
+      "kind": "english",
+      "minutes": 20,
+      "instruction": "When discussing goroutines, state why channels vs mutex, and mention context cancellation.",
+      "practicePrompt": "Explain a worker-pool design aloud for 3 minutes as if to an interviewer. Attempt without AI first.",
+      "youtubeSearch": "explain goroutines channels interview",
+      "mapsTo": ["Go"]
+    },
+    {
+      "id": "com020",
+      "title": "STAR-L: Cross-functional collaboration",
+      "kind": "star",
+      "minutes": 25,
+      "instruction": "Include PM, design, or other eng roles; show communication and compromise.",
+      "practicePrompt": "Draft story with a non-engineer stakeholder. Keep jargon minimal in the spoken version.",
+      "youtubeSearch": "cross functional collaboration STAR story",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com021",
+      "title": "Handling 'Tell me about yourself'",
+      "kind": "english",
+      "minutes": 20,
+      "instruction": "2–3 minute arc: present role, relevant highlights, why Google/this team, forward-looking hook.",
+      "practicePrompt": "Write and rehearse TMAY three times with a timer. Critique yourself before optional AI polish.",
+      "youtubeSearch": "tell me about yourself software engineer Google",
+      "resources": [
+        { "label": "YouTube: TMAY Google SWE", "url": "https://www.youtube.com/results?search_query=tell+me+about+yourself+google+software+engineer" }
+      ],
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com022",
+      "title": "Googleyness: Innovation and simplicity",
+      "kind": "googleyness",
+      "minutes": 20,
+      "instruction": "Show when you simplified a system or chose a boring technology for reliability.",
+      "practicePrompt": "Prepare one example of deliberate simplification with before/after impact.",
+      "youtubeSearch": "Googleyness innovation simplicity interview",
+      "mapsTo": ["Googleyness", "System Design"]
+    },
+    {
+      "id": "com023",
+      "title": "Pairing-style narration",
+      "kind": "english",
+      "minutes": 25,
+      "instruction": "Invite feedback: 'Does this approach sound reasonable?' while staying driver of the solution.",
+      "practicePrompt": "Mock with a friend or record both sides; practice checkpoint questions every 5 minutes.",
+      "youtubeSearch": "pair programming interview communication Google",
+      "mapsTo": ["DSA", "Go"]
+    },
+    {
+      "id": "com024",
+      "title": "STAR-L: Learning something new quickly",
+      "kind": "star",
+      "minutes": 25,
+      "instruction": "Demonstrate structured learning: docs, spikes, prototypes, validation.",
+      "practicePrompt": "Story about picking up a new language, framework, or domain under time pressure.",
+      "youtubeSearch": "learn new technology quickly behavioral interview",
+      "mapsTo": ["Googleyness", "Go"]
+    },
+    {
+      "id": "com025",
+      "title": "Googleyness: Feedback and growth",
+      "kind": "googleyness",
+      "minutes": 20,
+      "instruction": "Give an example of receiving tough feedback and changing behavior with measurable follow-through.",
+      "practicePrompt": "Write 2-minute answer; avoid sounding defensive. Attempt solo first.",
+      "youtubeSearch": "receive feedback behavioral interview engineer",
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com026",
+      "title": "Google Careers: How we hire overview",
+      "kind": "googleyness",
+      "minutes": 25,
+      "instruction": "Read Google's public hiring pages and note how coding, system design, and Googleyness/Leadership are evaluated. Write a one-page prep map for your timeline.",
+      "practicePrompt": "After reading, list three behaviors Google says they look for and map each to one of your STAR stories. Attempt without AI first.",
+      "youtubeSearch": "Google how we hire software engineer",
+      "resources": [
+        { "label": "How we hire", "url": "https://careers.google.com/how-we-hire/" },
+        { "label": "Interview process", "url": "https://careers.google.com/how-we-hire/interview/" },
+        { "label": "Preparing for your interview", "url": "https://careers.google.com/how-we-hire/prepare/" }
+      ],
+      "mapsTo": ["Googleyness", "DSA", "System Design"]
+    },
+    {
+      "id": "com027",
+      "title": "Watch: Google coding interview communication",
+      "kind": "english",
+      "minutes": 30,
+      "instruction": "Watch a public Google-style coding interview and pause every 5 minutes to note how the candidate clarifies, narrates, and recovers from mistakes.",
+      "practicePrompt": "Write five 'I will copy this' communication behaviors and one 'I will avoid this'. Rehearse one behavior on your next LeetCode solve.",
+      "youtubeSearch": "Google coding interview full example think aloud",
+      "resources": [
+        { "label": "YouTube search: Google coding interview", "url": "https://www.youtube.com/results?search_query=google+coding+interview+full" },
+        { "label": "YouTube: interviewer tips", "url": "https://www.youtube.com/results?search_query=google+software+engineer+interview+tips+official" }
+      ],
+      "mapsTo": ["DSA"]
+    },
+    {
+      "id": "com028",
+      "title": "Behavioral deep-dive: Googleyness playlist drill",
+      "kind": "star",
+      "minutes": 35,
+      "instruction": "Pick three public Google behavioral / Googleyness tip videos. For each, extract one rubric phrase and attach it to a STAR-L bullet in your story bank.",
+      "practicePrompt": "Deliver three 2-minute STAR answers on camera. Self-score clarity, ownership, and impact before any AI feedback.",
+      "youtubeSearch": "Googleyness Leadership interview questions software engineer",
+      "resources": [
+        { "label": "YouTube: Googleyness interview", "url": "https://www.youtube.com/results?search_query=googleyness+leadership+interview+software+engineer" },
+        { "label": "YouTube: STAR Google behavioral", "url": "https://www.youtube.com/results?search_query=google+behavioral+interview+STAR+method" },
+        { "label": "How we hire (interview)", "url": "https://careers.google.com/how-we-hire/interview/" }
+      ],
+      "mapsTo": ["Googleyness"]
+    },
+    {
+      "id": "com029",
+      "title": "Google SWE: end-to-end mock communication",
+      "kind": "english",
+      "minutes": 45,
+      "instruction": "Run a 45-minute mock: 5 min TMAY + Googleyness, 25 min coding with think-aloud, 10 min wrap + questions for interviewer. Use only public Google careers guidance as the rubric.",
+      "practicePrompt": "Record or pair with a friend. Score yourself on opener, clarifying questions, narration density, and closing questions. Attempt without AI until after the mock.",
+      "youtubeSearch": "Google software engineer mock interview communication",
+      "resources": [
+        { "label": "Prepare for your interview", "url": "https://careers.google.com/how-we-hire/prepare/" },
+        { "label": "YouTube: mock Google SWE", "url": "https://www.youtube.com/results?search_query=google+software+engineer+mock+interview" }
+      ],
+      "mapsTo": ["DSA", "Googleyness"]
+    },
+    {
+      "id": "com030",
+      "title": "Why Google / why this team (spoken)",
+      "kind": "googleyness",
+      "minutes": 20,
+      "instruction": "Build a sincere 90-second answer: product/user impact you care about, how your skills fit, and one concrete question about the team's work. Avoid generic praise.",
+      "practicePrompt": "Write then speak the answer three times. Cut fluff until it fits under 90 seconds. Solo attempt first.",
+      "youtubeSearch": "why Google interview answer software engineer",
+      "resources": [
+        { "label": "Life at Google", "url": "https://careers.google.com/lifeatgoogle/" },
+        { "label": "Google products & impact stories", "url": "https://careers.google.com/stories/" }
+      ],
+      "mapsTo": ["Googleyness"]
+    }
+  ]
+}

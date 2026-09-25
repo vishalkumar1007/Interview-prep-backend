@@ -1,0 +1,218 @@
+{
+  "rubrics": [
+    {
+      "id": "general-cognitive",
+      "title": "General cognitive ability",
+      "description": "Learn quickly, reason about new problems, and connect ideas across domains without over-relying on memorized templates."
+    },
+    {
+      "id": "role-related",
+      "title": "Role-related knowledge",
+      "description": "Depth in CS fundamentals, coding, and—for mid+ levels—system design relevant to the job family."
+    },
+    {
+      "id": "googleyness",
+      "title": "Googleyness",
+      "description": "Collaboration, humility, bias for action, user focus, and comfort with ambiguity in a team setting."
+    },
+    {
+      "id": "leadership",
+      "title": "Emerging leadership",
+      "description": "Influence without authority, mentoring, driving clarity, and improving team outcomes beyond individual tasks."
+    }
+  ],
+  "leadershipRubrics": [
+    {
+      "id": "lead-ambiguity",
+      "title": "Navigate ambiguity",
+      "description": "Structure unclear problems, align stakeholders, and deliver incremental value while requirements evolve."
+    },
+    {
+      "id": "lead-impact",
+      "title": "Drive impact",
+      "description": "Choose high-leverage work, measure outcomes, and iterate based on data and user feedback."
+    },
+    {
+      "id": "lead-people",
+      "title": "Develop others",
+      "description": "Coach peers, share knowledge, and raise the bar through reviews, docs, and pairing."
+    },
+    {
+      "id": "lead-integrity",
+      "title": "Act with integrity",
+      "description": "Escalate risks early, admit mistakes, and prioritize user trust and safety over short-term wins."
+    }
+  ],
+  "storyPrompts": [
+    {
+      "id": "story-01",
+      "title": "Disagreement on technical direction",
+      "prompt": "Tell me about a time you disagreed with a teammate or manager on a technical approach. How did you handle it?",
+      "mapsTo": [
+        "googleyness",
+        "lead-ambiguity"
+      ]
+    },
+    {
+      "id": "story-02",
+      "title": "Ambiguous project start",
+      "prompt": "Describe a project with unclear requirements. What did you do in the first two weeks?",
+      "mapsTo": [
+        "general-cognitive",
+        "lead-ambiguity"
+      ]
+    },
+    {
+      "id": "story-03",
+      "title": "Missed deadline or incident",
+      "prompt": "Share a time you missed a commitment or caused a production issue. What happened and what changed afterward?",
+      "mapsTo": [
+        "googleyness",
+        "lead-integrity"
+      ]
+    },
+    {
+      "id": "story-04",
+      "title": "Above-and-beyond for users",
+      "prompt": "When did you go out of your way to improve user experience or reliability?",
+      "mapsTo": [
+        "googleyness",
+        "lead-impact"
+      ]
+    },
+    {
+      "id": "story-05",
+      "title": "Mentoring or unblocking others",
+      "prompt": "Give an example of helping a teammate succeed when they were stuck.",
+      "mapsTo": [
+        "leadership",
+        "lead-people"
+      ]
+    },
+    {
+      "id": "story-06",
+      "title": "Prioritization under pressure",
+      "prompt": "Tell me about competing priorities with limited time. How did you decide what to cut?",
+      "mapsTo": [
+        "general-cognitive",
+        "lead-impact"
+      ]
+    },
+    {
+      "id": "story-07",
+      "title": "Learning something new fast",
+      "prompt": "Describe learning a new codebase, tool, or domain quickly to deliver value.",
+      "mapsTo": [
+        "general-cognitive",
+        "role-related"
+      ]
+    },
+    {
+      "id": "story-08",
+      "title": "Inclusive collaboration",
+      "prompt": "Share a time you ensured quieter voices or diverse perspectives were heard in a decision.",
+      "mapsTo": [
+        "googleyness",
+        "lead-people"
+      ]
+    },
+    {
+      "id": "story-09",
+      "title": "Pushing back on scope creep",
+      "prompt": "When did you push back on scope or quality risks while staying collaborative?",
+      "mapsTo": [
+        "leadership",
+        "lead-integrity"
+      ]
+    },
+    {
+      "id": "story-10",
+      "title": "Data changed your mind",
+      "prompt": "Tell me about a decision where metrics or an experiment changed your original plan.",
+      "mapsTo": [
+        "lead-impact",
+        "general-cognitive"
+      ]
+    }
+  ],
+  "deliveryTips": [
+    "Use STAR: Situation (10%), Task (10%), Action (60%), Result (20%) with metrics when possible.",
+    "Say “I” for your actions and “we” for team context—interviewers want your specific contribution.",
+    "Keep stories to 2–3 minutes; offer to go deeper if the interviewer probes.",
+    "Prepare 8–10 stories that map to multiple rubrics to avoid repetition across interviewers.",
+    "For failures, emphasize learning, systemic fixes, and what you do differently now.",
+    "Avoid blaming; focus on facts, trade-offs, and collaborative resolution."
+  ],
+  "englishPractice": [
+    {
+      "id": "eng-01",
+      "title": "Explain hash map vs tree map",
+      "instruction": "Record a 5-minute comparison of average vs ordered map trade-offs for a Google-scale service.",
+      "youtubeSearch": "hash map vs tree map interview explanation",
+      "practicePrompt": "Explain when you would choose a hash map versus a balanced tree map for an in-memory index serving 10M QPS reads."
+    },
+    {
+      "id": "eng-02",
+      "title": "Walk through BFS vs DFS",
+      "instruction": "Whiteboard verbally: shortest path vs connectivity; give one example each.",
+      "youtubeSearch": "BFS vs DFS coding interview",
+      "practicePrompt": "A interviewer asks which traversal you pick for rotten oranges spreading—defend BFS in under 90 seconds."
+    },
+    {
+      "id": "eng-03",
+      "title": "Clarifying questions script",
+      "instruction": "Practice asking 5 clarifying questions before coding Two Sum variants.",
+      "youtubeSearch": "coding interview clarifying questions",
+      "practicePrompt": "Read a vague prompt (“find pairs with sum K”) and ask constraints without solving yet."
+    },
+    {
+      "id": "eng-04",
+      "title": "Complexity narration",
+      "instruction": "After solving, state time/space and whether you can optimize further.",
+      "youtubeSearch": "how to explain time complexity interview",
+      "practicePrompt": "Explain O(n log n) for sorting + two pointers on 3Sum without reading notes."
+    },
+    {
+      "id": "eng-05",
+      "title": "System design opener",
+      "instruction": "Practice 3-minute requirements for “design a URL shortener” including scale estimates.",
+      "youtubeSearch": "Google system design interview introduction",
+      "practicePrompt": "List functional/non-functional requirements and one back-of-envelope QPS estimate aloud."
+    },
+    {
+      "id": "eng-06",
+      "title": "STAR story timing",
+      "instruction": "Deliver one Googleyness story in exactly 150 seconds using a timer.",
+      "youtubeSearch": "STAR method software engineer interview",
+      "practicePrompt": "Tell the “disagreement on technical direction” story with one metric at the end."
+    },
+    {
+      "id": "eng-07",
+      "title": "Think-aloud while stuck",
+      "instruction": "Practice narrating hypotheses when you do not know the optimal pattern yet.",
+      "youtubeSearch": "coding interview think out loud",
+      "practicePrompt": "On Word Ladder, verbalize BFS setup even if implementation is slow—focus on communication."
+    },
+    {
+      "id": "eng-08",
+      "title": "Follow-up extension",
+      "instruction": "Take a solved medium problem and explain the hard follow-up without coding fully.",
+      "youtubeSearch": "coding interview follow up questions",
+      "practicePrompt": "After Valid Parentheses, explain how you would generate all valid combinations of n pairs."
+    },
+    {
+      "id": "eng-09",
+      "title": "Concise project pitch",
+      "instruction": "90-second project summary: problem, your role, tech, impact metric.",
+      "youtubeSearch": "software engineer behavioral project story",
+      "practicePrompt": "Pitch your most recent backend project as if opening a Google phone screen."
+    },
+    {
+      "id": "eng-10",
+      "title": "Polite pushback phrase bank",
+      "instruction": "Drill phrases for disagreeing respectfully and proposing experiments.",
+      "youtubeSearch": "disagree and commit interview example",
+      "practicePrompt": "Role-play: teammate wants microservices; you propose modular monolith—stay collaborative."
+    }
+  ]
+}

@@ -1,0 +1,664 @@
+{
+  "items": [
+    {
+      "id": "sd001",
+      "title": "Requirements and non-functional requirements",
+      "kind": "method",
+      "minutes": 30,
+      "overview": "Separate functional features from NFRs: scale, latency, availability, durability, consistency, cost, compliance.",
+      "steps": [
+        "List 3–5 core user journeys",
+        "Quantify DAU, QPS, read/write ratio",
+        "Set latency targets (p50/p99)",
+        "State availability goal (e.g., 99.9%)",
+        "Call out consistency needs explicitly"
+      ],
+      "checklist": [
+        "Write assumptions before drawing boxes",
+        "Prioritize MVP scope",
+        "Identify bottlenecks early"
+      ],
+      "youtubeSearch": "system design requirements NFR",
+      "whyGoogle": "Google design interviews grade problem framing before depth.",
+      "practicePrompt": "Attempt without AI: write requirements for a photo sharing app in 10 minutes, then add numbers."
+    },
+    {
+      "id": "sd002",
+      "title": "Back-of-envelope estimation",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "Use powers of two, QPS = DAU * actions / 86400, storage = objects * size * retention.",
+      "steps": [
+        "Estimate daily active users",
+        "Derive peak QPS with peak factor",
+        "Compute storage growth per year",
+        "Estimate bandwidth for hot paths",
+        "Sanity-check one number two ways"
+      ],
+      "checklist": [
+        "Show arithmetic on paper",
+        "Round aggressively",
+        "Connect estimates to component choice"
+      ],
+      "youtubeSearch": "system design back of envelope estimation",
+      "whyGoogle": "Order-of-magnitude sanity is mandatory at Google scale discussions.",
+      "practicePrompt": "Estimate storage for 500M users posting 1 KB metadata daily for 5 years—solo first."
+    },
+    {
+      "id": "sd003",
+      "title": "API design and idempotency",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "REST or RPC resources with clear verbs, pagination, versioning, and idempotent writes for safe retries.",
+      "steps": [
+        "Define core resources and IDs",
+        "Choose pagination (cursor vs offset)",
+        "Specify error model",
+        "Add idempotency keys for creates",
+        "Document rate limits"
+      ],
+      "checklist": [
+        "Use nouns in paths",
+        "Avoid breaking changes casually",
+        "Consider batch endpoints"
+      ],
+      "youtubeSearch": "system design API design idempotency",
+      "whyGoogle": "API clarity reflects how Google ships multi-team platforms.",
+      "practicePrompt": "Design APIs for a task tracker without AI; then review retry behavior."
+    },
+    {
+      "id": "sd004",
+      "title": "Database selection framework",
+      "kind": "method",
+      "minutes": 30,
+      "overview": "Match access patterns: relational for transactions, wide-column/KV for scale, search engines for full text, cache for hot keys.",
+      "steps": [
+        "List read vs write patterns",
+        "Identify need for joins/transactions",
+        "Check query flexibility needs",
+        "Estimate data size and growth",
+        "Pick primary store plus cache/search if needed"
+      ],
+      "checklist": [
+        "Justify SQL vs NoSQL with patterns",
+        "Mention replication needs",
+        "Plan migration path"
+      ],
+      "youtubeSearch": "SQL vs NoSQL system design",
+      "whyGoogle": "Wrong store choice fails designs quickly in Google loops.",
+      "practicePrompt": "Pick storage for an analytics event pipeline—attempt solo with written trade-offs."
+    },
+    {
+      "id": "sd005",
+      "title": "Caching strategies",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "Cache-aside, write-through, write-back; TTL and invalidation; protect against stampede with locking or request coalescing.",
+      "steps": [
+        "Identify hot keys and hit ratio goal",
+        "Choose cache layer (CDN, app, Redis)",
+        "Define TTL and invalidation triggers",
+        "Plan for cold start and thundering herd",
+        "Measure stale data tolerance"
+      ],
+      "checklist": [
+        "State consistency vs freshness",
+        "Size cache from working set",
+        "Monitor evictions and latency"
+      ],
+      "youtubeSearch": "system design caching cache aside",
+      "whyGoogle": "Caching is the default lever for Google-scale read-heavy systems.",
+      "practicePrompt": "Add cache to a read-heavy profile service design; attempt without AI first."
+    },
+    {
+      "id": "sd006",
+      "title": "Sharding and consistent hashing",
+      "kind": "method",
+      "minutes": 30,
+      "overview": "Partition data by key; consistent hashing minimizes remapping on node changes; virtual nodes balance load.",
+      "steps": [
+        "Pick shard key for even spread",
+        "Estimate shards from storage/QPS",
+        "Explain rerouting on shard add",
+        "Handle cross-shard queries",
+        "Plan rebalancing and hotspots"
+      ],
+      "checklist": [
+        "Avoid monotonic hot keys",
+        "Secondary indexes strategy",
+        "Operational runbook for split"
+      ],
+      "youtubeSearch": "consistent hashing system design",
+      "whyGoogle": "Sharding appears in most high-scale Google design prompts.",
+      "practicePrompt": "Shard a user timeline store—write approach before viewing any solution."
+    },
+    {
+      "id": "sd007",
+      "title": "Message queues and async processing",
+      "kind": "method",
+      "minutes": 30,
+      "overview": "Decouple producers/consumers; at-least-once delivery with idempotent consumers; dead-letter queues for poison messages.",
+      "steps": [
+        "Identify async boundaries",
+        "Choose queue (Kafka, Pub/Sub, SQS)",
+        "Define ordering and partitioning keys",
+        "Plan consumer scaling",
+        "Handle retries and DLQ"
+      ],
+      "checklist": [
+        "Compare sync vs async user experience",
+        "Draw failure scenarios",
+        "Monitor lag and age"
+      ],
+      "youtubeSearch": "message queue system design kafka",
+      "whyGoogle": "Async pipelines power Search indexing, ads, and analytics at Google.",
+      "practicePrompt": "Design email send pipeline async—attempt solo, then compare delivery guarantees."
+    },
+    {
+      "id": "sd008",
+      "title": "Observability: metrics, logs, traces",
+      "kind": "method",
+      "minutes": 20,
+      "overview": "Golden signals: latency, traffic, errors, saturation. Structured logs and distributed traces for debugging.",
+      "steps": [
+        "Pick SLIs for core APIs",
+        "Define SLOs and error budgets",
+        "Instrument key spans",
+        "Design dashboards and alerts",
+        "Plan on-call runbooks"
+      ],
+      "checklist": [
+        "Avoid alert fatigue",
+        "Log correlation IDs",
+        "Test failover in staging"
+      ],
+      "youtubeSearch": "Google SRE golden signals",
+      "whyGoogle": "Google SRE culture expects operability in design answers.",
+      "practicePrompt": "List SLIs for a payment API without AI assistance first."
+    },
+    {
+      "id": "sd009",
+      "title": "High-level design: URL shortener",
+      "kind": "hld",
+      "minutes": 45,
+      "overview": "Generate short codes, redirect with low latency, analytics optional, high read QPS vs moderate writes.",
+      "steps": [
+        "API: create short URL, redirect",
+        "Estimate QPS and storage",
+        "Choose base62 ID generation vs hash",
+        "Store mapping in KV/SQL with cache",
+        "Handle custom aliases and collisions"
+      ],
+      "checklist": [
+        "301 vs 302 redirect trade-off",
+        "Cache hot links at CDN edge",
+        "Rate limit create endpoint"
+      ],
+      "youtubeSearch": "system design url shortener",
+      "whyGoogle": "Canonical warm-up HLD—interviewers probe scaling and collision handling.",
+      "practicePrompt": "Full 35-minute HLD on whiteboard; attempt without AI until debrief."
+    },
+    {
+      "id": "sd010",
+      "title": "High-level design: Rate limiter",
+      "kind": "hld",
+      "minutes": 40,
+      "overview": "Enforce per-user/IP limits globally in distributed system using token bucket and shared store.",
+      "steps": [
+        "Define limit dimensions (user, IP, API key)",
+        "Pick algorithm (token/leaky bucket)",
+        "Central Redis vs local+sync",
+        "Handle clock skew and race conditions",
+        "Return 429 with Retry-After"
+      ],
+      "checklist": [
+        "Discuss sliding window accuracy",
+        "Fail open vs closed on store outage",
+        "Benchmark hot path latency"
+      ],
+      "youtubeSearch": "system design rate limiter distributed",
+      "whyGoogle": "Protects Google APIs—common LLD/HLD hybrid question.",
+      "practicePrompt": "Design global 1000 req/min per API key limiter solo first."
+    },
+    {
+      "id": "sd011",
+      "title": "High-level design: News feed",
+      "kind": "hld",
+      "minutes": 50,
+      "overview": "Fan-out on write vs fan-out on read for home timeline; celebrity user problem; ranking optional.",
+      "steps": [
+        "Model follow graph",
+        "Choose fan-out strategy with scale math",
+        "Store posts and timelines",
+        "Merge ranked feed if needed",
+        "Cache recent posts per user"
+      ],
+      "checklist": [
+        "Compare fan-out write vs read",
+        "Hybrid for hot accounts",
+        "Pagination cursors for feed"
+      ],
+      "youtubeSearch": "system design news feed twitter",
+      "whyGoogle": "Social graph products mirror Google-adjacent scale thinking.",
+      "practicePrompt": "Design Instagram-style feed for 10M DAU—no AI until after first draft."
+    },
+    {
+      "id": "sd012",
+      "title": "High-level design: Chat messaging",
+      "kind": "hld",
+      "minutes": 50,
+      "overview": "Real-time delivery, message ordering per conversation, presence, offline sync, media attachments.",
+      "steps": [
+        "WebSocket gateway scaling",
+        "Message store and conversation ID",
+        "Delivery acks and read receipts",
+        "Push notifications for offline",
+        "End-to-end encryption optional scope"
+      ],
+      "checklist": [
+        "Ordering guarantees per channel",
+        "Shard by conversation ID",
+        "Backpressure on slow clients"
+      ],
+      "youtubeSearch": "system design chat application whatsapp",
+      "whyGoogle": "Real-time systems test WebSockets, storage, and consistency choices.",
+      "practicePrompt": "45-minute chat HLD with 1:1 and group rooms—attempt independently."
+    },
+    {
+      "id": "sd013",
+      "title": "High-level design: Notification system",
+      "kind": "hld",
+      "minutes": 45,
+      "overview": "Multi-channel delivery (push, email, SMS), templates, user preferences, deduplication, priority queues.",
+      "steps": [
+        "Event ingestion from services",
+        "Template and localization layer",
+        "Channel adapters with retries",
+        "User preference and quiet hours",
+        "Delivery tracking and analytics"
+      ],
+      "checklist": [
+        "Idempotent notification IDs",
+        "Rate limit per channel",
+        "Fallback channel strategy"
+      ],
+      "youtubeSearch": "system design notification service",
+      "whyGoogle": "Cross-product notifications resemble Google-wide platforms.",
+      "practicePrompt": "Design notifications for e-commerce order updates without AI first."
+    },
+    {
+      "id": "sd014",
+      "title": "High-level design: File storage (Dropbox-like)",
+      "kind": "hld",
+      "minutes": 50,
+      "overview": "Upload/download large files, deduplication via chunking, metadata DB, sync across devices.",
+      "steps": [
+        "Chunk files with content hashes",
+        "Metadata service for namespaces",
+        "Blob store (S3/GCS) for chunks",
+        "Sync protocol and conflict resolution",
+        "CDN for popular downloads"
+      ],
+      "checklist": [
+        "Explain dedup savings",
+        "Handle partial upload resume",
+        "Encrypt at rest and in transit"
+      ],
+      "youtubeSearch": "system design dropbox file storage",
+      "whyGoogle": "Storage + metadata split mirrors Google Drive components conceptually.",
+      "practicePrompt": "HLD file sync for 100GB user quota—solo attempt with diagram."
+    },
+    {
+      "id": "sd015",
+      "title": "High-level design: Search autocomplete",
+      "kind": "hld",
+      "minutes": 40,
+      "overview": "Low-latency prefix suggestions from aggregated query logs; trie or specialized index; personalization optional.",
+      "steps": [
+        "Ingest search logs offline",
+        "Build prefix index with top-K",
+        "Serve from memory/replicated cache",
+        "Update index periodically",
+        "Filter unsafe suggestions"
+      ],
+      "checklist": [
+        "Target sub-100ms p99",
+        "Trie vs sorted array trade-off",
+        "Handle trending queries"
+      ],
+      "youtubeSearch": "system design typeahead autocomplete",
+      "whyGoogle": "Directly related to Google Search product thinking.",
+      "practicePrompt": "Design autocomplete for 1B queries/day—attempt without references first."
+    },
+    {
+      "id": "sd016",
+      "title": "High-level design: Distributed job queue",
+      "kind": "hld",
+      "minutes": 45,
+      "overview": "Workers pull jobs with visibility timeout, retries, priorities, scheduling, and exactly-once illusion via idempotency.",
+      "steps": [
+        "Job schema and states",
+        "Queue backend and partitioning",
+        "Worker scaling and lease renewal",
+        "Retry policy and DLQ",
+        "Dashboard for stuck jobs"
+      ],
+      "checklist": [
+        "At-least-once processing",
+        "Poison message handling",
+        "Cron vs delay queues"
+      ],
+      "youtubeSearch": "system design job scheduler queue",
+      "whyGoogle": "Batch and async compute underpin Google infrastructure.",
+      "practicePrompt": "Design video transcoding queue—write flows before AI review."
+    },
+    {
+      "id": "sd017",
+      "title": "Low-level design: Parking lot",
+      "kind": "lld",
+      "minutes": 40,
+      "overview": "Classic OOD: vehicles, spots, tickets, pricing rules—practice encapsulation and extensibility.",
+      "steps": [
+        "Identify entities and relationships",
+        "Define interfaces for pricing strategy",
+        "Model spot allocation",
+        "Handle concurrency for spot booking",
+        "Write key method signatures"
+      ],
+      "checklist": [
+        "Open for extension on vehicle types",
+        "Clear invariants on spot occupancy",
+        "Unit test pricing rules"
+      ],
+      "youtubeSearch": "object oriented design parking lot",
+      "whyGoogle": "LLD rounds test clean class design without distributed noise.",
+      "practicePrompt": "Implement parking lot classes in Go or Java—attempt without AI first."
+    },
+    {
+      "id": "sd018",
+      "title": "Low-level design: In-memory rate limiter class",
+      "kind": "lld",
+      "minutes": 35,
+      "overview": "Single-process token bucket with thread-safe API—bridge to distributed version later.",
+      "steps": [
+        "Define Allow(key) bool API",
+        "Store buckets per key in map",
+        "Refill tokens based on elapsed time",
+        "Add mutex or sharded locks",
+        "Unit test time advancement with fake clock"
+      ],
+      "checklist": [
+        "Bound memory with LRU of keys",
+        "Test burst allowance",
+        "Document thread safety"
+      ],
+      "youtubeSearch": "rate limiter low level design coding",
+      "whyGoogle": "Often paired with Go/Java coding in Google onsite loops.",
+      "practicePrompt": "Code token bucket in Go with tests—no AI until tests fail twice."
+    },
+    {
+      "id": "sd019",
+      "title": "Low-level design: LRU cache",
+      "kind": "lld",
+      "minutes": 35,
+      "overview": "O(1) get/put using hash map + doubly linked list—frequent coding prompt.",
+      "steps": [
+        "Define capacity and eviction",
+        "Implement list + map nodes",
+        "Update on get to mark recent",
+        "Handle edge cases size 0/1",
+        "Complexity analysis aloud"
+      ],
+      "checklist": [
+        "All operations O(1)",
+        "Thread safety if asked",
+        "Optional TTL extension verbally"
+      ],
+      "youtubeSearch": "LRU cache implementation interview",
+      "whyGoogle": "Data structure + OOD combo mirrors coding depth expectations.",
+      "practicePrompt": "Implement LRU from scratch timed 25 minutes without AI."
+    },
+    {
+      "id": "sd020",
+      "title": "Consistency models in design",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "Strong, eventual, causal; read-your-writes and monotonic reads for UX; pick per use case.",
+      "steps": [
+        "Classify operations by consistency need",
+        "Map to storage/replication config",
+        "Explain user-visible anomalies if relaxed",
+        "Use version vectors or timestamps if needed",
+        "Validate with failure scenarios"
+      ],
+      "checklist": [
+        "Avoid one-size-fits-all strong",
+        "Tie to CAP/PACELC briefly",
+        "Document session stickiness if used"
+      ],
+      "youtubeSearch": "eventual consistency vs strong consistency",
+      "whyGoogle": "Google Spanner and global DBs make consistency a favorite topic.",
+      "practicePrompt": "Pick consistency for shopping cart vs product catalog—justify solo."
+    },
+    {
+      "id": "sd021",
+      "title": "Leader election and failover",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "Use coordination service (etcd/ZooKeeper) or DB leases for single writer; fencing tokens prevent stale leaders.",
+      "steps": [
+        "Identify need for single leader",
+        "Choose lease duration and heartbeat",
+        "Plan promotion and demotion",
+        "Prevent split-brain with quorum",
+        "Test failover drills"
+      ],
+      "checklist": [
+        "Fencing stale writers",
+        "Graceful vs hard failover",
+        "Client retry behavior"
+      ],
+      "youtubeSearch": "leader election distributed systems",
+      "whyGoogle": "Reliability of primary services depends on clean failover stories.",
+      "practicePrompt": "Design failover for a cron scheduler leader—attempt without AI."
+    },
+    {
+      "id": "sd022",
+      "title": "Multi-region active-active",
+      "kind": "method",
+      "minutes": 35,
+      "overview": "Geo routing, replicated data, conflict resolution, and compliance with data residency.",
+      "steps": [
+        "Define RPO/RTO targets",
+        "Pick replication sync vs async",
+        "Route users to nearest region",
+        "Resolve write conflicts",
+        "Plan disaster recovery drills"
+      ],
+      "checklist": [
+        "Data residency constraints",
+        "Split brain mitigation",
+        "Measure cross-region latency"
+      ],
+      "youtubeSearch": "multi region active active system design",
+      "whyGoogle": "Google runs globally—candidates should discuss region failure.",
+      "practicePrompt": "Extend URL shortener to two regions—solo draft first."
+    },
+    {
+      "id": "sd023",
+      "title": "Search index pipeline",
+      "kind": "method",
+      "minutes": 30,
+      "overview": "Crawl/ingest → parse → index inverted → serve queries with ranking signals offline/online.",
+      "steps": [
+        "Document ingestion sources",
+        "Tokenization and stemming choices",
+        "Build inverted index shards",
+        "Serve top-K with BM25 baseline",
+        "Refresh index incrementally"
+      ],
+      "checklist": [
+        "Batch vs streaming index updates",
+        "Ranking features separation",
+        "Spell correction optional"
+      ],
+      "youtubeSearch": "search engine indexing system design",
+      "whyGoogle": "Search heritage makes indexing pipelines a credible deep dive.",
+      "practicePrompt": "Outline index pipeline for product catalog search—no AI initially."
+    },
+    {
+      "id": "sd024",
+      "title": "Video streaming architecture",
+      "kind": "hld",
+      "minutes": 45,
+      "overview": "Upload, transcode ladder, CDN delivery, adaptive bitrate playback, view counts.",
+      "steps": [
+        "Separate metadata and blob storage",
+        "Transcode queue producing renditions",
+        "Manifest files (HLS/DASH)",
+        "CDN cache popular content",
+        "Analytics beacons for views"
+      ],
+      "checklist": [
+        "Cold vs viral video caching",
+        "DRM scope if mentioned",
+        "Cost of egress"
+      ],
+      "youtubeSearch": "system design youtube video streaming",
+      "whyGoogle": "YouTube-scale thinking tests media pipelines and CDN usage.",
+      "practicePrompt": "Design Netflix-like streaming HLD in 40 minutes solo."
+    },
+    {
+      "id": "sd025",
+      "title": "Payment system sketch",
+      "kind": "hld",
+      "minutes": 45,
+      "overview": "Strong consistency for balances, idempotent payments, ledger, reconciliation, PCI scope minimization.",
+      "steps": [
+        "Double-entry ledger model",
+        "Idempotency keys on charge API",
+        "Sync with payment provider webhooks",
+        "Reconciliation batch jobs",
+        "Fraud checks async"
+      ],
+      "checklist": [
+        "Never double charge on retry",
+        "Audit trail immutable",
+        "PCI: tokenize card data"
+      ],
+      "youtubeSearch": "system design payment system stripe",
+      "whyGoogle": "Correctness and auditability mirror Google Wallet/Ads billing rigor.",
+      "practicePrompt": "Design charge API with webhook confirmation—attempt without AI."
+    },
+    {
+      "id": "sd026",
+      "title": "Low-level design: Elevator system",
+      "kind": "lld",
+      "minutes": 40,
+      "overview": "Dispatch algorithm, elevator state, requests queue—OOD and concurrency discussion.",
+      "steps": [
+        "Model elevators, floors, requests",
+        "Scheduling policy (SCAN/look)",
+        "Thread-safe request queue",
+        "Simulate multiple elevators",
+        "Expose status API"
+      ],
+      "checklist": [
+        "Explain algorithm choice",
+        "Handle emergency stop edge case",
+        "Tests for dispatch fairness"
+      ],
+      "youtubeSearch": "elevator system object oriented design",
+      "whyGoogle": "Tests structured thinking beyond CRUD APIs.",
+      "practicePrompt": "Code elevator dispatcher for 3 cars—solo attempt first."
+    },
+    {
+      "id": "sd027",
+      "title": "Bloom filters and count-min sketch",
+      "kind": "method",
+      "minutes": 20,
+      "overview": "Probabilistic structures save memory for membership and frequency approximations with tunable error rates.",
+      "steps": [
+        "Define false positive tolerance",
+        "Size bloom filter from m, k, n",
+        "Use before expensive lookup",
+        "Combine with exact store on hit",
+        "Monitor false positive rate"
+      ],
+      "checklist": [
+        "No false negatives in bloom",
+        "Not delete-friendly without variant",
+        "Sketch use for heavy hitters"
+      ],
+      "youtubeSearch": "bloom filter system design",
+      "whyGoogle": "Bigtable/Search culture uses probabilistic structures routinely.",
+      "practicePrompt": "Explain where to put bloom filter in URL shortener—write solo."
+    },
+    {
+      "id": "sd028",
+      "title": "Capacity planning and load testing",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "Load test critical paths, find knee in latency curve, plan headroom for launches and failover.",
+      "steps": [
+        "Define workload model",
+        "Run ramped load in staging",
+        "Profile bottlenecks (CPU, IO, lock)",
+        "Add capacity or optimize hot path",
+        "Document max sustainable QPS"
+      ],
+      "checklist": [
+        "Test failover under load",
+        "Compare canary vs control",
+        "Track error budget burn"
+      ],
+      "youtubeSearch": "load testing capacity planning SRE",
+      "whyGoogle": "Launch readiness reviews expect measurement, not guesses.",
+      "practicePrompt": "Plan load test for feed read API—outline solo before AI."
+    },
+    {
+      "id": "sd029",
+      "title": "Security in system design",
+      "kind": "method",
+      "minutes": 25,
+      "overview": "Authentication, authorization, encryption, secrets management, audit logs, threat modeling STRIDE lightly.",
+      "steps": [
+        "Identify trust boundaries",
+        "Authenticate callers (OAuth/mTLS)",
+        "Authorize with RBAC/ABAC",
+        "Encrypt data at rest/in transit",
+        "Rotate secrets and audit access"
+      ],
+      "checklist": [
+        "Least privilege IAM",
+        "No secrets in logs",
+        "DDoS and abuse protections"
+      ],
+      "youtubeSearch": "system design security authentication authorization",
+      "whyGoogle": "Security is non-negotiable for user data at Google scale.",
+      "practicePrompt": "Threat-model file storage design for insider abuse—solo first."
+    },
+    {
+      "id": "sd030",
+      "title": "Wrap-up and deep-dive selection",
+      "kind": "method",
+      "minutes": 15,
+      "overview": "Reserve 5 minutes to summarize; invite interviewer to deep dive on bottleneck, failure, or scaling dimension.",
+      "steps": [
+        "Recap architecture in 60 seconds",
+        "Call out biggest risk",
+        "Propose phase 2 improvements",
+        "Ask which area to expand",
+        "Quantify again if new constraint added"
+      ],
+      "checklist": [
+        "Stay within time box",
+        "Do not introduce new scope late",
+        "Show iterative mindset"
+      ],
+      "youtubeSearch": "system design interview closing summary",
+      "whyGoogle": "Strong candidates drive the interview collaboratively.",
+      "practicePrompt": "Practice 60-second recap for news feed design—record without AI."
+    }
+  ]
+}
