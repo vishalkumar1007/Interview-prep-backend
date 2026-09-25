@@ -132,6 +132,7 @@ app.use(async (_req, _res, next) => {
 app.use(cors({
   origin: frontendOrigin,
   credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }))
 app.use(express.json({ limit: '2mb' }))
 app.use(cookieParser())
@@ -155,12 +156,20 @@ function cookieOptions() {
 }
 
 function setSession(res, user) {
-  res.cookie('prepbase_session', signSession(user), cookieOptions())
+  const token = signSession(user)
+  res.cookie('prepbase_session', token, cookieOptions())
+  return token
+}
+
+function readAuthToken(req) {
+  const header = req.headers.authorization || ''
+  if (header.startsWith('Bearer ')) return header.slice(7).trim()
+  return req.cookies.prepbase_session || null
 }
 
 function requireUser(req, res, next) {
   try {
-    const token = req.cookies.prepbase_session
+    const token = readAuthToken(req)
     if (!token) throw new Error('No session')
     req.userId = Number(jwt.verify(token, jwtSecret).sub)
     next()
@@ -408,8 +417,8 @@ app.post('/api/auth/signup', async (req, res) => {
       }),
     ])
     const account = await getAccount(userId)
-    setSession(res, account.user)
-    res.status(201).json(account)
+    const token = setSession(res, account.user)
+    res.status(201).json({ ...account, token })
   } catch (error) {
     const code = error?.code || ''
     const unique = String(code).includes('CONSTRAINT') || String(error?.message || '').includes('UNIQUE')
@@ -428,8 +437,8 @@ app.post('/api/auth/login', async (req, res) => {
     return res.status(401).json({ error: 'Email or password is incorrect.' })
   }
   const account = await getAccount(user.id)
-  setSession(res, account.user)
-  res.json(account)
+  const token = setSession(res, account.user)
+  res.json({ ...account, token })
 })
 
 app.post('/api/auth/logout', (_req, res) => {
