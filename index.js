@@ -343,7 +343,18 @@ function buildScheduleIndex(startDate) {
   return { startDate, byProblem, byBankItem, totalWeeks: TOTAL_WEEKS }
 }
 
+app.get('/', (_req, res) => {
+  res.status(200).json({
+    ok: true,
+    service: 'Prepbase API',
+    status: 'healthy',
+    time: new Date().toISOString(),
+    health: '/api/health',
+  })
+})
+
 app.get('/api/health', (_req, res) => res.json({ ok: true }))
+
 
 app.post('/api/auth/signup', async (req, res) => {
   const {
