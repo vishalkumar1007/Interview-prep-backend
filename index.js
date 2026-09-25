@@ -46,18 +46,19 @@ const bankCatalog = {
 }
 
 async function seedContent() {
-  const version = 'skill-banks-v4-capacity-links-2'
+  // Bump when content JSON changes. Upserts are safe under concurrent Vercel cold starts.
+  const version = 'skill-banks-v4-capacity-links-3'
   const current = await dbGet('SELECT value FROM content_meta WHERE key = ?', ['seed_version'])
   if (current?.value === version) return
-
-  await dbExec('DELETE FROM content_items')
-  await dbExec('DELETE FROM content_assessments')
-  await dbExec('DELETE FROM content_docs')
 
   const statements = []
   const pushItem = (id, skill, kind, sort, payload) => {
     statements.push({
-      sql: 'INSERT INTO content_items (id, skill, kind, sort, payload) VALUES (?, ?, ?, ?, ?)',
+      sql: `
+        INSERT INTO content_items (id, skill, kind, sort, payload) VALUES (?, ?, ?, ?, ?)
+        ON CONFLICT(id) DO UPDATE SET
+          skill=excluded.skill, kind=excluded.kind, sort=excluded.sort, payload=excluded.payload
+      `,
       args: [id, skill, kind, sort, JSON.stringify(payload)],
     })
   }
@@ -71,7 +72,10 @@ async function seedContent() {
   ;(communicationBank.items || []).forEach((p, i) => pushItem(p.id, 'Communication', 'topic', i, p))
   ;(assessmentsDoc.items || []).forEach((a, i) => {
     statements.push({
-      sql: 'INSERT INTO content_assessments (id, sort, payload) VALUES (?, ?, ?)',
+      sql: `
+        INSERT INTO content_assessments (id, sort, payload) VALUES (?, ?, ?)
+        ON CONFLICT(id) DO UPDATE SET sort=excluded.sort, payload=excluded.payload
+      `,
       args: [a.id, i, JSON.stringify(a)],
     })
   })
@@ -86,7 +90,10 @@ async function seedContent() {
   ]
   for (const [key, payload] of docs) {
     statements.push({
-      sql: 'INSERT INTO content_docs (key, payload) VALUES (?, ?)',
+      sql: `
+        INSERT INTO content_docs (key, payload) VALUES (?, ?)
+        ON CONFLICT(key) DO UPDATE SET payload=excluded.payload
+      `,
       args: [key, JSON.stringify(payload)],
     })
   }
@@ -99,7 +106,6 @@ async function seedContent() {
     args: [version],
   })
 
-  // Batch in chunks to stay under serverless payload limits
   const chunkSize = 80
   for (let i = 0; i < statements.length; i += chunkSize) {
     await db.batch(statements.slice(i, i + chunkSize), 'write')
@@ -112,7 +118,14 @@ app.use(async (_req, _res, next) => {
     await ensureDb(seedContent)
     next()
   } catch (error) {
-    next(error)
+    // Concurrent cold starts can race; upserts make a retry safe.
+    console.error('DB init failed, retrying once:', error?.message || error)
+    try {
+      await seedContent()
+      next()
+    } catch (retryError) {
+      next(retryError)
+    }
   }
 })
 

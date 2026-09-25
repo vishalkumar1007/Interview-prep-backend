@@ -103,7 +103,10 @@ export function ensureDb(seedFn) {
         await dbExec(`ALTER TABLE profiles ADD COLUMN target_level TEXT NOT NULL DEFAULT 'L4'`)
       }
       if (typeof seedFn === 'function') await seedFn()
-    })()
+    })().catch((error) => {
+      initPromise = undefined
+      throw error
+    })
   }
   return initPromise
 }
