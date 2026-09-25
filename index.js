@@ -4,21 +4,17 @@ import { fileURLToPath } from 'node:url'
 import fs from 'node:fs'
 import express from 'express'
 import cors from 'cors'
-import { DatabaseSync } from 'node:sqlite'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import cookieParser from 'cookie-parser'
+import { contentDir, db, dbAll, dbExec, dbGet, dbRun, ensureDb } from './db.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const contentDir = path.join(__dirname, 'content')
-const dataDir = path.join(__dirname, 'data')
-fs.mkdirSync(dataDir, { recursive: true })
-
-const db = new DatabaseSync(path.join(dataDir, 'prepbase.sqlite'))
 const app = express()
 const port = Number(process.env.PORT || 3000)
 const jwtSecret = process.env.JWT_SECRET || 'change-this-before-production'
 const frontendOrigin = process.env.FRONTEND_ORIGIN || 'http://localhost:5173'
+const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL)
 
 function loadJson(name) {
   return JSON.parse(fs.readFileSync(path.join(contentDir, name), 'utf8'))
@@ -49,125 +45,104 @@ const bankCatalog = {
   communication: { skill: 'Communication', items: communicationBank.items || communicationBank },
 }
 
-db.exec('PRAGMA journal_mode = WAL')
-db.exec(`
-  CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-    password_hash TEXT NOT NULL,
-    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-  );
-  CREATE TABLE IF NOT EXISTS profiles (
-    user_id INTEGER PRIMARY KEY,
-    years_experience REAL NOT NULL DEFAULT 1,
-    primary_language TEXT NOT NULL DEFAULT 'Go',
-    target_role TEXT NOT NULL DEFAULT 'Google SWE',
-    target_level TEXT NOT NULL DEFAULT 'L4',
-    start_date TEXT NOT NULL,
-    weekly_weekday_minutes INTEGER NOT NULL DEFAULT 120,
-    weekly_weekend_minutes INTEGER NOT NULL DEFAULT 240,
-    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
-  );
-  CREATE TABLE IF NOT EXISTS progress (
-    user_id INTEGER PRIMARY KEY,
-    payload TEXT NOT NULL DEFAULT '{}',
-    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
-  );
-  CREATE TABLE IF NOT EXISTS content_meta (
-    key TEXT PRIMARY KEY,
-    value TEXT NOT NULL,
-    updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-  );
-  CREATE TABLE IF NOT EXISTS content_items (
-    id TEXT PRIMARY KEY,
-    skill TEXT NOT NULL,
-    kind TEXT NOT NULL,
-    sort INTEGER NOT NULL DEFAULT 0,
-    payload TEXT NOT NULL
-  );
-  CREATE TABLE IF NOT EXISTS content_assessments (
-    id TEXT PRIMARY KEY,
-    sort INTEGER NOT NULL DEFAULT 0,
-    payload TEXT NOT NULL
-  );
-  CREATE TABLE IF NOT EXISTS content_docs (
-    key TEXT PRIMARY KEY,
-    payload TEXT NOT NULL
-  );
-`)
-
-function seedContent() {
+async function seedContent() {
   const version = 'skill-banks-v4-capacity-links-2'
-  const current = db.prepare('SELECT value FROM content_meta WHERE key = ?').get('seed_version')
+  const current = await dbGet('SELECT value FROM content_meta WHERE key = ?', ['seed_version'])
   if (current?.value === version) return
 
-  db.exec('DELETE FROM content_items; DELETE FROM content_assessments; DELETE FROM content_docs;')
-  const insertItem = db.prepare('INSERT INTO content_items (id, skill, kind, sort, payload) VALUES (?, ?, ?, ?, ?)')
-  const insertAssess = db.prepare('INSERT INTO content_assessments (id, sort, payload) VALUES (?, ?, ?)')
-  const insertDoc = db.prepare('INSERT INTO content_docs (key, payload) VALUES (?, ?)')
+  await dbExec('DELETE FROM content_items')
+  await dbExec('DELETE FROM content_assessments')
+  await dbExec('DELETE FROM content_docs')
 
-  const insertMany = () => {
-    dsaProblems.forEach((p, i) => insertItem.run(p.id, 'DSA', 'problem', i, JSON.stringify(p)))
-    dsaPatterns.forEach((p, i) => insertItem.run(`pattern:${p.id}`, 'DSA', 'pattern', i, JSON.stringify(p)))
-    ;(goBank.items || []).forEach((p, i) => insertItem.run(p.id, 'Go', 'topic', i, JSON.stringify(p)))
-    ;(fundamentalsBank.items || []).forEach((p, i) => insertItem.run(p.id, 'Fundamentals', 'topic', i, JSON.stringify(p)))
-    ;(networkingBank.items || []).forEach((p, i) => insertItem.run(p.id, 'Networking', 'topic', i, JSON.stringify(p)))
-    ;(systemDesignBank.items || []).forEach((p, i) => insertItem.run(p.id, 'System design', 'topic', i, JSON.stringify(p)))
-    ;(communicationBank.items || []).forEach((p, i) => insertItem.run(p.id, 'Communication', 'topic', i, JSON.stringify(p)))
-    ;(assessmentsDoc.items || []).forEach((a, i) => insertAssess.run(a.id, i, JSON.stringify(a)))
-    insertDoc.run('syllabus', JSON.stringify(syllabus))
-    insertDoc.run('assessments-platforms', JSON.stringify(assessmentsDoc.platforms || []))
-    insertDoc.run('curriculum', JSON.stringify(curriculum))
-    insertDoc.run('google-process', JSON.stringify(googleProcess))
-    insertDoc.run('googleyness', JSON.stringify(googleyness))
-    insertDoc.run('week-plan', JSON.stringify(weekPlan))
-    db.prepare(`
+  const statements = []
+  const pushItem = (id, skill, kind, sort, payload) => {
+    statements.push({
+      sql: 'INSERT INTO content_items (id, skill, kind, sort, payload) VALUES (?, ?, ?, ?, ?)',
+      args: [id, skill, kind, sort, JSON.stringify(payload)],
+    })
+  }
+
+  dsaProblems.forEach((p, i) => pushItem(p.id, 'DSA', 'problem', i, p))
+  dsaPatterns.forEach((p, i) => pushItem(`pattern:${p.id}`, 'DSA', 'pattern', i, p))
+  ;(goBank.items || []).forEach((p, i) => pushItem(p.id, 'Go', 'topic', i, p))
+  ;(fundamentalsBank.items || []).forEach((p, i) => pushItem(p.id, 'Fundamentals', 'topic', i, p))
+  ;(networkingBank.items || []).forEach((p, i) => pushItem(p.id, 'Networking', 'topic', i, p))
+  ;(systemDesignBank.items || []).forEach((p, i) => pushItem(p.id, 'System design', 'topic', i, p))
+  ;(communicationBank.items || []).forEach((p, i) => pushItem(p.id, 'Communication', 'topic', i, p))
+  ;(assessmentsDoc.items || []).forEach((a, i) => {
+    statements.push({
+      sql: 'INSERT INTO content_assessments (id, sort, payload) VALUES (?, ?, ?)',
+      args: [a.id, i, JSON.stringify(a)],
+    })
+  })
+
+  const docs = [
+    ['syllabus', syllabus],
+    ['assessments-platforms', assessmentsDoc.platforms || []],
+    ['curriculum', curriculum],
+    ['google-process', googleProcess],
+    ['googleyness', googleyness],
+    ['week-plan', weekPlan],
+  ]
+  for (const [key, payload] of docs) {
+    statements.push({
+      sql: 'INSERT INTO content_docs (key, payload) VALUES (?, ?)',
+      args: [key, JSON.stringify(payload)],
+    })
+  }
+
+  statements.push({
+    sql: `
       INSERT INTO content_meta (key, value, updated_at) VALUES ('seed_version', ?, CURRENT_TIMESTAMP)
       ON CONFLICT(key) DO UPDATE SET value=excluded.value, updated_at=CURRENT_TIMESTAMP
-    `).run(version)
-  }
-  db.exec('BEGIN')
-  try {
-    insertMany()
-    db.exec('COMMIT')
-  } catch (error) {
-    db.exec('ROLLBACK')
-    throw error
+    `,
+    args: [version],
+  })
+
+  // Batch in chunks to stay under serverless payload limits
+  const chunkSize = 80
+  for (let i = 0; i < statements.length; i += chunkSize) {
+    await db.batch(statements.slice(i, i + chunkSize), 'write')
   }
   console.log(`Seeded content ${version}: ${dsaProblems.length} DSA + skill banks`)
 }
 
-seedContent()
+app.use(async (_req, _res, next) => {
+  try {
+    await ensureDb(seedContent)
+    next()
+  } catch (error) {
+    next(error)
+  }
+})
 
-try {
-  db.prepare('SELECT target_level FROM profiles LIMIT 1').get()
-} catch {
-  db.exec(`ALTER TABLE profiles ADD COLUMN target_level TEXT NOT NULL DEFAULT 'L4'`)
-}
-
-app.use(cors({ origin: frontendOrigin, credentials: true }))
+app.use(cors({
+  origin: frontendOrigin,
+  credentials: true,
+}))
 app.use(express.json({ limit: '2mb' }))
 app.use(cookieParser())
 
 function publicUser(user) {
-  return { id: user.id, name: user.name, email: user.email }
+  return { id: Number(user.id), name: user.name, email: user.email }
 }
 
 function signSession(user) {
   return jwt.sign({ sub: user.id }, jwtSecret, { expiresIn: '7d' })
 }
 
-function setSession(res, user) {
-  res.cookie('prepbase_session', signSession(user), {
+function cookieOptions() {
+  return {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: isProd ? 'none' : 'lax',
+    secure: isProd,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/',
-  })
+  }
+}
+
+function setSession(res, user) {
+  res.cookie('prepbase_session', signSession(user), cookieOptions())
 }
 
 function requireUser(req, res, next) {
@@ -181,14 +156,14 @@ function requireUser(req, res, next) {
   }
 }
 
-function getAccount(userId) {
-  const user = db.prepare('SELECT id, name, email FROM users WHERE id = ?').get(userId)
+async function getAccount(userId) {
+  const user = await dbGet('SELECT id, name, email FROM users WHERE id = ?', [userId])
   if (!user) return null
-  const profile = db.prepare(`
+  const profile = await dbGet(`
     SELECT years_experience, primary_language, target_role, target_level, start_date,
            weekly_weekday_minutes, weekly_weekend_minutes
     FROM profiles WHERE user_id = ?
-  `).get(userId)
+  `, [userId])
   return { user: publicUser(user), profile }
 }
 
@@ -238,7 +213,6 @@ function expandWeekTasks(startDate, weekIndex, progress) {
   return (week.dailyTasks || []).map(task => {
     let dayOffset = Number(task.dayOffset) || 0
     let kind = task.kind
-    // Enforce calendar rules even if content drifts
     if (kind === 'test' || kind === 'mock' || kind === 'assessment') {
       dayOffset = 6
     } else if (dayOffset >= 6) {
@@ -378,16 +352,15 @@ app.post('/api/auth/signup', async (req, res) => {
 
   try {
     const passwordHash = await bcrypt.hash(password, 12)
-    const result = db.prepare('INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)').run(
-      name.trim(),
-      email.trim().toLowerCase(),
-      passwordHash,
+    const result = await dbRun(
+      'INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)',
+      [name.trim(), email.trim().toLowerCase(), passwordHash],
     )
-    const userId = Number(result.lastInsertRowid)
-    db.prepare(`
+    const userId = result.lastInsertRowid
+    await dbRun(`
       INSERT INTO profiles (user_id, years_experience, primary_language, target_role, target_level, start_date, weekly_weekday_minutes, weekly_weekend_minutes)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(
+    `, [
       userId,
       Number(yearsExperience) || 1,
       primaryLanguage,
@@ -396,8 +369,8 @@ app.post('/api/auth/signup', async (req, res) => {
       startDate,
       Number(weekdayMinutes) || 120,
       Number(weekendMinutes) || 240,
-    )
-    db.prepare('INSERT INTO progress (user_id, payload) VALUES (?, ?)').run(
+    ])
+    await dbRun('INSERT INTO progress (user_id, payload) VALUES (?, ?)', [
       userId,
       JSON.stringify({
         tasks: {},
@@ -409,8 +382,8 @@ app.post('/api/auth/signup', async (req, res) => {
         weekStart: startDate,
         updatedAt: new Date().toISOString(),
       }),
-    )
-    const account = getAccount(userId)
+    ])
+    const account = await getAccount(userId)
     setSession(res, account.user)
     res.status(201).json(account)
   } catch (error) {
@@ -426,27 +399,31 @@ app.post('/api/auth/signup', async (req, res) => {
 
 app.post('/api/auth/login', async (req, res) => {
   const { email, password } = req.body ?? {}
-  const user = db.prepare('SELECT * FROM users WHERE email = ?').get(String(email || '').trim().toLowerCase())
+  const user = await dbGet('SELECT * FROM users WHERE email = ?', [String(email || '').trim().toLowerCase()])
   if (!user || !(await bcrypt.compare(password ?? '', user.password_hash))) {
     return res.status(401).json({ error: 'Email or password is incorrect.' })
   }
-  const account = getAccount(user.id)
+  const account = await getAccount(user.id)
   setSession(res, account.user)
   res.json(account)
 })
 
 app.post('/api/auth/logout', (_req, res) => {
-  res.clearCookie('prepbase_session', { path: '/' })
+  res.clearCookie('prepbase_session', {
+    path: '/',
+    sameSite: isProd ? 'none' : 'lax',
+    secure: isProd,
+  })
   res.status(204).end()
 })
 
-app.get('/api/auth/me', requireUser, (req, res) => {
-  const account = getAccount(req.userId)
+app.get('/api/auth/me', requireUser, async (req, res) => {
+  const account = await getAccount(req.userId)
   if (!account) return res.status(401).json({ error: 'Account not found.' })
   res.json(account)
 })
 
-app.put('/api/profile', requireUser, (req, res) => {
+app.put('/api/profile', requireUser, async (req, res) => {
   const {
     name,
     yearsExperience,
@@ -460,13 +437,13 @@ app.put('/api/profile', requireUser, (req, res) => {
   if (!name?.trim() || !startDate) {
     return res.status(400).json({ error: 'Name and start date are required.' })
   }
-  db.prepare('UPDATE users SET name = ? WHERE id = ?').run(name.trim(), req.userId)
-  db.prepare(`
+  await dbRun('UPDATE users SET name = ? WHERE id = ?', [name.trim(), req.userId])
+  await dbRun(`
     UPDATE profiles SET
       years_experience=?, primary_language=?, target_role=?, target_level=?, start_date=?,
       weekly_weekday_minutes=?, weekly_weekend_minutes=?, updated_at=CURRENT_TIMESTAMP
     WHERE user_id=?
-  `).run(
+  `, [
     Number(yearsExperience) || 1,
     primaryLanguage || 'Go',
     targetRole || 'Google SWE',
@@ -475,17 +452,17 @@ app.put('/api/profile', requireUser, (req, res) => {
     Number(weekdayMinutes) || 120,
     Number(weekendMinutes) || 240,
     req.userId,
-  )
-  res.json(getAccount(req.userId))
+  ])
+  res.json(await getAccount(req.userId))
 })
 
-app.get('/api/progress', requireUser, (req, res) => {
-  const row = db.prepare('SELECT payload, updated_at FROM progress WHERE user_id = ?').get(req.userId)
+app.get('/api/progress', requireUser, async (req, res) => {
+  const row = await dbGet('SELECT payload, updated_at FROM progress WHERE user_id = ?', [req.userId])
   const payload = row ? JSON.parse(row.payload) : { tasks: {}, problems: {}, modules: {}, bankItems: {}, assessments: {}, notes: {} }
   res.json({ ...payload, updatedAt: row?.updated_at })
 })
 
-app.put('/api/progress', requireUser, (req, res) => {
+app.put('/api/progress', requireUser, async (req, res) => {
   const payload = req.body
   if (!payload || typeof payload !== 'object') {
     return res.status(400).json({ error: 'Invalid progress payload.' })
@@ -500,22 +477,22 @@ app.put('/api/progress', requireUser, (req, res) => {
     weekStart: payload.weekStart,
     updatedAt: new Date().toISOString(),
   }
-  db.prepare(`
+  await dbRun(`
     INSERT INTO progress (user_id, payload, updated_at) VALUES (?, ?, CURRENT_TIMESTAMP)
     ON CONFLICT(user_id) DO UPDATE SET payload=excluded.payload, updated_at=CURRENT_TIMESTAMP
-  `).run(req.userId, JSON.stringify(next))
+  `, [req.userId, JSON.stringify(next)])
   res.json({ ok: true, ...next })
 })
 
-app.get('/api/curriculum', (_req, res) => {
-  const row = db.prepare('SELECT payload FROM content_docs WHERE key = ?').get('curriculum')
+app.get('/api/curriculum', async (_req, res) => {
+  const row = await dbGet('SELECT payload FROM content_docs WHERE key = ?', ['curriculum'])
   res.json(row ? JSON.parse(row.payload) : curriculum)
 })
 
-app.get('/api/dsa', (_req, res) => {
-  const patterns = db.prepare("SELECT payload FROM content_items WHERE skill = 'DSA' AND kind = 'pattern' ORDER BY sort").all()
+app.get('/api/dsa', async (_req, res) => {
+  const patterns = (await dbAll("SELECT payload FROM content_items WHERE skill = 'DSA' AND kind = 'pattern' ORDER BY sort"))
     .map(r => JSON.parse(r.payload))
-  const problems = db.prepare("SELECT payload FROM content_items WHERE skill = 'DSA' AND kind = 'problem' ORDER BY sort").all()
+  const problems = (await dbAll("SELECT payload FROM content_items WHERE skill = 'DSA' AND kind = 'problem' ORDER BY sort"))
     .map(r => JSON.parse(r.payload))
   res.json({
     patterns: patterns.length ? patterns : dsaPatterns,
@@ -533,45 +510,45 @@ app.get('/api/banks', (_req, res) => {
   })
 })
 
-app.get('/api/banks/:skill', (req, res) => {
+app.get('/api/banks/:skill', async (req, res) => {
   const key = req.params.skill
   const bank = bankCatalog[key]
   if (!bank) return res.status(404).json({ error: 'Unknown skill bank.' })
   if (key === 'dsa') {
     return res.json({ skill: bank.skill, key, patterns: bank.patterns, items: bank.items })
   }
-  const rows = db.prepare('SELECT payload FROM content_items WHERE skill = ? AND kind = ? ORDER BY sort').all(bank.skill, 'topic')
+  const rows = await dbAll('SELECT payload FROM content_items WHERE skill = ? AND kind = ? ORDER BY sort', [bank.skill, 'topic'])
   const items = rows.length ? rows.map(r => JSON.parse(r.payload)) : bank.items
   res.json({ skill: bank.skill, key, items })
 })
 
-app.get('/api/syllabus', (_req, res) => {
-  const row = db.prepare('SELECT payload FROM content_docs WHERE key = ?').get('syllabus')
+app.get('/api/syllabus', async (_req, res) => {
+  const row = await dbGet('SELECT payload FROM content_docs WHERE key = ?', ['syllabus'])
   res.json(row ? JSON.parse(row.payload) : syllabus)
 })
 
-app.get('/api/assessments', (_req, res) => {
-  const items = db.prepare('SELECT payload FROM content_assessments ORDER BY sort').all().map(r => JSON.parse(r.payload))
-  const platformsRow = db.prepare('SELECT payload FROM content_docs WHERE key = ?').get('assessments-platforms')
+app.get('/api/assessments', async (_req, res) => {
+  const items = (await dbAll('SELECT payload FROM content_assessments ORDER BY sort')).map(r => JSON.parse(r.payload))
+  const platformsRow = await dbGet('SELECT payload FROM content_docs WHERE key = ?', ['assessments-platforms'])
   res.json({
     platforms: platformsRow ? JSON.parse(platformsRow.payload) : assessmentsDoc.platforms,
     items: items.length ? items : assessmentsDoc.items,
   })
 })
 
-app.get('/api/google-guide', (_req, res) => {
-  const processRow = db.prepare('SELECT payload FROM content_docs WHERE key = ?').get('google-process')
-  const gyRow = db.prepare('SELECT payload FROM content_docs WHERE key = ?').get('googleyness')
+app.get('/api/google-guide', async (_req, res) => {
+  const processRow = await dbGet('SELECT payload FROM content_docs WHERE key = ?', ['google-process'])
+  const gyRow = await dbGet('SELECT payload FROM content_docs WHERE key = ?', ['googleyness'])
   res.json({
     process: processRow ? JSON.parse(processRow.payload) : googleProcess,
     googleyness: gyRow ? JSON.parse(gyRow.payload) : googleyness,
   })
 })
 
-app.get('/api/plan', requireUser, (req, res) => {
-  const account = getAccount(req.userId)
+app.get('/api/plan', requireUser, async (req, res) => {
+  const account = await getAccount(req.userId)
   if (!account?.profile) return res.status(401).json({ error: 'Profile not found.' })
-  const row = db.prepare('SELECT payload FROM progress WHERE user_id = ?').get(req.userId)
+  const row = await dbGet('SELECT payload FROM progress WHERE user_id = ?', [req.userId])
   const progress = row ? JSON.parse(row.payload) : { tasks: {}, problems: {} }
   const weekParam = req.query.week ? Number(req.query.week) - 1 : null
   const plan = buildPlan(account.profile, progress)
@@ -587,16 +564,16 @@ app.get('/api/plan', requireUser, (req, res) => {
   res.json(plan)
 })
 
-app.get('/api/plan/schedule', requireUser, (req, res) => {
-  const account = getAccount(req.userId)
+app.get('/api/plan/schedule', requireUser, async (req, res) => {
+  const account = await getAccount(req.userId)
   if (!account?.profile) return res.status(401).json({ error: 'Profile not found.' })
   res.json(buildScheduleIndex(account.profile.start_date))
 })
 
-app.get('/api/plan/month', requireUser, (req, res) => {
-  const account = getAccount(req.userId)
+app.get('/api/plan/month', requireUser, async (req, res) => {
+  const account = await getAccount(req.userId)
   if (!account?.profile) return res.status(401).json({ error: 'Profile not found.' })
-  const row = db.prepare('SELECT payload FROM progress WHERE user_id = ?').get(req.userId)
+  const row = await dbGet('SELECT payload FROM progress WHERE user_id = ?', [req.userId])
   const progress = row ? JSON.parse(row.payload) : { tasks: {} }
   const year = Number(req.query.year) || new Date().getFullYear()
   const month = Number(req.query.month) || new Date().getMonth() + 1
@@ -619,10 +596,13 @@ app.get('/api/plan/month', requireUser, (req, res) => {
   res.json({ year, month, days })
 })
 
-const frontendDist = path.join(__dirname, '../frontend/dist')
-if (fs.existsSync(frontendDist)) {
-  app.use(express.static(frontendDist))
-  app.get(/.*/, (_req, res) => res.sendFile(path.join(frontendDist, 'index.html')))
+app.use((err, _req, res, _next) => {
+  console.error(err)
+  res.status(500).json({ error: 'Internal server error.' })
+})
+
+if (!process.env.VERCEL) {
+  app.listen(port, () => console.log(`Prepbase API on http://localhost:${port}`))
 }
 
-app.listen(port, () => console.log(`Prepbase API on http://localhost:${port}`))
+export default app
