@@ -45,19 +45,6 @@
   ],
   "items": [
     {
-      "id": "a001",
-      "weekHint": 1,
-      "title": "Daily retention: arrays & hash map",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 25,
-      "topic": "arrays-hashing",
-      "instructions": "Solve Two Sum and Valid Anagram timed (12 min each). Attempt without AI; review NeetCode only after both submissions.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/problemset/array/",
-      "coverChecklist": ["State complexity before coding", "One clarifying question each", "Run at least two custom tests"]
-    },
-    {
       "id": "a002",
       "weekHint": 1,
       "title": "Weekly mock: foundations coding set",
@@ -65,469 +52,593 @@
       "skill": "DSA",
       "minutes": 90,
       "topic": "mixed-easy-medium",
-      "instructions": "Saturday mock: 2 problems in 70 minutes (35 each), 20 min retro. Problems: Contains Duplicate II (medium) and Best Time to Buy and Sell Stock (easy). No AI during mock.",
-      "platformIds": ["leetcode"],
+      "instructions": "Saturday mock: two problems in 70 minutes (35 each), then a 20-minute retro. The plan supplies the two problems for the week. No AI during the mock.",
+      "platformIds": [
+        "leetcode"
+      ],
       "externalUrl": "https://leetcode.com/contest/",
-      "coverChecklist": ["Think-aloud entire session", "Write retro: time lost, bug class", "One optimization follow-up noted"]
+      "coverChecklist": [
+        "Think-aloud entire session",
+        "Write retro: time lost, bug class",
+        "One optimization follow-up noted"
+      ]
     },
     {
-      "id": "a003",
-      "weekHint": 2,
-      "title": "Daily retention: two pointers",
-      "type": "daily",
+      "id": "a001",
+      "weekHint": 1,
+      "title": "Retention check: arrays & hash map",
+      "type": "retention",
       "skill": "DSA",
-      "minutes": 30,
-      "topic": "two-pointers",
-      "instructions": "15 min: Valid Palindrome. 15 min: 3Sum (outline approach if stuck 5 min, then attempt). AI only after session.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://neetcode.io/practice",
-      "coverChecklist": ["Handle duplicates in 3Sum", "Invariants written in comments", "Edge cases: empty input"]
+      "minutes": 25,
+      "topic": "arrays-hashing",
+      "instructions": "Timed recall on arrays and hashing: two problems at 12 minutes each, from the week's set. Attempt without AI; read an editorial only after both submissions.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problemset/array/",
+      "coverChecklist": [
+        "State complexity before coding",
+        "One clarifying question each",
+        "Run at least two custom tests"
+      ]
     },
     {
-      "id": "a004",
+      "id": "a007",
       "weekHint": 2,
-      "title": "Go daily: maps and table tests",
-      "type": "daily",
-      "skill": "Go",
-      "minutes": 30,
-      "topic": "language",
-      "instructions": "Implement group anagrams logic in Go with table-driven tests. Attempt without AI first.",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problems/group-anagrams/",
-      "coverChecklist": ["Table tests with named cases", "Idiomatic range over map", "go test ./... passes"]
-    },
-    {
-      "id": "a005",
-      "weekHint": 3,
-      "title": "Daily retention: sliding window",
-      "type": "daily",
+      "title": "Weekly mock: stacks & queues",
+      "type": "weekly",
       "skill": "DSA",
-      "minutes": 35,
-      "topic": "sliding-window",
-      "instructions": "Longest Substring Without Repeating Characters in 25 min; 10 min complexity recap aloud.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
-      "coverChecklist": ["Shrink window correctly", "Map last index", "Articulate amortized analysis"]
+      "minutes": 90,
+      "topic": "stack-queue",
+      "instructions": "Timed stack set from the week's problems: two problems, 35 minutes each, then a 20-minute retro. Draw the stack contents for one input by hand.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problem-list/stack/",
+      "coverChecklist": [
+        "Monotonic stack explained",
+        "Test empty string",
+        "Complexity stated"
+      ]
     },
     {
       "id": "a006",
-      "weekHint": 3,
+      "weekHint": 2,
       "title": "Fundamentals check: OS processes",
-      "type": "daily",
+      "type": "retention",
       "skill": "Fundamentals",
       "minutes": 20,
       "topic": "os",
       "instructions": "Answer fund001–fund003 self-check questions in writing without notes; grade yourself honestly.",
       "platformIds": [],
       "externalUrl": "https://go.dev/doc/",
-      "coverChecklist": ["Three questions answered", "One diagram sketched", "Gap list for review"]
+      "coverChecklist": [
+        "Three questions answered",
+        "One diagram sketched",
+        "Gap list for review"
+      ]
     },
     {
-      "id": "a007",
-      "weekHint": 4,
-      "title": "Weekly mock: stacks & queues",
+      "id": "a012",
+      "weekHint": 3,
+      "title": "Weekly mock: trees",
       "type": "weekly",
       "skill": "DSA",
       "minutes": 90,
-      "topic": "stack-queue",
-      "instructions": "Saturday: Valid Parentheses (15 min) + Daily Temperatures (35 min) + 20 min retro. Simulate interviewer silence.",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problem-list/stack/",
-      "coverChecklist": ["Monotonic stack explained", "Test empty string", "Complexity stated"]
+      "topic": "trees",
+      "instructions": "Timed tree set from the week's problems: one traversal warm-up, then two mediums at 30 minutes each. Write one recursive and one iterative solution.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problem-list/tree/",
+      "coverChecklist": [
+        "Iterative vs recursive choice stated",
+        "Null handling",
+        "Retro with pattern tags"
+      ]
+    },
+    {
+      "id": "a003",
+      "weekHint": 3,
+      "title": "Retention check: two pointers",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 30,
+      "topic": "two-pointers",
+      "instructions": "Timed recall on two pointers: one easy then one medium from the week's set, 15 minutes each. State the pointer invariant out loud before coding.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://neetcode.io/practice",
+      "coverChecklist": [
+        "Handle duplicates in 3Sum",
+        "Invariants written in comments",
+        "Edge cases: empty input"
+      ]
+    },
+    {
+      "id": "a016",
+      "weekHint": 4,
+      "title": "Weekly mock: graphs onsite pair",
+      "type": "weekly",
+      "skill": "DSA",
+      "minutes": 100,
+      "topic": "graphs",
+      "instructions": "Onsite-style graph pair from the week's problems: two problems, 45 minutes each, narrated aloud end to end. Score yourself on whether you named the algorithm before coding.",
+      "platformIds": [
+        "leetcode",
+        "pramp"
+      ],
+      "externalUrl": "https://www.pramp.com",
+      "coverChecklist": [
+        "Topo sort explained",
+        "BFS layering for Word Ladder",
+        "Pramp feedback captured if used"
+      ]
+    },
+    {
+      "id": "a005",
+      "weekHint": 4,
+      "title": "Retention check: sliding window",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 35,
+      "topic": "sliding-window",
+      "instructions": "Timed recall on sliding window: one fixed-size and one variable-size window problem from the week's set, 17 minutes each. Say which variant you are using before coding.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "coverChecklist": [
+        "Shrink window correctly",
+        "Map last index",
+        "Articulate amortized analysis"
+      ]
     },
     {
       "id": "a008",
       "weekHint": 4,
-      "title": "Communication daily: coding opener",
-      "type": "daily",
+      "title": "Communication check: coding opener",
+      "type": "retention",
       "skill": "Communication",
       "minutes": 15,
       "topic": "english",
       "instructions": "Record com001 practice prompt once; listen back for filler words. No AI script.",
       "platformIds": [],
       "externalUrl": "https://www.pramp.com",
-      "coverChecklist": ["Under 45 second opener", "One clarifying question", "Approach before code"]
-    },
-    {
-      "id": "a009",
-      "weekHint": 5,
-      "title": "Daily retention: binary search",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 30,
-      "topic": "binary-search",
-      "instructions": "Search Insert Position and Find Minimum in Rotated Sorted Array (attempt both). Review only after.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://neetcode.io/roadmap",
-      "coverChecklist": ["Use consistent mid template", "Handle rotated array pivot", "No infinite loops"]
-    },
-    {
-      "id": "a010",
-      "weekHint": 5,
-      "title": "Go daily: goroutines intro",
-      "type": "daily",
-      "skill": "Go",
-      "minutes": 35,
-      "topic": "concurrency",
-      "instructions": "Complete go011 practice prompt; run with -race. Attempt without AI first.",
-      "platformIds": [],
-      "externalUrl": "https://go.dev/tour/concurrency/1",
-      "coverChecklist": ["Workers exit cleanly", "Channel closed by sender", "Race test clean"]
-    },
-    {
-      "id": "a011",
-      "weekHint": 6,
-      "title": "Networking daily: DNS trace",
-      "type": "daily",
-      "skill": "Networking",
-      "minutes": 20,
-      "topic": "dns",
-      "instructions": "Answer net001 checklist from memory; run dig +trace on a domain locally and compare to your trace.",
-      "platformIds": [],
-      "externalUrl": "https://developers.google.com/speed/public-dns/docs/using",
-      "coverChecklist": ["TTL mentioned", "Recursive vs authoritative", "One failure mode"]
-    },
-    {
-      "id": "a012",
-      "weekHint": 6,
-      "title": "Weekly mock: trees",
-      "type": "weekly",
-      "skill": "DSA",
-      "minutes": 90,
-      "topic": "trees",
-      "instructions": "Saturday mock: Invert Binary Tree (10 min warm-up) + Binary Tree Level Order Traversal (30 min) + Lowest Common Ancestor of BST (35 min).",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problem-list/tree/",
-      "coverChecklist": ["Iterative vs recursive choice stated", "Null handling", "Retro with pattern tags"]
-    },
-    {
-      "id": "a013",
-      "weekHint": 7,
-      "title": "Daily retention: BFS template",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 35,
-      "topic": "graphs",
-      "instructions": "Number of Islands in 25 min; 10 min rewrite BFS from scratch on blank editor.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/problems/number-of-islands/",
-      "coverChecklist": ["Mark visited correctly", "4 vs 8 connectivity clarified", "O(rows*cols) stated"]
-    },
-    {
-      "id": "a014",
-      "weekHint": 7,
-      "title": "System design read: URL shortener",
-      "type": "daily",
-      "skill": "System Design",
-      "minutes": 40,
-      "topic": "hld",
-      "instructions": "Attempt sd009 practice prompt fully before watching any video. Then skim Hello Interview outline for gaps only.",
-      "platformIds": ["hellointerview", "exponent"],
-      "externalUrl": "https://www.hellointerview.com/learn/system-design/problem-breakdowns/bitly",
-      "coverChecklist": ["QPS estimated", "Cache layer drawn", "Redirect code choice justified"]
-    },
-    {
-      "id": "a015",
-      "weekHint": 8,
-      "title": "Go daily: HTTP middleware",
-      "type": "daily",
-      "skill": "Go",
-      "minutes": 40,
-      "topic": "http",
-      "instructions": "Build go026 middleware chain with httptest coverage. No AI until tests written.",
-      "platformIds": [],
-      "externalUrl": "https://pkg.go.dev/net/http",
-      "coverChecklist": ["Recovery returns 500", "Logs status and duration", "Tests pass"]
-    },
-    {
-      "id": "a016",
-      "weekHint": 8,
-      "title": "Weekly mock: graphs onsite pair",
-      "type": "weekly",
-      "skill": "DSA",
-      "minutes": 100,
-      "topic": "graphs",
-      "instructions": "Saturday: Course Schedule (25 min) + Word Ladder (45 min) + 30 min retro. Optional: schedule Pramp peer session same weekend.",
-      "platformIds": ["leetcode", "pramp"],
-      "externalUrl": "https://www.pramp.com",
-      "coverChecklist": ["Topo sort explained", "BFS layering for Word Ladder", "Pramp feedback captured if used"]
-    },
-    {
-      "id": "a017",
-      "weekHint": 9,
-      "title": "Fundamentals daily: ACID & isolation",
-      "type": "daily",
-      "skill": "Fundamentals",
-      "minutes": 25,
-      "topic": "dbms",
-      "instructions": "Write answers to fund009 and fund010 self-check questions; relate to Go go030 transaction exercise.",
-      "platformIds": [],
-      "externalUrl": "https://www.postgresql.org/docs/current/transaction-iso.html",
-      "coverChecklist": ["All six questions", "One anomaly example each", "Link to app retries"]
-    },
-    {
-      "id": "a018",
-      "weekHint": 9,
-      "title": "Daily retention: heap",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 35,
-      "topic": "heap",
-      "instructions": "Kth Largest Element in Array (heap) and Merge K Sorted Lists. Attempt without AI.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
-      "coverChecklist": ["Heap size management", "Complexity for merge k", "Alternative quickselect mentioned"]
-    },
-    {
-      "id": "a019",
-      "weekHint": 10,
-      "title": "Networking daily: TLS & timeouts",
-      "type": "daily",
-      "skill": "Networking",
-      "minutes": 25,
-      "topic": "tls",
-      "instructions": "Explain net005 and net011 checklists in a 5-minute recording. Attempt solo first.",
-      "platformIds": [],
-      "externalUrl": "https://wiki.mozilla.org/Security/Server_Side_TLS",
-      "coverChecklist": ["Forward secrecy mentioned", "Timeout budget example", "Retry only idempotent"]
+      "coverChecklist": [
+        "Under 45 second opener",
+        "One clarifying question",
+        "Approach before code"
+      ]
     },
     {
       "id": "a020",
-      "weekHint": 10,
+      "weekHint": 5,
       "title": "Weekly mock: mixed mediums",
       "type": "weekly",
       "skill": "DSA",
       "minutes": 90,
       "topic": "mixed",
       "instructions": "Saturday LeetCode weekly contest or self-scheduled: any two mediums you have not solved. Strict 45+45 timing.",
-      "platformIds": ["leetcode"],
+      "platformIds": [
+        "leetcode"
+      ],
       "externalUrl": "https://leetcode.com/contest/",
-      "coverChecklist": ["Contest score recorded", "Problem types tagged", "One redo from scratch Sunday"]
+      "coverChecklist": [
+        "Contest score recorded",
+        "Problem types tagged",
+        "One redo from scratch Sunday"
+      ]
     },
     {
-      "id": "a021",
-      "weekHint": 11,
-      "title": "System design mock: rate limiter",
-      "type": "mock",
-      "skill": "System Design",
-      "minutes": 45,
-      "topic": "hld",
-      "instructions": "45-minute timed sd010 HLD on paper; then 15 min compare to notes. No AI during timer.",
-      "platformIds": ["hellointerview", "exponent"],
-      "externalUrl": "https://www.tryexponent.com/courses/system-design-interview",
-      "coverChecklist": ["Distributed store choice", "Race handling", "Failure mode discussed"]
-    },
-    {
-      "id": "a022",
-      "weekHint": 11,
-      "title": "Daily retention: backtracking intro",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 40,
-      "topic": "backtracking",
-      "instructions": "Subsets and Combination Sum I with explicit state tree sketch on paper first.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/problems/subsets/",
-      "coverChecklist": ["Undo state correctly", "Duplicate handling in combinations", "Time complexity stated"]
-    },
-    {
-      "id": "a023",
-      "weekHint": 12,
-      "title": "Go daily: context & shutdown",
-      "type": "daily",
-      "skill": "Go",
-      "minutes": 45,
-      "topic": "concurrency",
-      "instructions": "Combine go014 and go028 into a small server that cancels work on shutdown. Attempt without AI.",
+      "id": "a011",
+      "weekHint": 5,
+      "title": "Networking check: DNS trace",
+      "type": "retention",
+      "skill": "Networking",
+      "minutes": 20,
+      "topic": "dns",
+      "instructions": "Answer net001 checklist from memory; run dig +trace on a domain locally and compare to your trace.",
       "platformIds": [],
-      "externalUrl": "https://pkg.go.dev/context",
-      "coverChecklist": ["defer cancel()", "Shutdown timeout", "In-flight request completes or aborts cleanly"]
+      "externalUrl": "https://developers.google.com/speed/public-dns/docs/using",
+      "coverChecklist": [
+        "TTL mentioned",
+        "Recursive vs authoritative",
+        "One failure mode"
+      ]
     },
     {
       "id": "a024",
-      "weekHint": 12,
+      "weekHint": 6,
       "title": "Weekly mock: peer coding",
       "type": "weekly",
       "skill": "DSA",
       "minutes": 60,
       "topic": "peer",
       "instructions": "Book Pramp or interviewing.io session; solve one medium with full communication scoring.",
-      "platformIds": ["pramp", "interviewing-io"],
+      "platformIds": [
+        "pramp",
+        "interviewing-io"
+      ],
       "externalUrl": "https://interviewing.io",
-      "coverChecklist": ["Feedback screenshot saved", "Two improvement actions", "Repeat problem solo next day"]
+      "coverChecklist": [
+        "Feedback screenshot saved",
+        "Two improvement actions",
+        "Repeat problem solo next day"
+      ]
     },
     {
-      "id": "a025",
-      "weekHint": 13,
-      "title": "Daily retention: trie",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 35,
-      "topic": "trie",
-      "instructions": "Implement Trie (Prefix Tree) from scratch in preferred language; 30 min cap.",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problems/implement-trie-prefix-tree/",
-      "coverChecklist": ["Node structure clean", "StartsWith works", "Space discussion"]
-    },
-    {
-      "id": "a026",
-      "weekHint": 13,
-      "title": "STAR story draft",
-      "type": "daily",
-      "skill": "Communication",
-      "minutes": 30,
-      "topic": "behavioral",
-      "instructions": "Complete com008 and com010 written drafts. Attempt without AI; polish once.",
-      "platformIds": ["exponent"],
-      "externalUrl": "https://www.tryexponent.com/guides/star-method",
-      "coverChecklist": ["Learnings line present", "Metrics in result", "Under 3 minutes spoken"]
-    },
-    {
-      "id": "a027",
-      "weekHint": 14,
-      "title": "System design: news feed",
-      "type": "mock",
-      "skill": "System Design",
-      "minutes": 50,
-      "topic": "hld",
-      "instructions": "Full sd011 session with fan-out math. Record audio. Review without AI first pass on rubric.",
-      "platformIds": ["hellointerview"],
-      "externalUrl": "https://www.hellointerview.com/learn/system-design",
-      "coverChecklist": ["Fan-out choice justified", "Celebrity mitigation", "Read path latency"]
+      "id": "a019",
+      "weekHint": 6,
+      "title": "Networking check: TLS & timeouts",
+      "type": "retention",
+      "skill": "Networking",
+      "minutes": 25,
+      "topic": "tls",
+      "instructions": "Explain net005 and net011 checklists in a 5-minute recording. Attempt solo first.",
+      "platformIds": [],
+      "externalUrl": "https://wiki.mozilla.org/Security/Server_Side_TLS",
+      "coverChecklist": [
+        "Forward secrecy mentioned",
+        "Timeout budget example",
+        "Retry only idempotent"
+      ]
     },
     {
       "id": "a028",
-      "weekHint": 14,
+      "weekHint": 7,
       "title": "Weekly mock: DP fundamentals",
       "type": "weekly",
       "skill": "DSA",
       "minutes": 90,
       "topic": "dynamic-programming",
-      "instructions": "Saturday: Climbing Stairs (warm-up) + House Robber + Longest Increasing Subsequence (n log n if ready).",
-      "platformIds": ["leetcode", "neetcode"],
+      "instructions": "Timed DP set from the week's problems: two problems, 45 minutes each. For each, write state, transition and base case before any code.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
       "externalUrl": "https://neetcode.io/roadmap",
-      "coverChecklist": ["State definition spoken", "Transition written", "Space optimization noted"]
+      "coverChecklist": [
+        "State definition spoken",
+        "Transition written",
+        "Space optimization noted"
+      ]
     },
     {
-      "id": "a029",
-      "weekHint": 15,
-      "title": "Daily retention: union find",
-      "type": "daily",
+      "id": "a017",
+      "weekHint": 7,
+      "title": "Fundamentals check: ACID & isolation",
+      "type": "retention",
+      "skill": "Fundamentals",
+      "minutes": 25,
+      "topic": "dbms",
+      "instructions": "Write answers to fund009 and fund010 self-check questions; relate to Go go030 transaction exercise.",
+      "platformIds": [],
+      "externalUrl": "https://www.postgresql.org/docs/current/transaction-iso.html",
+      "coverChecklist": [
+        "All six questions",
+        "One anomaly example each",
+        "Link to app retries"
+      ]
+    },
+    {
+      "id": "a045",
+      "weekHint": 8,
+      "title": "Weekly mock: intervals and greedy set",
+      "type": "weekly",
+      "skill": "DSA",
+      "minutes": 90,
+      "topic": "intervals",
+      "instructions": "Two problems in 70 minutes (35 each) on intervals and greedy, then a 20-minute retro. No AI during the mock. Score yourself on whether you named the pattern before coding.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/tag/greedy/",
+      "coverChecklist": [
+        "Name the pattern in the first two minutes",
+        "State the sort key and why",
+        "Dry-run the boundary case",
+        "Write the retro before checking a solution"
+      ]
+    },
+    {
+      "id": "a009",
+      "weekHint": 8,
+      "title": "Retention check: binary search",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 30,
+      "topic": "binary-search",
+      "instructions": "Timed recall on binary search: two problems from the week's set, 15 minutes each. Write the loop invariant as a comment before the loop.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://neetcode.io/roadmap",
+      "coverChecklist": [
+        "Use consistent mid template",
+        "Handle rotated array pivot",
+        "No infinite loops"
+      ]
+    },
+    {
+      "id": "a021",
+      "weekHint": 9,
+      "title": "System design mock: rate limiter",
+      "type": "mock",
+      "skill": "System design",
+      "minutes": 45,
+      "topic": "hld",
+      "instructions": "45-minute timed sd010 HLD on paper; then 15 min compare to notes. No AI during timer.",
+      "platformIds": [
+        "hellointerview",
+        "exponent"
+      ],
+      "externalUrl": "https://www.tryexponent.com/courses/system-design-interview",
+      "coverChecklist": [
+        "Distributed store choice",
+        "Race handling",
+        "Failure mode discussed"
+      ]
+    },
+    {
+      "id": "a037",
+      "weekHint": 9,
+      "title": "Retention check: intervals",
+      "type": "retention",
       "skill": "DSA",
       "minutes": 35,
-      "topic": "union-find",
-      "instructions": "Number of Connected Components and Redundant Connection. Implement DSU once reusable.",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problems/redundant-connection/",
-      "coverChecklist": ["Path compression", "Union by rank", "Component count tracked"]
+      "topic": "intervals",
+      "instructions": "Timed recall on intervals: two problems from the week's set, 17 minutes each. State the sort key and the merge condition first.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/merge-intervals/",
+      "coverChecklist": [
+        "Sort by start",
+        "Greedy proof sketched",
+        "Edge single interval"
+      ]
     },
     {
-      "id": "a030",
-      "weekHint": 15,
-      "title": "Go daily: SQL transactions",
-      "type": "daily",
+      "id": "a027",
+      "weekHint": 10,
+      "title": "System design: news feed",
+      "type": "mock",
+      "skill": "System design",
+      "minutes": 50,
+      "topic": "hld",
+      "instructions": "Full sd011 session with fan-out math. Record audio. Review without AI first pass on rubric.",
+      "platformIds": [
+        "hellointerview"
+      ],
+      "externalUrl": "https://www.hellointerview.com/learn/system-design",
+      "coverChecklist": [
+        "Fan-out choice justified",
+        "Celebrity mitigation",
+        "Read path latency"
+      ]
+    },
+    {
+      "id": "a018",
+      "weekHint": 10,
+      "title": "Retention check: heap",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 35,
+      "topic": "heap",
+      "instructions": "Timed recall on heaps and top-K: two problems from the week's set, 17 minutes each. Justify heap vs sort vs quickselect out loud.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/kth-largest-element-in-an-array/",
+      "coverChecklist": [
+        "Heap size management",
+        "Complexity for merge k",
+        "Alternative quickselect mentioned"
+      ]
+    },
+    {
+      "id": "a033",
+      "weekHint": 11,
+      "title": "System design: chat",
+      "type": "mock",
+      "skill": "System design",
+      "minutes": 50,
+      "topic": "hld",
+      "instructions": "sd012 with WebSocket scaling focus. Draw sequence diagram send message → deliver.",
+      "platformIds": [
+        "hellointerview",
+        "exponent"
+      ],
+      "externalUrl": "https://www.hellointerview.com/learn/system-design",
+      "coverChecklist": [
+        "Ordering per room",
+        "Offline push",
+        "Storage schema"
+      ]
+    },
+    {
+      "id": "a010",
+      "weekHint": 11,
+      "title": "Go check: goroutines intro",
+      "type": "retention",
       "skill": "Go",
-      "minutes": 40,
-      "topic": "database",
-      "instructions": "Implement go030 transfer exercise with sqlite in-memory. Attempt without AI.",
+      "minutes": 35,
+      "topic": "concurrency",
+      "instructions": "Complete go011 practice prompt; run with -race. Attempt without AI first.",
       "platformIds": [],
-      "externalUrl": "https://pkg.go.dev/database/sql",
-      "coverChecklist": ["Rollback on error", "Context timeout", "Test concurrent transfers"]
+      "externalUrl": "https://go.dev/tour/concurrency/1",
+      "coverChecklist": [
+        "Workers exit cleanly",
+        "Channel closed by sender",
+        "Race test clean"
+      ]
+    },
+    {
+      "id": "a039",
+      "weekHint": 12,
+      "title": "System design: notifications",
+      "type": "mock",
+      "skill": "System design",
+      "minutes": 45,
+      "topic": "hld",
+      "instructions": "sd013 full pass with idempotency and DLQ. Compare to checklist only after.",
+      "platformIds": [
+        "hellointerview"
+      ],
+      "externalUrl": "https://www.hellointerview.com/learn/system-design",
+      "coverChecklist": [
+        "Multi-channel",
+        "Preferences store",
+        "Retry policy"
+      ]
+    },
+    {
+      "id": "a022",
+      "weekHint": 12,
+      "title": "Retention check: backtracking intro",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 40,
+      "topic": "backtracking",
+      "instructions": "Timed recall on backtracking: one problem from the week's set in 40 minutes. Draw the decision tree for a size-3 input before coding.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/subsets/",
+      "coverChecklist": [
+        "Undo state correctly",
+        "Duplicate handling in combinations",
+        "Time complexity stated"
+      ]
+    },
+    {
+      "id": "a042",
+      "weekHint": 13,
+      "title": "System design: autocomplete",
+      "type": "mock",
+      "skill": "System design",
+      "minutes": 45,
+      "topic": "hld",
+      "instructions": "sd015 with latency budget p99 < 100ms. Attempt solo; then watch one Exponent clip for missing pieces only.",
+      "platformIds": [
+        "exponent",
+        "hellointerview"
+      ],
+      "externalUrl": "https://www.tryexponent.com/courses/system-design-interview",
+      "coverChecklist": [
+        "Index structure",
+        "Update pipeline",
+        "Trending queries"
+      ]
+    },
+    {
+      "id": "a013",
+      "weekHint": 13,
+      "title": "Retention check: BFS template",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 35,
+      "topic": "graphs",
+      "instructions": "Timed recall on graph traversal: one problem from the week's set in 35 minutes. State the representation and why before you write the loop.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/number-of-islands/",
+      "coverChecklist": [
+        "Mark visited correctly",
+        "4 vs 8 connectivity clarified",
+        "O(rows*cols) stated"
+      ]
     },
     {
       "id": "a031",
-      "weekHint": 16,
+      "weekHint": 14,
       "title": "Weekly mock: Google-ish set",
       "type": "weekly",
       "skill": "DSA",
       "minutes": 100,
       "topic": "google-tag",
       "instructions": "Pick two Google-tagged LeetCode mediums you have not seen; 50 min each with break. Full think-aloud.",
-      "platformIds": ["leetcode"],
+      "platformIds": [
+        "leetcode"
+      ],
       "externalUrl": "https://leetcode.com/company/google/",
-      "coverChecklist": ["Tags recorded", "Hint usage zero", "Rewrite hardest from memory"]
+      "coverChecklist": [
+        "Tags recorded",
+        "Hint usage zero",
+        "Rewrite hardest from memory"
+      ]
     },
     {
-      "id": "a032",
-      "weekHint": 16,
-      "title": "CodeSignal arcade sprint",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 30,
-      "topic": "implementation",
-      "instructions": "Complete 3 CodeSignal arcade tasks focusing on clean implementation speed.",
-      "platformIds": ["codesignal"],
-      "externalUrl": "https://app.codesignal.com/arcade",
-      "coverChecklist": ["All tests green", "No copy-paste from AI", "Note slowest task"]
-    },
-    {
-      "id": "a033",
-      "weekHint": 17,
-      "title": "System design: chat",
-      "type": "mock",
-      "skill": "System Design",
-      "minutes": 50,
-      "topic": "hld",
-      "instructions": "sd012 with WebSocket scaling focus. Draw sequence diagram send message → deliver.",
-      "platformIds": ["hellointerview", "exponent"],
-      "externalUrl": "https://www.hellointerview.com/learn/system-design",
-      "coverChecklist": ["Ordering per room", "Offline push", "Storage schema"]
-    },
-    {
-      "id": "a034",
-      "weekHint": 17,
-      "title": "Networking mock trace",
-      "type": "daily",
-      "skill": "Networking",
-      "minutes": 25,
-      "topic": "http",
-      "instructions": "Deliver net025 90-second trace for your own project's API. Attempt without slides.",
-      "platformIds": [],
-      "externalUrl": "https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing",
-      "coverChecklist": ["DNS to DB mentioned", "Trace ID", "One latency bottleneck"]
-    },
-    {
-      "id": "a035",
-      "weekHint": 18,
-      "title": "LLD daily: LRU cache",
-      "type": "daily",
-      "skill": "System Design",
+      "id": "a030",
+      "weekHint": 14,
+      "title": "Go check: SQL transactions",
+      "type": "retention",
+      "skill": "Go",
       "minutes": 40,
-      "topic": "lld",
-      "instructions": "sd019 timed implementation. Go or Java. No AI until 25 minutes elapsed.",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problems/lru-cache/",
-      "coverChecklist": ["O(1) ops", "Doubly linked list correct", "Tests for capacity 1"]
+      "topic": "database",
+      "instructions": "Implement go030 transfer exercise with sqlite in-memory. Attempt without AI.",
+      "platformIds": [],
+      "externalUrl": "https://pkg.go.dev/database/sql",
+      "coverChecklist": [
+        "Rollback on error",
+        "Context timeout",
+        "Test concurrent transfers"
+      ]
     },
     {
       "id": "a036",
-      "weekHint": 18,
+      "weekHint": 15,
       "title": "Weekly mock: behavioral + coding",
       "type": "weekly",
       "skill": "Communication",
       "minutes": 90,
       "topic": "mixed",
       "instructions": "30 min behavioral (com013–com016) recorded answers; 60 min one hard LeetCode attempt.",
-      "platformIds": ["pramp", "exponent"],
+      "platformIds": [
+        "pramp",
+        "exponent"
+      ],
       "externalUrl": "https://www.pramp.com",
-      "coverChecklist": ["Googleyness themes tagged", "Coding retro 10 min", "One story improved"]
+      "coverChecklist": [
+        "Googleyness themes tagged",
+        "Coding retro 10 min",
+        "One story improved"
+      ]
     },
     {
-      "id": "a037",
-      "weekHint": 19,
-      "title": "Daily retention: intervals",
-      "type": "daily",
+      "id": "a029",
+      "weekHint": 15,
+      "title": "Retention check: union find",
+      "type": "retention",
       "skill": "DSA",
       "minutes": 35,
-      "topic": "intervals",
-      "instructions": "Merge Intervals and Non-overlapping Intervals back-to-back.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/problems/merge-intervals/",
-      "coverChecklist": ["Sort by start", "Greedy proof sketched", "Edge single interval"]
+      "topic": "union-find",
+      "instructions": "Timed recall on union-find: one problem from the week's set in 35 minutes, with path compression written from memory.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/redundant-connection/",
+      "coverChecklist": [
+        "Path compression",
+        "Union by rank",
+        "Component count tracked"
+      ]
     },
     {
       "id": "a038",
-      "weekHint": 20,
+      "weekHint": 16,
       "title": "Go capstone: mini service",
       "type": "weekly",
       "skill": "Go",
@@ -536,85 +647,403 @@
       "instructions": "Weekend build: HTTP API with middleware, slog, sqlite, Docker per go032–go034. Attempt without AI codegen.",
       "platformIds": [],
       "externalUrl": "https://go.dev/doc/tutorial/add-module-dependency",
-      "coverChecklist": ["Table tests", "Health endpoints", "Docker image builds"]
+      "coverChecklist": [
+        "Table tests",
+        "Health endpoints",
+        "Docker image builds"
+      ]
     },
     {
-      "id": "a039",
-      "weekHint": 21,
-      "title": "System design: notifications",
+      "id": "a015",
+      "weekHint": 16,
+      "title": "Go check: HTTP middleware",
+      "type": "retention",
+      "skill": "Go",
+      "minutes": 40,
+      "topic": "http",
+      "instructions": "Build go026 middleware chain with httptest coverage. No AI until tests written.",
+      "platformIds": [],
+      "externalUrl": "https://pkg.go.dev/net/http",
+      "coverChecklist": [
+        "Recovery returns 500",
+        "Logs status and duration",
+        "Tests pass"
+      ]
+    },
+    {
+      "id": "a049",
+      "weekHint": 17,
+      "title": "Mock: code comprehension round (2026 pilot format)",
       "type": "mock",
-      "skill": "System Design",
-      "minutes": 45,
+      "skill": "Go",
+      "minutes": 90,
+      "topic": "comprehension",
+      "instructions": "Simulate Google's 2026 code-comprehension round. Take a 200–500 line Go repo you have never read. 60 minutes: orient, find a real bug, fix it, propose one improvement — with an AI assistant allowed, and every claim verified aloud. 30-minute retro on your prompts and verifications.",
+      "platformIds": [
+        "exponent",
+        "leetcode"
+      ],
+      "externalUrl": "https://www.tryexponent.com/blog/google-ai-coding-interview",
+      "coverChecklist": [
+        "Orientation before line-by-line reading",
+        "Hypothesis stated before each prompt",
+        "Every assistant claim verified against the code",
+        "One ranked improvement with the failure it prevents"
+      ]
+    },
+    {
+      "id": "a050",
+      "weekHint": 17,
+      "title": "Retention check: DP state transitions",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 30,
+      "topic": "dp-2d",
+      "instructions": "Write the state, transition and base case for four DP problems in 25 minutes — definitions only, no full implementations.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/tag/dynamic-programming/",
+      "coverChecklist": [
+        "State defined in one sentence",
+        "Transition written before code",
+        "Base case and answer cell identified",
+        "Space optimisation named"
+      ]
+    },
+    {
+      "id": "a047",
+      "weekHint": 18,
+      "title": "Weekly mock: coding pair plus design follow-up",
+      "type": "weekly",
+      "skill": "Mixed",
+      "minutes": 90,
+      "topic": "mixed",
+      "instructions": "One 45-minute coding round with a peer, then a 30-minute design follow-up on the same domain. 15-minute retro. Swap interviewer roles if pairing.",
+      "platformIds": [
+        "pramp",
+        "interviewing-io"
+      ],
+      "externalUrl": "https://interviewing.io/",
+      "coverChecklist": [
+        "Clarify before coding",
+        "Complexity stated unprompted",
+        "Design answer names one bottleneck",
+        "Retro lists one behaviour to change"
+      ]
+    },
+    {
+      "id": "a035",
+      "weekHint": 18,
+      "title": "LLD check: LRU cache",
+      "type": "retention",
+      "skill": "System design",
+      "minutes": 40,
+      "topic": "lld",
+      "instructions": "sd019 timed implementation. Go or Java. No AI until 25 minutes elapsed.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/lru-cache/",
+      "coverChecklist": [
+        "O(1) ops",
+        "Doubly linked list correct",
+        "Tests for capacity 1"
+      ]
+    },
+    {
+      "id": "a051",
+      "weekHint": 19,
+      "title": "Full loop simulation: three coding rounds plus Googleyness",
+      "type": "mock",
+      "skill": "Mixed",
+      "minutes": 120,
+      "topic": "mixed",
+      "instructions": "Back-to-back simulation in one sitting: three 45-minute coding rounds with short breaks, then a 45-minute Googleyness round. Score each round independently, as a real loop does.",
+      "platformIds": [
+        "pramp",
+        "interviewing-io",
+        "exponent"
+      ],
+      "externalUrl": "https://www.pramp.com/",
+      "coverChecklist": [
+        "No carry-over between rounds",
+        "Complexity stated in every round",
+        "Four STAR-L stories delivered in under three minutes each",
+        "Write the packet you think the interviewers would file"
+      ]
+    },
+    {
+      "id": "a014",
+      "weekHint": 19,
+      "title": "System design check: URL shortener",
+      "type": "retention",
+      "skill": "System design",
+      "minutes": 40,
       "topic": "hld",
-      "instructions": "sd013 full pass with idempotency and DLQ. Compare to checklist only after.",
-      "platformIds": ["hellointerview"],
-      "externalUrl": "https://www.hellointerview.com/learn/system-design",
-      "coverChecklist": ["Multi-channel", "Preferences store", "Retry policy"]
+      "instructions": "Attempt sd009 practice prompt fully before watching any video. Then skim Hello Interview outline for gaps only.",
+      "platformIds": [
+        "hellointerview",
+        "exponent"
+      ],
+      "externalUrl": "https://www.hellointerview.com/learn/system-design/problem-breakdowns/bitly",
+      "coverChecklist": [
+        "QPS estimated",
+        "Cache layer drawn",
+        "Redirect code choice justified"
+      ]
+    },
+    {
+      "id": "a046",
+      "weekHint": 20,
+      "title": "Retention check: bit manipulation and greedy",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 30,
+      "topic": "bit-manipulation",
+      "instructions": "Timed recall sweep: two bit-manipulation problems in 25 minutes. Tag every miss by pattern, not by problem.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/tag/bit-manipulation/",
+      "coverChecklist": [
+        "State the bit trick before coding",
+        "Check the signed/unsigned edge",
+        "Tag misses by pattern"
+      ]
     },
     {
       "id": "a040",
-      "weekHint": 22,
+      "weekHint": 21,
       "title": "Weekly mock: onsite simulation",
       "type": "weekly",
       "skill": "Mixed",
       "minutes": 180,
       "topic": "full-loop",
       "instructions": "Saturday onsite sim: 2 coding (45+45), 1 system design (45), 2 behavioral (20 each). Breaks 10 min between. No AI.",
-      "platformIds": ["interviewing-io", "leetcode", "hellointerview"],
+      "platformIds": [
+        "interviewing-io",
+        "leetcode",
+        "hellointerview"
+      ],
       "externalUrl": "https://interviewing.io",
-      "coverChecklist": ["Score each round 1–4", "Top 3 fixes for week 23", "Sleep before redo"]
+      "coverChecklist": [
+        "Score each round 1–4",
+        "Top 3 fixes for week 23",
+        "Sleep before redo"
+      ]
     },
     {
-      "id": "a041",
-      "weekHint": 23,
-      "title": "Weak area sprint assessment",
-      "type": "daily",
-      "skill": "DSA",
-      "minutes": 45,
-      "topic": "remediation",
-      "instructions": "From prior mocks, pick weakest tag; solve 3 problems of that tag timed easy→medium→medium.",
-      "platformIds": ["leetcode", "neetcode"],
-      "externalUrl": "https://leetcode.com/progress/",
-      "coverChecklist": ["Tag identified with data", "Third problem without hints", "Pattern notes updated"]
-    },
-    {
-      "id": "a042",
-      "weekHint": 24,
-      "title": "System design: autocomplete",
-      "type": "mock",
-      "skill": "System Design",
-      "minutes": 45,
-      "topic": "hld",
-      "instructions": "sd015 with latency budget p99 < 100ms. Attempt solo; then watch one Exponent clip for missing pieces only.",
-      "platformIds": ["exponent", "hellointerview"],
-      "externalUrl": "https://www.tryexponent.com/courses/system-design-interview",
-      "coverChecklist": ["Index structure", "Update pipeline", "Trending queries"]
-    },
-    {
-      "id": "a043",
-      "weekHint": 25,
-      "title": "Polish: light retention set",
-      "type": "daily",
+      "id": "a048",
+      "weekHint": 21,
+      "title": "Retention check: graphs and union-find",
+      "type": "retention",
       "skill": "DSA",
       "minutes": 30,
-      "topic": "review",
-      "instructions": "Two problems you solved before—must re-code from memory without hints. Focus fluency not new patterns.",
-      "platformIds": ["leetcode"],
-      "externalUrl": "https://leetcode.com/problemset/",
-      "coverChecklist": ["Zero peeks at old code", "Both under target time", "Stay calm pacing"]
+      "topic": "union-find",
+      "instructions": "Two graph problems from memory in 25 minutes — one traversal, one union-find. Write the template from scratch, no copy-paste.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/tag/union-find/",
+      "coverChecklist": [
+        "Write union-find with path compression from memory",
+        "State the representation choice",
+        "Tag misses by pattern"
+      ]
     },
     {
       "id": "a044",
-      "weekHint": 26,
+      "weekHint": 22,
       "title": "Final weekly mock: confidence calibration",
       "type": "weekly",
       "skill": "Mixed",
       "minutes": 120,
       "topic": "full-loop",
       "instructions": "Final Saturday mock: one fresh medium, one design you know well (15 min recap only), one behavioral. Rest Sunday.",
-      "platformIds": ["pramp", "hellointerview", "leetcode"],
+      "platformIds": [
+        "pramp",
+        "hellointerview",
+        "leetcode"
+      ],
       "externalUrl": "https://www.pramp.com",
-      "coverChecklist": ["Ready/not-ready decision", "Question list for interviewers", "No new heavy topics"]
+      "coverChecklist": [
+        "Ready/not-ready decision",
+        "Question list for interviewers",
+        "No new heavy topics"
+      ]
+    },
+    {
+      "id": "a026",
+      "weekHint": 22,
+      "title": "STAR story draft",
+      "type": "retention",
+      "skill": "Communication",
+      "minutes": 30,
+      "topic": "behavioral",
+      "instructions": "Complete com008 and com010 written drafts. Attempt without AI; polish once.",
+      "platformIds": [
+        "exponent"
+      ],
+      "externalUrl": "https://www.tryexponent.com/guides/star-method",
+      "coverChecklist": [
+        "Learnings line present",
+        "Metrics in result",
+        "Under 3 minutes spoken"
+      ]
+    },
+    {
+      "id": "a025",
+      "weekHint": 23,
+      "title": "Retention check: trie",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 35,
+      "topic": "trie",
+      "instructions": "Timed recall on tries: build the structure from memory and solve one problem from the week's set in 35 minutes.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/implement-trie-prefix-tree/",
+      "coverChecklist": [
+        "Node structure clean",
+        "StartsWith works",
+        "Space discussion"
+      ]
+    },
+    {
+      "id": "a043",
+      "weekHint": 23,
+      "title": "Polish: light retention set",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 30,
+      "topic": "review",
+      "instructions": "Two problems you solved before—must re-code from memory without hints. Focus fluency not new patterns.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problemset/",
+      "coverChecklist": [
+        "Zero peeks at old code",
+        "Both under target time",
+        "Stay calm pacing"
+      ]
+    },
+    {
+      "id": "a032",
+      "weekHint": 24,
+      "title": "CodeSignal arcade sprint",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 30,
+      "topic": "implementation",
+      "instructions": "Complete 3 CodeSignal arcade tasks focusing on clean implementation speed.",
+      "platformIds": [
+        "codesignal"
+      ],
+      "externalUrl": "https://app.codesignal.com/arcade",
+      "coverChecklist": [
+        "All tests green",
+        "No copy-paste from AI",
+        "Note slowest task"
+      ]
+    },
+    {
+      "id": "a034",
+      "weekHint": 24,
+      "title": "Networking check: request trace",
+      "type": "retention",
+      "skill": "Networking",
+      "minutes": 25,
+      "topic": "http",
+      "instructions": "Deliver net025 90-second trace for your own project's API. Attempt without slides.",
+      "platformIds": [],
+      "externalUrl": "https://developers.google.com/web/fundamentals/performance/navigation-and-resource-timing",
+      "coverChecklist": [
+        "DNS to DB mentioned",
+        "Trace ID",
+        "One latency bottleneck"
+      ]
+    },
+    {
+      "id": "a023",
+      "weekHint": 25,
+      "title": "Go check: context & shutdown",
+      "type": "retention",
+      "skill": "Go",
+      "minutes": 45,
+      "topic": "concurrency",
+      "instructions": "Combine go014 and go028 into a small server that cancels work on shutdown. Attempt without AI.",
+      "platformIds": [],
+      "externalUrl": "https://pkg.go.dev/context",
+      "coverChecklist": [
+        "defer cancel()",
+        "Shutdown timeout",
+        "In-flight request completes or aborts cleanly"
+      ]
+    },
+    {
+      "id": "a041",
+      "weekHint": 25,
+      "title": "Weak area sprint assessment",
+      "type": "retention",
+      "skill": "DSA",
+      "minutes": 45,
+      "topic": "remediation",
+      "instructions": "From prior mocks, pick weakest tag; solve 3 problems of that tag timed easy→medium→medium.",
+      "platformIds": [
+        "leetcode",
+        "neetcode"
+      ],
+      "externalUrl": "https://leetcode.com/progress/",
+      "coverChecklist": [
+        "Tag identified with data",
+        "Third problem without hints",
+        "Pattern notes updated"
+      ]
+    },
+    {
+      "id": "a004",
+      "weekHint": 26,
+      "title": "Go check: maps and table tests",
+      "type": "retention",
+      "skill": "Go",
+      "minutes": 30,
+      "topic": "language",
+      "instructions": "Go check: write a map-based frequency counter and its table-driven test from scratch, no AI, no copy-paste from earlier work.",
+      "platformIds": [
+        "leetcode"
+      ],
+      "externalUrl": "https://leetcode.com/problems/group-anagrams/",
+      "coverChecklist": [
+        "Table tests with named cases",
+        "Idiomatic range over map",
+        "go test ./... passes"
+      ]
+    },
+    {
+      "id": "a052",
+      "weekHint": 26,
+      "title": "Final calibration: pattern recall sweep",
+      "type": "retention",
+      "skill": "Mixed",
+      "minutes": 30,
+      "topic": "mixed",
+      "instructions": "No new problems. For each of the 26 patterns, write from memory: when to use it, the invariant, and one problem that uses it. Anything blank is your only remaining study list.",
+      "platformIds": [
+        "neetcode"
+      ],
+      "externalUrl": "https://neetcode.io/roadmap",
+      "coverChecklist": [
+        "All 26 patterns named without notes",
+        "Invariant written for each",
+        "Blank entries turned into a short final list",
+        "Stop studying after this — rest is the last variable"
+      ]
     }
   ]
 }

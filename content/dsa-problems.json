@@ -38,7 +38,7 @@
     "leetcodeSlug": "group-anagrams",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 2,
+    "weekHint": 1,
     "whyGoogle": "Bucket by signature; common Google phone screen.",
     "followUpIdea": "Sort key vs count key?",
     "youtubeSearch": "NeetCode Group Anagrams"
@@ -49,7 +49,7 @@
     "leetcodeSlug": "top-k-frequent-elements",
     "difficulty": "Medium",
     "pattern": "heap-topk",
-    "weekHint": 2,
+    "weekHint": 10,
     "whyGoogle": "Frequency map + heap or bucket sort.",
     "followUpIdea": "O(n) bucket approach?",
     "youtubeSearch": "NeetCode Top K Frequent"
@@ -60,7 +60,7 @@
     "leetcodeSlug": "product-of-array-except-self",
     "difficulty": "Medium",
     "pattern": "prefix-sums",
-    "weekHint": 2,
+    "weekHint": 5,
     "whyGoogle": "Prefix/suffix products without division.",
     "followUpIdea": "Can you do O(1) extra space?",
     "youtubeSearch": "NeetCode Product of Array Except Self"
@@ -71,7 +71,7 @@
     "leetcodeSlug": "valid-palindrome",
     "difficulty": "Easy",
     "pattern": "two-pointers",
-    "weekHint": 1,
+    "weekHint": 3,
     "whyGoogle": "Two pointers with filtering.",
     "followUpIdea": "Recursive vs iterative?",
     "youtubeSearch": "NeetCode Valid Palindrome"
@@ -82,7 +82,7 @@
     "leetcodeSlug": "two-sum-ii-input-array-is-sorted",
     "difficulty": "Medium",
     "pattern": "two-pointers",
-    "weekHint": 2,
+    "weekHint": 3,
     "whyGoogle": "Opposite ends on sorted array.",
     "followUpIdea": "What if duplicates?",
     "youtubeSearch": "NeetCode Two Sum II"
@@ -115,7 +115,7 @@
     "leetcodeSlug": "best-time-to-buy-and-sell-stock",
     "difficulty": "Easy",
     "pattern": "greedy",
-    "weekHint": 1,
+    "weekHint": 19,
     "whyGoogle": "Track min price and max profit.",
     "followUpIdea": "Multiple transactions version?",
     "youtubeSearch": "NeetCode Best Time to Buy and Sell Stock"
@@ -126,7 +126,7 @@
     "leetcodeSlug": "longest-substring-without-repeating-characters",
     "difficulty": "Medium",
     "pattern": "sliding-window",
-    "weekHint": 2,
+    "weekHint": 4,
     "whyGoogle": "Sliding window with last-seen map.",
     "followUpIdea": "At most K distinct characters?",
     "youtubeSearch": "NeetCode Longest Substring Without Repeating Characters"
@@ -137,7 +137,7 @@
     "leetcodeSlug": "longest-repeating-character-replacement",
     "difficulty": "Medium",
     "pattern": "sliding-window",
-    "weekHint": 3,
+    "weekHint": 4,
     "whyGoogle": "Window with max frequency + K replacements.",
     "followUpIdea": "Binary search on answer for same problem?",
     "youtubeSearch": "NeetCode Longest Repeating Character Replacement"
@@ -148,7 +148,7 @@
     "leetcodeSlug": "permutation-in-string",
     "difficulty": "Medium",
     "pattern": "sliding-window",
-    "weekHint": 3,
+    "weekHint": 4,
     "whyGoogle": "Fixed-size window with frequency match.",
     "followUpIdea": "Anagram substring search optimization?",
     "youtubeSearch": "NeetCode Permutation in String"
@@ -159,7 +159,7 @@
     "leetcodeSlug": "minimum-window-substring",
     "difficulty": "Hard",
     "pattern": "sliding-window",
-    "weekHint": 4,
+    "weekHint": 5,
     "whyGoogle": "Expand/shrink window with need/have counts.",
     "followUpIdea": "Case-sensitive vs insensitive?",
     "youtubeSearch": "NeetCode Minimum Window Substring"
@@ -170,7 +170,7 @@
     "leetcodeSlug": "valid-parentheses",
     "difficulty": "Easy",
     "pattern": "stack",
-    "weekHint": 1,
+    "weekHint": 6,
     "whyGoogle": "Stack for matching pairs.",
     "followUpIdea": "Generate all valid combinations?",
     "youtubeSearch": "NeetCode Valid Parentheses"
@@ -181,7 +181,7 @@
     "leetcodeSlug": "min-stack",
     "difficulty": "Medium",
     "pattern": "stack",
-    "weekHint": 2,
+    "weekHint": 6,
     "whyGoogle": "Aux stack or paired stack for min.",
     "followUpIdea": "Thread-safe min stack design?",
     "youtubeSearch": "NeetCode Min Stack"
@@ -192,7 +192,7 @@
     "leetcodeSlug": "evaluate-reverse-polish-notation",
     "difficulty": "Medium",
     "pattern": "stack",
-    "weekHint": 2,
+    "weekHint": 6,
     "whyGoogle": "Stack evaluation pattern.",
     "followUpIdea": "Parse infix with two stacks?",
     "youtubeSearch": "NeetCode Evaluate Reverse Polish Notation"
@@ -203,7 +203,7 @@
     "leetcodeSlug": "daily-temperatures",
     "difficulty": "Medium",
     "pattern": "stack",
-    "weekHint": 3,
+    "weekHint": 6,
     "whyGoogle": "Monotonic decreasing stack for next greater.",
     "followUpIdea": "Circular array variant?",
     "youtubeSearch": "NeetCode Daily Temperatures"
@@ -214,7 +214,7 @@
     "leetcodeSlug": "car-fleet",
     "difficulty": "Medium",
     "pattern": "stack",
-    "weekHint": 3,
+    "weekHint": 6,
     "whyGoogle": "Sort by position; stack merge by time.",
     "followUpIdea": "Different speed rules?",
     "youtubeSearch": "NeetCode Car Fleet"
@@ -225,7 +225,7 @@
     "leetcodeSlug": "reverse-linked-list",
     "difficulty": "Easy",
     "pattern": "linked-list",
-    "weekHint": 2,
+    "weekHint": 7,
     "whyGoogle": "Iterative three-pointer reverse.",
     "followUpIdea": "Recursive reverse?",
     "youtubeSearch": "NeetCode Reverse Linked List"
@@ -236,7 +236,7 @@
     "leetcodeSlug": "merge-two-sorted-lists",
     "difficulty": "Easy",
     "pattern": "linked-list",
-    "weekHint": 2,
+    "weekHint": 7,
     "whyGoogle": "Dummy head merge pattern.",
     "followUpIdea": "Merge K lists?",
     "youtubeSearch": "NeetCode Merge Two Sorted Lists"
@@ -247,7 +247,7 @@
     "leetcodeSlug": "reorder-list",
     "difficulty": "Medium",
     "pattern": "linked-list",
-    "weekHint": 3,
+    "weekHint": 7,
     "whyGoogle": "Find mid, reverse second half, weave.",
     "followUpIdea": "O(1) space proof?",
     "youtubeSearch": "NeetCode Reorder List"
@@ -258,7 +258,7 @@
     "leetcodeSlug": "remove-nth-node-from-end-of-list",
     "difficulty": "Medium",
     "pattern": "linked-list",
-    "weekHint": 3,
+    "weekHint": 7,
     "whyGoogle": "Two pointers n apart.",
     "followUpIdea": "Single pass without dummy?",
     "youtubeSearch": "NeetCode Remove Nth Node From End"
@@ -269,7 +269,7 @@
     "leetcodeSlug": "copy-list-with-random-pointer",
     "difficulty": "Medium",
     "pattern": "linked-list",
-    "weekHint": 4,
+    "weekHint": 7,
     "whyGoogle": "Hash map old-to-new or interleave trick.",
     "followUpIdea": "Deep copy graph analogy?",
     "youtubeSearch": "NeetCode Copy List with Random Pointer"
@@ -280,7 +280,7 @@
     "leetcodeSlug": "binary-search",
     "difficulty": "Easy",
     "pattern": "binary-search",
-    "weekHint": 2,
+    "weekHint": 8,
     "whyGoogle": "Classic bounds template.",
     "followUpIdea": "First/last position template?",
     "youtubeSearch": "NeetCode Binary Search"
@@ -291,7 +291,7 @@
     "leetcodeSlug": "search-a-2d-matrix",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 3,
+    "weekHint": 8,
     "whyGoogle": "Treat as flattened sorted or stair search.",
     "followUpIdea": "Search 2D matrix II?",
     "youtubeSearch": "NeetCode Search a 2D Matrix"
@@ -302,7 +302,7 @@
     "leetcodeSlug": "find-minimum-in-rotated-sorted-array",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 3,
+    "weekHint": 8,
     "whyGoogle": "Compare mid to right boundary.",
     "followUpIdea": "With duplicates?",
     "youtubeSearch": "NeetCode Find Minimum in Rotated Sorted Array"
@@ -313,7 +313,7 @@
     "leetcodeSlug": "search-in-rotated-sorted-array",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 3,
+    "weekHint": 8,
     "whyGoogle": "Identify sorted half each step.",
     "followUpIdea": "Find rotation count?",
     "youtubeSearch": "NeetCode Search in Rotated Sorted Array"
@@ -324,7 +324,7 @@
     "leetcodeSlug": "koko-eating-bananas",
     "difficulty": "Medium",
     "pattern": "binary-search-on-answer",
-    "weekHint": 5,
+    "weekHint": 9,
     "whyGoogle": "Binary search speed; feasible hours check.",
     "followUpIdea": "Workers/minimum days pattern?",
     "youtubeSearch": "NeetCode Koko Eating Bananas"
@@ -335,7 +335,7 @@
     "leetcodeSlug": "find-peak-element",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 4,
+    "weekHint": 8,
     "whyGoogle": "Binary search on slope.",
     "followUpIdea": "2D peak?",
     "youtubeSearch": "NeetCode Find Peak Element"
@@ -346,7 +346,7 @@
     "leetcodeSlug": "median-of-two-sorted-arrays",
     "difficulty": "Hard",
     "pattern": "binary-search",
-    "weekHint": 6,
+    "weekHint": 9,
     "whyGoogle": "Partition two arrays for O(log) median.",
     "followUpIdea": "Simpler merge O(m+n) first?",
     "youtubeSearch": "NeetCode Median of Two Sorted Arrays"
@@ -357,7 +357,7 @@
     "leetcodeSlug": "time-based-key-value-store",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 4,
+    "weekHint": 8,
     "whyGoogle": "Hash map + binary search on timestamps.",
     "followUpIdea": "Design with TTL eviction?",
     "youtubeSearch": "NeetCode Time Based Key Value Store"
@@ -368,7 +368,7 @@
     "leetcodeSlug": "split-array-largest-sum",
     "difficulty": "Hard",
     "pattern": "binary-search-on-answer",
-    "weekHint": 8,
+    "weekHint": 9,
     "whyGoogle": "Minimize max subarray sum via BS on answer.",
     "followUpIdea": "Book allocation parallel?",
     "youtubeSearch": "NeetCode Split Array Largest Sum"
@@ -379,7 +379,7 @@
     "leetcodeSlug": "insert-interval",
     "difficulty": "Medium",
     "pattern": "intervals",
-    "weekHint": 4,
+    "weekHint": 9,
     "whyGoogle": "Merge on insertion point.",
     "followUpIdea": "Calendar with deletion?",
     "youtubeSearch": "NeetCode Insert Interval"
@@ -390,7 +390,7 @@
     "leetcodeSlug": "merge-intervals",
     "difficulty": "Medium",
     "pattern": "intervals",
-    "weekHint": 4,
+    "weekHint": 9,
     "whyGoogle": "Sort by start; merge overlaps.",
     "followUpIdea": "Interval list intersections?",
     "youtubeSearch": "NeetCode Merge Intervals"
@@ -401,7 +401,7 @@
     "leetcodeSlug": "non-overlapping-intervals",
     "difficulty": "Medium",
     "pattern": "intervals-greedy",
-    "weekHint": 5,
+    "weekHint": 20,
     "whyGoogle": "Greedy by end time.",
     "followUpIdea": "Minimum arrows to burst balloons?",
     "youtubeSearch": "NeetCode Non-overlapping Intervals"
@@ -412,7 +412,7 @@
     "leetcodeSlug": "meeting-rooms",
     "difficulty": "Easy",
     "pattern": "intervals",
-    "weekHint": 4,
+    "weekHint": 9,
     "whyGoogle": "Sort and check overlap.",
     "followUpIdea": "Meeting Rooms II?",
     "youtubeSearch": "NeetCode Meeting Rooms"
@@ -423,7 +423,7 @@
     "leetcodeSlug": "meeting-rooms-ii",
     "difficulty": "Medium",
     "pattern": "heap-topk",
-    "weekHint": 5,
+    "weekHint": 10,
     "whyGoogle": "Min-heap of end times.",
     "followUpIdea": "Sweep line alternative?",
     "youtubeSearch": "NeetCode Meeting Rooms II"
@@ -434,7 +434,7 @@
     "leetcodeSlug": "kth-largest-element-in-an-array",
     "difficulty": "Medium",
     "pattern": "heap-topk",
-    "weekHint": 4,
+    "weekHint": 10,
     "whyGoogle": "Quickselect or min-heap size K.",
     "followUpIdea": "Kth smallest in sorted matrix?",
     "youtubeSearch": "NeetCode Kth Largest Element in an Array"
@@ -445,7 +445,7 @@
     "leetcodeSlug": "last-stone-weight",
     "difficulty": "Easy",
     "pattern": "heap-topk",
-    "weekHint": 4,
+    "weekHint": 10,
     "whyGoogle": "Max heap simulation.",
     "followUpIdea": "Last stone weight II DP?",
     "youtubeSearch": "NeetCode Last Stone Weight"
@@ -456,7 +456,7 @@
     "leetcodeSlug": "task-scheduler",
     "difficulty": "Medium",
     "pattern": "greedy",
-    "weekHint": 5,
+    "weekHint": 19,
     "whyGoogle": "Greedy with cooldown or math formula.",
     "followUpIdea": "Same with two workers?",
     "youtubeSearch": "NeetCode Task Scheduler"
@@ -467,7 +467,7 @@
     "leetcodeSlug": "design-twitter",
     "difficulty": "Medium",
     "pattern": "heap-topk",
-    "weekHint": 6,
+    "weekHint": 10,
     "whyGoogle": "Hash + heap for feed merge.",
     "followUpIdea": "Scale to millions of users?",
     "youtubeSearch": "NeetCode Design Twitter"
@@ -478,7 +478,7 @@
     "leetcodeSlug": "invert-binary-tree",
     "difficulty": "Easy",
     "pattern": "trees-dfs",
-    "weekHint": 5,
+    "weekHint": 10,
     "whyGoogle": "Swap children recursively.",
     "followUpIdea": "Iterative BFS invert?",
     "youtubeSearch": "NeetCode Invert Binary Tree"
@@ -489,7 +489,7 @@
     "leetcodeSlug": "maximum-depth-of-binary-tree",
     "difficulty": "Easy",
     "pattern": "trees-dfs",
-    "weekHint": 5,
+    "weekHint": 10,
     "whyGoogle": "DFS depth or BFS levels.",
     "followUpIdea": "Diameter uses depth how?",
     "youtubeSearch": "NeetCode Maximum Depth of Binary Tree"
@@ -500,7 +500,7 @@
     "leetcodeSlug": "diameter-of-binary-tree",
     "difficulty": "Easy",
     "pattern": "trees-dfs",
-    "weekHint": 5,
+    "weekHint": 11,
     "whyGoogle": "Track max left+right at each node.",
     "followUpIdea": "Longest path in DAG?",
     "youtubeSearch": "NeetCode Diameter of Binary Tree"
@@ -511,7 +511,7 @@
     "leetcodeSlug": "balanced-binary-tree",
     "difficulty": "Easy",
     "pattern": "trees-dfs",
-    "weekHint": 5,
+    "weekHint": 11,
     "whyGoogle": "Check height diff ≤ 1.",
     "followUpIdea": "AVL rotations discussion?",
     "youtubeSearch": "NeetCode Balanced Binary Tree"
@@ -522,7 +522,7 @@
     "leetcodeSlug": "same-tree",
     "difficulty": "Easy",
     "pattern": "trees-dfs",
-    "weekHint": 5,
+    "weekHint": 11,
     "whyGoogle": "Parallel DFS compare.",
     "followUpIdea": "Subtree of tree?",
     "youtubeSearch": "NeetCode Same Tree"
@@ -533,7 +533,7 @@
     "leetcodeSlug": "subtree-of-another-tree",
     "difficulty": "Easy",
     "pattern": "trees-dfs",
-    "weekHint": 5,
+    "weekHint": 11,
     "whyGoogle": "Match root + same tree check.",
     "followUpIdea": "Serialize compare approach?",
     "youtubeSearch": "NeetCode Subtree of Another Tree"
@@ -544,7 +544,7 @@
     "leetcodeSlug": "lowest-common-ancestor-of-a-binary-search-tree",
     "difficulty": "Medium",
     "pattern": "trees-dfs",
-    "weekHint": 6,
+    "weekHint": 11,
     "whyGoogle": "BST property walk.",
     "followUpIdea": "LCA on general binary tree?",
     "youtubeSearch": "NeetCode LCA of BST"
@@ -555,7 +555,7 @@
     "leetcodeSlug": "binary-tree-level-order-traversal",
     "difficulty": "Medium",
     "pattern": "trees-bfs",
-    "weekHint": 6,
+    "weekHint": 12,
     "whyGoogle": "Queue BFS level by level.",
     "followUpIdea": "Zigzag level order?",
     "youtubeSearch": "NeetCode Binary Tree Level Order Traversal"
@@ -566,7 +566,7 @@
     "leetcodeSlug": "binary-tree-right-side-view",
     "difficulty": "Medium",
     "pattern": "trees-bfs",
-    "weekHint": 6,
+    "weekHint": 12,
     "whyGoogle": "Last node each BFS level.",
     "followUpIdea": "Left side view?",
     "youtubeSearch": "NeetCode Binary Tree Right Side View"
@@ -577,7 +577,7 @@
     "leetcodeSlug": "count-good-nodes-in-binary-tree",
     "difficulty": "Medium",
     "pattern": "trees-dfs",
-    "weekHint": 6,
+    "weekHint": 11,
     "whyGoogle": "Track max on path from root.",
     "followUpIdea": "Return all good paths?",
     "youtubeSearch": "NeetCode Count Good Nodes in Binary Tree"
@@ -588,7 +588,7 @@
     "leetcodeSlug": "validate-binary-search-tree",
     "difficulty": "Medium",
     "pattern": "trees-dfs",
-    "weekHint": 6,
+    "weekHint": 11,
     "whyGoogle": "Inorder or min/max bounds.",
     "followUpIdea": "Recover BST?",
     "youtubeSearch": "NeetCode Validate Binary Search Tree"
@@ -599,7 +599,7 @@
     "leetcodeSlug": "kth-smallest-element-in-a-bst",
     "difficulty": "Medium",
     "pattern": "trees-dfs",
-    "weekHint": 6,
+    "weekHint": 11,
     "whyGoogle": "Inorder traversal count.",
     "followUpIdea": "BST iterator design?",
     "youtubeSearch": "NeetCode Kth Smallest Element in a BST"
@@ -610,7 +610,7 @@
     "leetcodeSlug": "construct-binary-tree-from-preorder-and-inorder-traversal",
     "difficulty": "Medium",
     "pattern": "trees-dfs",
-    "weekHint": 7,
+    "weekHint": 11,
     "whyGoogle": "Divide by root index in inorder.",
     "followUpIdea": "Postorder + inorder variant?",
     "youtubeSearch": "NeetCode Construct Binary Tree"
@@ -621,7 +621,7 @@
     "leetcodeSlug": "binary-tree-maximum-path-sum",
     "difficulty": "Hard",
     "pattern": "trees-dfs",
-    "weekHint": 7,
+    "weekHint": 12,
     "whyGoogle": "Global max with path through node.",
     "followUpIdea": "Allow negative values?",
     "youtubeSearch": "NeetCode Binary Tree Maximum Path Sum"
@@ -632,7 +632,7 @@
     "leetcodeSlug": "serialize-and-deserialize-binary-tree",
     "difficulty": "Hard",
     "pattern": "trees-bfs",
-    "weekHint": 7,
+    "weekHint": 12,
     "whyGoogle": "BFS or DFS encoding.",
     "followUpIdea": "Compact serialization?",
     "youtubeSearch": "NeetCode Serialize and Deserialize Binary Tree"
@@ -643,7 +643,7 @@
     "leetcodeSlug": "implement-trie-prefix-tree",
     "difficulty": "Medium",
     "pattern": "trie",
-    "weekHint": 7,
+    "weekHint": 12,
     "whyGoogle": "Node array or map children.",
     "followUpIdea": "Delete and prefix count?",
     "youtubeSearch": "NeetCode Implement Trie"
@@ -654,7 +654,7 @@
     "leetcodeSlug": "design-add-and-search-words-data-structure",
     "difficulty": "Medium",
     "pattern": "trie",
-    "weekHint": 7,
+    "weekHint": 12,
     "whyGoogle": "Trie + DFS for dot wildcard.",
     "followUpIdea": "Regex-style patterns?",
     "youtubeSearch": "NeetCode Design Add and Search Words"
@@ -665,7 +665,7 @@
     "leetcodeSlug": "word-search-ii",
     "difficulty": "Hard",
     "pattern": "trie",
-    "weekHint": 8,
+    "weekHint": 12,
     "whyGoogle": "Trie + backtracking on board.",
     "followUpIdea": "Optimize with pruning sets?",
     "youtubeSearch": "NeetCode Word Search II"
@@ -676,7 +676,7 @@
     "leetcodeSlug": "subsets",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 8,
+    "weekHint": 12,
     "whyGoogle": "Include/exclude each element.",
     "followUpIdea": "Iterative bitmask version?",
     "youtubeSearch": "NeetCode Subsets"
@@ -687,7 +687,7 @@
     "leetcodeSlug": "combination-sum",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 8,
+    "weekHint": 12,
     "whyGoogle": "Reuse allowed; prune by remaining.",
     "followUpIdea": "Combination Sum II with duplicates?",
     "youtubeSearch": "NeetCode Combination Sum"
@@ -698,7 +698,7 @@
     "leetcodeSlug": "permutations",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 8,
+    "weekHint": 13,
     "whyGoogle": "Swap or used array backtrack.",
     "followUpIdea": "Next permutation algorithm?",
     "youtubeSearch": "NeetCode Permutations"
@@ -709,7 +709,7 @@
     "leetcodeSlug": "subsets-ii",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 8,
+    "weekHint": 13,
     "whyGoogle": "Sort + skip duplicate branches.",
     "followUpIdea": "General duplicate handling template?",
     "youtubeSearch": "NeetCode Subsets II"
@@ -720,7 +720,7 @@
     "leetcodeSlug": "word-search",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 8,
+    "weekHint": 13,
     "whyGoogle": "Grid DFS with visited marks.",
     "followUpIdea": "Word Search II with trie?",
     "youtubeSearch": "NeetCode Word Search"
@@ -731,7 +731,7 @@
     "leetcodeSlug": "palindrome-partitioning",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 9,
+    "weekHint": 13,
     "whyGoogle": "Partition + palindrome check cache.",
     "followUpIdea": "Min cuts DP follow-up?",
     "youtubeSearch": "NeetCode Palindrome Partitioning"
@@ -742,7 +742,7 @@
     "leetcodeSlug": "letter-combinations-of-a-phone-number",
     "difficulty": "Medium",
     "pattern": "backtracking",
-    "weekHint": 8,
+    "weekHint": 13,
     "whyGoogle": "Classic phone pad DFS.",
     "followUpIdea": "Iterative queue approach?",
     "youtubeSearch": "NeetCode Letter Combinations"
@@ -753,7 +753,7 @@
     "leetcodeSlug": "number-of-islands",
     "difficulty": "Medium",
     "pattern": "graphs-dfs",
-    "weekHint": 9,
+    "weekHint": 14,
     "whyGoogle": "Grid DFS/BFS flood fill.",
     "followUpIdea": "Count distinct shapes?",
     "youtubeSearch": "NeetCode Number of Islands"
@@ -764,7 +764,7 @@
     "leetcodeSlug": "clone-graph",
     "difficulty": "Medium",
     "pattern": "graphs-dfs",
-    "weekHint": 9,
+    "weekHint": 14,
     "whyGoogle": "Hash map cloning on DFS/BFS.",
     "followUpIdea": "Deep copy with cycles?",
     "youtubeSearch": "NeetCode Clone Graph"
@@ -775,7 +775,7 @@
     "leetcodeSlug": "pacific-atlantic-water-flow",
     "difficulty": "Medium",
     "pattern": "graphs-dfs",
-    "weekHint": 9,
+    "weekHint": 14,
     "whyGoogle": "Multi-source DFS from oceans.",
     "followUpIdea": "BFS from both oceans?",
     "youtubeSearch": "NeetCode Pacific Atlantic Water Flow"
@@ -786,7 +786,7 @@
     "leetcodeSlug": "course-schedule",
     "difficulty": "Medium",
     "pattern": "topological-sort",
-    "weekHint": 10,
+    "weekHint": 15,
     "whyGoogle": "Kahn BFS or DFS cycle detect.",
     "followUpIdea": "Return one valid order?",
     "youtubeSearch": "NeetCode Course Schedule"
@@ -797,7 +797,7 @@
     "leetcodeSlug": "course-schedule-ii",
     "difficulty": "Medium",
     "pattern": "topological-sort",
-    "weekHint": 10,
+    "weekHint": 15,
     "whyGoogle": "Topological order output.",
     "followUpIdea": "Parallel courses minimum semesters?",
     "youtubeSearch": "NeetCode Course Schedule II"
@@ -808,7 +808,7 @@
     "leetcodeSlug": "graph-valid-tree",
     "difficulty": "Medium",
     "pattern": "union-find",
-    "weekHint": 10,
+    "weekHint": 15,
     "whyGoogle": "n-1 edges and connected via UF/DFS.",
     "followUpIdea": "Detect cycle in directed graph?",
     "youtubeSearch": "NeetCode Graph Valid Tree"
@@ -819,7 +819,7 @@
     "leetcodeSlug": "number-of-connected-components-in-an-undirected-graph",
     "difficulty": "Medium",
     "pattern": "union-find",
-    "weekHint": 10,
+    "weekHint": 15,
     "whyGoogle": "Union find or DFS count.",
     "followUpIdea": "Dynamic connectivity online?",
     "youtubeSearch": "NeetCode Number of Connected Components"
@@ -830,7 +830,7 @@
     "leetcodeSlug": "redundant-connection",
     "difficulty": "Medium",
     "pattern": "union-find",
-    "weekHint": 10,
+    "weekHint": 15,
     "whyGoogle": "Last edge forming cycle.",
     "followUpIdea": "Directed graph variant?",
     "youtubeSearch": "NeetCode Redundant Connection"
@@ -841,7 +841,7 @@
     "leetcodeSlug": "rotting-oranges",
     "difficulty": "Medium",
     "pattern": "graphs-bfs",
-    "weekHint": 9,
+    "weekHint": 13,
     "whyGoogle": "Multi-source BFS levels.",
     "followUpIdea": "Minimum machines parallel?",
     "youtubeSearch": "NeetCode Rotting Oranges"
@@ -852,7 +852,7 @@
     "leetcodeSlug": "walls-and-gates",
     "difficulty": "Medium",
     "pattern": "graphs-bfs",
-    "weekHint": 10,
+    "weekHint": 13,
     "whyGoogle": "BFS from all gates.",
     "followUpIdea": "01 matrix distance pattern?",
     "youtubeSearch": "NeetCode Walls and Gates"
@@ -863,7 +863,7 @@
     "leetcodeSlug": "word-ladder",
     "difficulty": "Hard",
     "pattern": "graphs-bfs",
-    "weekHint": 10,
+    "weekHint": 14,
     "whyGoogle": "BFS shortest transformation.",
     "followUpIdea": "Bidirectional BFS?",
     "youtubeSearch": "NeetCode Word Ladder"
@@ -874,7 +874,7 @@
     "leetcodeSlug": "network-delay-time",
     "difficulty": "Medium",
     "pattern": "dijkstra",
-    "weekHint": 11,
+    "weekHint": 15,
     "whyGoogle": "Dijkstra from source node.",
     "followUpIdea": "Bellman-Ford negative edges?",
     "youtubeSearch": "NeetCode Network Delay Time"
@@ -885,7 +885,7 @@
     "leetcodeSlug": "cheapest-flights-within-k-stops",
     "difficulty": "Medium",
     "pattern": "dijkstra",
-    "weekHint": 11,
+    "weekHint": 16,
     "whyGoogle": "Modified Dijkstra or Bellman-Ford K+1 relax.",
     "followUpIdea": "All paths vs shortest?",
     "youtubeSearch": "NeetCode Cheapest Flights Within K Stops"
@@ -896,7 +896,7 @@
     "leetcodeSlug": "swim-in-rising-water",
     "difficulty": "Hard",
     "pattern": "dijkstra",
-    "weekHint": 11,
+    "weekHint": 16,
     "whyGoogle": "Dijkstra on grid with max elevation cost.",
     "followUpIdea": "Binary search on time + BFS?",
     "youtubeSearch": "NeetCode Swim in Rising Water"
@@ -907,7 +907,7 @@
     "leetcodeSlug": "climbing-stairs",
     "difficulty": "Easy",
     "pattern": "dp-1d",
-    "weekHint": 13,
+    "weekHint": 16,
     "whyGoogle": "Fibonacci DP baseline.",
     "followUpIdea": "Min cost climbing stairs?",
     "youtubeSearch": "NeetCode Climbing Stairs"
@@ -918,7 +918,7 @@
     "leetcodeSlug": "house-robber",
     "difficulty": "Medium",
     "pattern": "dp-1d",
-    "weekHint": 13,
+    "weekHint": 16,
     "whyGoogle": "Take/skip adjacent houses.",
     "followUpIdea": "Circular street variant?",
     "youtubeSearch": "NeetCode House Robber"
@@ -929,7 +929,7 @@
     "leetcodeSlug": "house-robber-ii",
     "difficulty": "Medium",
     "pattern": "dp-1d",
-    "weekHint": 13,
+    "weekHint": 16,
     "whyGoogle": "Two linear passes for circle.",
     "followUpIdea": "General ring DP template?",
     "youtubeSearch": "NeetCode House Robber II"
@@ -940,7 +940,7 @@
     "leetcodeSlug": "longest-palindromic-substring",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 14,
+    "weekHint": 17,
     "whyGoogle": "Expand center or DP table.",
     "followUpIdea": "Manacher algorithm?",
     "youtubeSearch": "NeetCode Longest Palindromic Substring"
@@ -951,7 +951,7 @@
     "leetcodeSlug": "palindromic-substrings",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 14,
+    "weekHint": 17,
     "whyGoogle": "Expand or DP count.",
     "followUpIdea": "Longest palindromic subsequence?",
     "youtubeSearch": "NeetCode Palindromic Substrings"
@@ -962,7 +962,7 @@
     "leetcodeSlug": "decode-ways",
     "difficulty": "Medium",
     "pattern": "dp-1d",
-    "weekHint": 14,
+    "weekHint": 16,
     "whyGoogle": "DP with one/two digit validity.",
     "followUpIdea": "Modulo large inputs?",
     "youtubeSearch": "NeetCode Decode Ways"
@@ -973,7 +973,7 @@
     "leetcodeSlug": "coin-change",
     "difficulty": "Medium",
     "pattern": "dp-knapsack",
-    "weekHint": 14,
+    "weekHint": 18,
     "whyGoogle": "Unbounded knapsack min coins.",
     "followUpIdea": "Count ways vs min coins?",
     "youtubeSearch": "NeetCode Coin Change"
@@ -984,7 +984,7 @@
     "leetcodeSlug": "maximum-product-subarray",
     "difficulty": "Medium",
     "pattern": "dp-1d",
-    "weekHint": 14,
+    "weekHint": 16,
     "whyGoogle": "Track max and min product.",
     "followUpIdea": "Why track min?",
     "youtubeSearch": "NeetCode Maximum Product Subarray"
@@ -995,7 +995,7 @@
     "leetcodeSlug": "word-break",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 15,
+    "weekHint": 17,
     "whyGoogle": "DP on prefix with dictionary.",
     "followUpIdea": "Word Break II backtracking?",
     "youtubeSearch": "NeetCode Word Break"
@@ -1006,7 +1006,7 @@
     "leetcodeSlug": "longest-increasing-subsequence",
     "difficulty": "Medium",
     "pattern": "dp-lis",
-    "weekHint": 15,
+    "weekHint": 19,
     "whyGoogle": "DP n^2 or patience O(n log n).",
     "followUpIdea": "Count LIS?",
     "youtubeSearch": "NeetCode Longest Increasing Subsequence"
@@ -1017,7 +1017,7 @@
     "leetcodeSlug": "partition-equal-subset-sum",
     "difficulty": "Medium",
     "pattern": "dp-knapsack",
-    "weekHint": 15,
+    "weekHint": 18,
     "whyGoogle": "0/1 knapsack on sum/2.",
     "followUpIdea": "Return actual partition?",
     "youtubeSearch": "NeetCode Partition Equal Subset Sum"
@@ -1028,7 +1028,7 @@
     "leetcodeSlug": "unique-paths",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 15,
+    "weekHint": 17,
     "whyGoogle": "Grid DP with obstacles variant.",
     "followUpIdea": "Space optimized to 1D?",
     "youtubeSearch": "NeetCode Unique Paths"
@@ -1039,7 +1039,7 @@
     "leetcodeSlug": "longest-common-subsequence",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 16,
+    "weekHint": 17,
     "whyGoogle": "Classic 2D DP template.",
     "followUpIdea": "Print LCS string?",
     "youtubeSearch": "NeetCode Longest Common Subsequence"
@@ -1061,7 +1061,7 @@
     "leetcodeSlug": "target-sum",
     "difficulty": "Medium",
     "pattern": "dp-knapsack",
-    "weekHint": 16,
+    "weekHint": 18,
     "whyGoogle": "Subset sum +/- assignment.",
     "followUpIdea": "Memo vs tabulation?",
     "youtubeSearch": "NeetCode Target Sum"
@@ -1072,7 +1072,7 @@
     "leetcodeSlug": "interleaving-string",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 16,
+    "weekHint": 17,
     "whyGoogle": "Match s1/s2 pointers in s3.",
     "followUpIdea": "Space O(min(m,n))?",
     "youtubeSearch": "NeetCode Interleaving String"
@@ -1083,7 +1083,7 @@
     "leetcodeSlug": "edit-distance",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 16,
+    "weekHint": 18,
     "whyGoogle": "Levenshtein DP; Google favorite.",
     "followUpIdea": "Follow-up: one edit check only?",
     "youtubeSearch": "NeetCode Edit Distance"
@@ -1094,7 +1094,7 @@
     "leetcodeSlug": "burst-balloons",
     "difficulty": "Hard",
     "pattern": "dp-2d",
-    "weekHint": 16,
+    "weekHint": 18,
     "whyGoogle": "Interval DP on balloons.",
     "followUpIdea": "Compare with matrix chain?",
     "youtubeSearch": "NeetCode Burst Balloons"
@@ -1105,7 +1105,7 @@
     "leetcodeSlug": "regular-expression-matching",
     "difficulty": "Hard",
     "pattern": "dp-2d",
-    "weekHint": 17,
+    "weekHint": 18,
     "whyGoogle": "DP with star wildcard states.",
     "followUpIdea": "Wildcard matching dot only?",
     "youtubeSearch": "NeetCode Regular Expression Matching"
@@ -1116,7 +1116,7 @@
     "leetcodeSlug": "maximum-subarray",
     "difficulty": "Medium",
     "pattern": "dp-1d",
-    "weekHint": 3,
+    "weekHint": 17,
     "whyGoogle": "Kadane algorithm.",
     "followUpIdea": "Return indices of max subarray?",
     "youtubeSearch": "NeetCode Maximum Subarray"
@@ -1127,7 +1127,7 @@
     "leetcodeSlug": "jump-game",
     "difficulty": "Medium",
     "pattern": "greedy",
-    "weekHint": 5,
+    "weekHint": 19,
     "whyGoogle": "Reachability greedy farthest.",
     "followUpIdea": "Jump Game II min jumps?",
     "youtubeSearch": "NeetCode Jump Game"
@@ -1138,7 +1138,7 @@
     "leetcodeSlug": "jump-game-ii",
     "difficulty": "Medium",
     "pattern": "greedy",
-    "weekHint": 5,
+    "weekHint": 19,
     "whyGoogle": "Greedy layer BFS style.",
     "followUpIdea": "DP alternative?",
     "youtubeSearch": "NeetCode Jump Game II"
@@ -1149,7 +1149,7 @@
     "leetcodeSlug": "gas-station",
     "difficulty": "Medium",
     "pattern": "greedy",
-    "weekHint": 6,
+    "weekHint": 19,
     "whyGoogle": "Single pass total tank proof.",
     "followUpIdea": "Return all valid starts?",
     "youtubeSearch": "NeetCode Gas Station"
@@ -1160,7 +1160,7 @@
     "leetcodeSlug": "hand-of-straights",
     "difficulty": "Medium",
     "pattern": "greedy",
-    "weekHint": 6,
+    "weekHint": 19,
     "whyGoogle": "Sort + map counts for groups.",
     "followUpIdea": "Similar to reorganize string?",
     "youtubeSearch": "NeetCode Hand of Straights"
@@ -1171,7 +1171,7 @@
     "leetcodeSlug": "single-number",
     "difficulty": "Easy",
     "pattern": "bit-manipulation",
-    "weekHint": 4,
+    "weekHint": 20,
     "whyGoogle": "XOR cancels pairs.",
     "followUpIdea": "Single number II (every 3)?",
     "youtubeSearch": "NeetCode Single Number"
@@ -1182,7 +1182,7 @@
     "leetcodeSlug": "number-of-1-bits",
     "difficulty": "Easy",
     "pattern": "bit-manipulation",
-    "weekHint": 4,
+    "weekHint": 20,
     "whyGoogle": "Brian Kernighan or lookup.",
     "followUpIdea": "Reverse bits?",
     "youtubeSearch": "NeetCode Number of 1 Bits"
@@ -1193,7 +1193,7 @@
     "leetcodeSlug": "counting-bits",
     "difficulty": "Easy",
     "pattern": "bit-manipulation",
-    "weekHint": 4,
+    "weekHint": 20,
     "whyGoogle": "DP on bits i>>1.",
     "followUpIdea": "O(1) per number math trick?",
     "youtubeSearch": "NeetCode Counting Bits"
@@ -1204,7 +1204,7 @@
     "leetcodeSlug": "reverse-bits",
     "difficulty": "Easy",
     "pattern": "bit-manipulation",
-    "weekHint": 4,
+    "weekHint": 20,
     "whyGoogle": "Bit swap loop.",
     "followUpIdea": "O(log n) divide conquer?",
     "youtubeSearch": "NeetCode Reverse Bits"
@@ -1215,7 +1215,7 @@
     "leetcodeSlug": "missing-number",
     "difficulty": "Easy",
     "pattern": "bit-manipulation",
-    "weekHint": 2,
+    "weekHint": 20,
     "whyGoogle": "XOR or sum formula.",
     "followUpIdea": "Find all missing in range?",
     "youtubeSearch": "NeetCode Missing Number"
@@ -1226,7 +1226,7 @@
     "leetcodeSlug": "sum-of-two-integers",
     "difficulty": "Medium",
     "pattern": "bit-manipulation",
-    "weekHint": 6,
+    "weekHint": 20,
     "whyGoogle": "Add without + using XOR/carry.",
     "followUpIdea": "Multiply without *?",
     "youtubeSearch": "NeetCode Sum of Two Integers"
@@ -1237,7 +1237,7 @@
     "leetcodeSlug": "subarray-sum-equals-k",
     "difficulty": "Medium",
     "pattern": "prefix-sums",
-    "weekHint": 3,
+    "weekHint": 5,
     "whyGoogle": "Prefix sum + hash count.",
     "followUpIdea": "Continuous array variant?",
     "youtubeSearch": "NeetCode Subarray Sum Equals K"
@@ -1248,7 +1248,7 @@
     "leetcodeSlug": "range-sum-query-immutable",
     "difficulty": "Easy",
     "pattern": "prefix-sums",
-    "weekHint": 3,
+    "weekHint": 5,
     "whyGoogle": "Precompute prefix sums.",
     "followUpIdea": "Mutable version segment tree?",
     "youtubeSearch": "NeetCode Range Sum Query Immutable"
@@ -1259,7 +1259,7 @@
     "leetcodeSlug": "find-first-and-last-position-of-element-in-sorted-array",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 4,
+    "weekHint": 8,
     "whyGoogle": "Two binary searches for bounds.",
     "followUpIdea": "Insert position variant?",
     "youtubeSearch": "NeetCode Find First and Last Position"
@@ -1270,7 +1270,7 @@
     "leetcodeSlug": "lowest-common-ancestor-of-a-binary-tree",
     "difficulty": "Medium",
     "pattern": "trees-dfs",
-    "weekHint": 7,
+    "weekHint": 11,
     "whyGoogle": "Postorder return if target found.",
     "followUpIdea": "With parent pointers?",
     "youtubeSearch": "NeetCode LCA of Binary Tree"
@@ -1281,7 +1281,7 @@
     "leetcodeSlug": "accounts-merge",
     "difficulty": "Medium",
     "pattern": "graphs-dfs",
-    "weekHint": 11,
+    "weekHint": 14,
     "whyGoogle": "Union emails via DFS/UF.",
     "followUpIdea": "Scale to billions of records?",
     "youtubeSearch": "NeetCode Accounts Merge"
@@ -1292,7 +1292,7 @@
     "leetcodeSlug": "alien-dictionary",
     "difficulty": "Hard",
     "pattern": "topological-sort",
-    "weekHint": 11,
+    "weekHint": 15,
     "whyGoogle": "Build graph from adjacent words.",
     "followUpIdea": "Invalid order detection?",
     "youtubeSearch": "NeetCode Alien Dictionary"
@@ -1303,7 +1303,7 @@
     "leetcodeSlug": "reconstruct-itinerary",
     "difficulty": "Hard",
     "pattern": "graphs-dfs",
-    "weekHint": 11,
+    "weekHint": 14,
     "whyGoogle": "Eulerian path Hierholzer.",
     "followUpIdea": "Lexicographically smallest route?",
     "youtubeSearch": "NeetCode Reconstruct Itinerary"
@@ -1314,7 +1314,7 @@
     "leetcodeSlug": "min-cost-to-connect-all-points",
     "difficulty": "Medium",
     "pattern": "union-find",
-    "weekHint": 12,
+    "weekHint": 15,
     "whyGoogle": "MST with Kruskal/Prim.",
     "followUpIdea": "Why not full graph Dijkstra?",
     "youtubeSearch": "NeetCode Min Cost to Connect All Points"
@@ -1325,7 +1325,7 @@
     "leetcodeSlug": "longest-consecutive-sequence",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 3,
+    "weekHint": 1,
     "whyGoogle": "Hash set streak expansion O(n).",
     "followUpIdea": "Sort approach trade-offs?",
     "youtubeSearch": "NeetCode Longest Consecutive Sequence"
@@ -1336,7 +1336,7 @@
     "leetcodeSlug": "encode-and-decode-strings",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 4,
+    "weekHint": 2,
     "whyGoogle": "Length delimiter protocol design.",
     "followUpIdea": "Handle binary data?",
     "youtubeSearch": "NeetCode Encode and Decode Strings"
@@ -1347,7 +1347,7 @@
     "leetcodeSlug": "valid-sudoku",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 3,
+    "weekHint": 2,
     "whyGoogle": "Row/col/box hash sets.",
     "followUpIdea": "Solve sudoku backtracking?",
     "youtubeSearch": "NeetCode Valid Sudoku"
@@ -1358,7 +1358,7 @@
     "leetcodeSlug": "rotate-image",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 4,
+    "weekHint": 2,
     "whyGoogle": "Transpose + reverse layers.",
     "followUpIdea": "In-place layer rotation?",
     "youtubeSearch": "NeetCode Rotate Image"
@@ -1369,7 +1369,7 @@
     "leetcodeSlug": "spiral-matrix",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 4,
+    "weekHint": 2,
     "whyGoogle": "Boundary simulation.",
     "followUpIdea": "Spiral matrix II generate?",
     "youtubeSearch": "NeetCode Spiral Matrix"
@@ -1380,7 +1380,7 @@
     "leetcodeSlug": "set-matrix-zeroes",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 4,
+    "weekHint": 2,
     "whyGoogle": "Use first row/col as markers.",
     "followUpIdea": "Only O(1) space allowed?",
     "youtubeSearch": "NeetCode Set Matrix Zeroes"
@@ -1391,7 +1391,7 @@
     "leetcodeSlug": "happy-number",
     "difficulty": "Easy",
     "pattern": "arrays-hashing",
-    "weekHint": 2,
+    "weekHint": 1,
     "whyGoogle": "Cycle detection with set.",
     "followUpIdea": "Floyd cycle on digits?",
     "youtubeSearch": "NeetCode Happy Number"
@@ -1402,7 +1402,7 @@
     "leetcodeSlug": "is-subsequence",
     "difficulty": "Easy",
     "pattern": "two-pointers",
-    "weekHint": 2,
+    "weekHint": 3,
     "whyGoogle": "Two pointer scan on t.",
     "followUpIdea": "Many S strings binary search?",
     "youtubeSearch": "NeetCode Is Subsequence"
@@ -1413,7 +1413,7 @@
     "leetcodeSlug": "maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts",
     "difficulty": "Medium",
     "pattern": "greedy",
-    "weekHint": 6,
+    "weekHint": 19,
     "whyGoogle": "Sort cuts; max gap product.",
     "followUpIdea": "Large coordinate values?",
     "youtubeSearch": "NeetCode Maximum Area of Cake"
@@ -1424,7 +1424,7 @@
     "leetcodeSlug": "random-pick-with-weight",
     "difficulty": "Medium",
     "pattern": "binary-search",
-    "weekHint": 6,
+    "weekHint": 8,
     "whyGoogle": "Prefix weights + binary search pick.",
     "followUpIdea": "O(1) pick after preprocess?",
     "youtubeSearch": "NeetCode Random Pick with Weight"
@@ -1435,7 +1435,7 @@
     "leetcodeSlug": "find-median-from-data-stream",
     "difficulty": "Hard",
     "pattern": "heap-topk",
-    "weekHint": 8,
+    "weekHint": 10,
     "whyGoogle": "Two heaps balance.",
     "followUpIdea": "Approximate quantiles?",
     "youtubeSearch": "NeetCode Find Median from Data Stream"
@@ -1446,7 +1446,7 @@
     "leetcodeSlug": "ipo",
     "difficulty": "Hard",
     "pattern": "heap-topk",
-    "weekHint": 12,
+    "weekHint": 10,
     "whyGoogle": "Sort capital; max heap profits.",
     "followUpIdea": "Capital budget scheduling story?",
     "youtubeSearch": "NeetCode IPO"
@@ -1457,7 +1457,7 @@
     "leetcodeSlug": "sliding-window-maximum",
     "difficulty": "Hard",
     "pattern": "sliding-window",
-    "weekHint": 7,
+    "weekHint": 5,
     "whyGoogle": "Monotonic deque window max.",
     "followUpIdea": "Compare with heap approach?",
     "youtubeSearch": "NeetCode Sliding Window Maximum"
@@ -1468,7 +1468,7 @@
     "leetcodeSlug": "trapping-rain-water",
     "difficulty": "Hard",
     "pattern": "two-pointers",
-    "weekHint": 6,
+    "weekHint": 4,
     "whyGoogle": "Two pointer or stack water fill.",
     "followUpIdea": "DP left/right max arrays?",
     "youtubeSearch": "NeetCode Trapping Rain Water"
@@ -1479,7 +1479,7 @@
     "leetcodeSlug": "basic-calculator-ii",
     "difficulty": "Medium",
     "pattern": "stack",
-    "weekHint": 5,
+    "weekHint": 6,
     "whyGoogle": "Stack for +/-/* with precedence.",
     "followUpIdea": "Calculator with parentheses?",
     "youtubeSearch": "NeetCode Basic Calculator II"
@@ -1490,7 +1490,7 @@
     "leetcodeSlug": "lru-cache",
     "difficulty": "Medium",
     "pattern": "linked-list",
-    "weekHint": 8,
+    "weekHint": 7,
     "whyGoogle": "Hash map + doubly linked list.",
     "followUpIdea": "LFU cache extension?",
     "youtubeSearch": "NeetCode LRU Cache"
@@ -1501,7 +1501,7 @@
     "leetcodeSlug": "insert-delete-getrandom-o1",
     "difficulty": "Medium",
     "pattern": "arrays-hashing",
-    "weekHint": 5,
+    "weekHint": 2,
     "whyGoogle": "Array + hash map swap delete.",
     "followUpIdea": "GetRandom with duplicates allowed?",
     "youtubeSearch": "NeetCode Insert Delete GetRandom"
@@ -1512,7 +1512,7 @@
     "leetcodeSlug": "longest-turbulent-subarray",
     "difficulty": "Medium",
     "pattern": "sliding-window",
-    "weekHint": 6,
+    "weekHint": 5,
     "whyGoogle": "Alternating compare window.",
     "followUpIdea": "Similar to wiggle subsequence?",
     "youtubeSearch": "NeetCode Longest Turbulent Subarray"
@@ -1523,7 +1523,7 @@
     "leetcodeSlug": "minimum-number-of-arrows-to-burst-balloons",
     "difficulty": "Medium",
     "pattern": "intervals-greedy",
-    "weekHint": 5,
+    "weekHint": 20,
     "whyGoogle": "Greedy shoot at interval end.",
     "followUpIdea": "Compare with non-overlapping intervals?",
     "youtubeSearch": "NeetCode Minimum Number of Arrows"
@@ -1534,7 +1534,7 @@
     "leetcodeSlug": "employee-free-time",
     "difficulty": "Hard",
     "pattern": "intervals",
-    "weekHint": 12,
+    "weekHint": 9,
     "whyGoogle": "Merge all intervals; find gaps.",
     "followUpIdea": "K employees sweep line?",
     "youtubeSearch": "NeetCode Employee Free Time"
@@ -1545,7 +1545,7 @@
     "leetcodeSlug": "maximum-frequency-stack",
     "difficulty": "Hard",
     "pattern": "stack",
-    "weekHint": 12,
+    "weekHint": 7,
     "whyGoogle": "Hash of stacks per frequency.",
     "followUpIdea": "Design for distributed system?",
     "youtubeSearch": "NeetCode Maximum Frequency Stack"
@@ -1578,7 +1578,7 @@
     "leetcodeSlug": "cherry-pickup",
     "difficulty": "Hard",
     "pattern": "dp-2d",
-    "weekHint": 17,
+    "weekHint": 18,
     "whyGoogle": "Grid DP two paths or expanded state.",
     "followUpIdea": "Min path with obstacles?",
     "youtubeSearch": "NeetCode Cherry Pickup"
@@ -1589,7 +1589,7 @@
     "leetcodeSlug": "minimum-path-sum",
     "difficulty": "Medium",
     "pattern": "dp-2d",
-    "weekHint": 15,
+    "weekHint": 18,
     "whyGoogle": "Grid min sum path DP.",
     "followUpIdea": "Return path reconstruction?",
     "youtubeSearch": "NeetCode Minimum Path Sum"
@@ -1600,7 +1600,7 @@
     "leetcodeSlug": "path-with-minimum-effort",
     "difficulty": "Medium",
     "pattern": "dijkstra",
-    "weekHint": 12,
+    "weekHint": 16,
     "whyGoogle": "Dijkstra or BS on effort on grid.",
     "followUpIdea": "Union find alternative?",
     "youtubeSearch": "NeetCode Path With Minimum Effort"
@@ -1611,7 +1611,7 @@
     "leetcodeSlug": "continuous-subarray-sum",
     "difficulty": "Medium",
     "pattern": "prefix-sums",
-    "weekHint": 4,
+    "weekHint": 5,
     "whyGoogle": "Modulo prefix for multiple of k.",
     "followUpIdea": "Handle k=0?",
     "youtubeSearch": "NeetCode Continuous Subarray Sum"
@@ -1622,7 +1622,7 @@
     "leetcodeSlug": "find-all-anagrams-in-a-string",
     "difficulty": "Medium",
     "pattern": "sliding-window",
-    "weekHint": 3,
+    "weekHint": 5,
     "whyGoogle": "Fixed window frequency match.",
     "followUpIdea": "Return count only?",
     "youtubeSearch": "NeetCode Find All Anagrams"
@@ -1655,7 +1655,7 @@
     "leetcodeSlug": "capacity-to-ship-packages-within-d-days",
     "difficulty": "Medium",
     "pattern": "binary-search-on-answer",
-    "weekHint": 7,
+    "weekHint": 9,
     "whyGoogle": "Google-style BS on answer.",
     "followUpIdea": "Minimize days given capacity?",
     "youtubeSearch": "NeetCode Capacity To Ship Packages"
@@ -1666,7 +1666,7 @@
     "leetcodeSlug": "magnetic-force-between-two-balls",
     "difficulty": "Medium",
     "pattern": "binary-search-on-answer",
-    "weekHint": 8,
+    "weekHint": 9,
     "whyGoogle": "Maximize minimum distance.",
     "followUpIdea": "Minimize max distance?",
     "youtubeSearch": "Magnetic Force Between Two Balls"
@@ -1677,7 +1677,7 @@
     "leetcodeSlug": "top-k-frequent-words",
     "difficulty": "Medium",
     "pattern": "heap-topk",
-    "weekHint": 8,
+    "weekHint": 10,
     "whyGoogle": "Heap with tie-break lexical.",
     "followUpIdea": "Bucket sort?",
     "youtubeSearch": "NeetCode Top K Frequent Words"
@@ -1688,7 +1688,7 @@
     "leetcodeSlug": "number-of-provinces",
     "difficulty": "Medium",
     "pattern": "union-find",
-    "weekHint": 11,
+    "weekHint": 15,
     "whyGoogle": "UF connected components.",
     "followUpIdea": "Matrix DFS?",
     "youtubeSearch": "NeetCode Number of Provinces"
@@ -1699,7 +1699,7 @@
     "leetcodeSlug": "surrounded-regions",
     "difficulty": "Medium",
     "pattern": "graphs-dfs",
-    "weekHint": 11,
+    "weekHint": 14,
     "whyGoogle": "Border DFS then flip.",
     "followUpIdea": "Union find?",
     "youtubeSearch": "NeetCode Surrounded Regions"
@@ -1710,7 +1710,7 @@
     "leetcodeSlug": "3sum-closest",
     "difficulty": "Medium",
     "pattern": "two-pointers",
-    "weekHint": 4,
+    "weekHint": 3,
     "whyGoogle": "Two pointers closest sum.",
     "followUpIdea": "k-sum closest?",
     "youtubeSearch": "NeetCode 3Sum Closest"
@@ -1721,7 +1721,7 @@
     "leetcodeSlug": "4sum",
     "difficulty": "Medium",
     "pattern": "two-pointers",
-    "weekHint": 8,
+    "weekHint": 4,
     "whyGoogle": "k-sum generalization.",
     "followUpIdea": "Optimize with hash?",
     "youtubeSearch": "NeetCode 4Sum"
@@ -1732,7 +1732,7 @@
     "leetcodeSlug": "sort-colors",
     "difficulty": "Medium",
     "pattern": "two-pointers",
-    "weekHint": 5,
+    "weekHint": 4,
     "whyGoogle": "Dutch national flag.",
     "followUpIdea": "Four colors?",
     "youtubeSearch": "NeetCode Sort Colors"
@@ -1754,7 +1754,7 @@
     "leetcodeSlug": "minimum-number-of-days-to-make-m-bouquets",
     "difficulty": "Medium",
     "pattern": "binary-search-on-answer",
-    "weekHint": 8,
+    "weekHint": 9,
     "whyGoogle": "Feasibility days.",
     "followUpIdea": "Adjacent constraint change?",
     "youtubeSearch": "NeetCode Bouquets Days"
@@ -1765,7 +1765,7 @@
     "leetcodeSlug": "max-area-of-island",
     "difficulty": "Medium",
     "pattern": "graphs-dfs",
-    "weekHint": 10,
+    "weekHint": 14,
     "whyGoogle": "DFS area.",
     "followUpIdea": "Perimeter?",
     "youtubeSearch": "NeetCode Max Area Island"
@@ -1776,7 +1776,7 @@
     "leetcodeSlug": "n-queens",
     "difficulty": "Hard",
     "pattern": "backtracking",
-    "weekHint": 15,
+    "weekHint": 13,
     "whyGoogle": "Constraint backtracking.",
     "followUpIdea": "Count solutions only?",
     "youtubeSearch": "NeetCode N-Queens"
@@ -1798,7 +1798,7 @@
     "leetcodeSlug": "shortest-path-in-binary-matrix",
     "difficulty": "Medium",
     "pattern": "graphs-bfs",
-    "weekHint": 12,
+    "weekHint": 14,
     "whyGoogle": "Grid BFS 8-dir.",
     "followUpIdea": "With weights Dijkstra?",
     "youtubeSearch": "NeetCode Shortest Path Binary Matrix"

@@ -47,7 +47,7 @@ const bankCatalog = {
 
 async function seedContent() {
   // Bump when content JSON changes. Upserts are safe under concurrent Vercel cold starts.
-  const version = 'skill-banks-v4-capacity-links-3'
+  const version = 'skill-banks-v5-go-topic-sequence'
   const current = await dbGet('SELECT value FROM content_meta WHERE key = ?', ['seed_version'])
   if (current?.value === version) return
 

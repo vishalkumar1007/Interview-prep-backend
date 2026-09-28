@@ -122,27 +122,47 @@
     {
       "skill": "Go",
       "description": "Language fluency for Google-style backend interviews and clean on-the-fly implementation.",
-      "target": "Comfort implementing DSA templates in Go with idiomatic slices, maps, and structs.",
+      "target": "The whole Go bank in teaching order — basics and data types first, concurrency once the language is solid, services and code comprehension last.",
       "color": "sky",
       "modules": [
         {
-          "slug": "go-slices-maps",
-          "title": "Slices, maps, and runes",
-          "overview": "Zero-value semantics, append growth, map existence checks, and UTF-8 rune iteration for string problems.",
-          "whyGoogle": "Interviewers accept Go if you are fluent—awkward slice handling costs credibility.",
+          "slug": "go-basics",
+          "title": "Language basics: values, flow, functions",
+          "overview": "Zero values, the one loop keyword, functions as values, constants with iota, and how a package is laid out. Everything later in the track assumes this is automatic.",
+          "whyGoogle": "Nothing costs more interview time than fumbling declaration and loop syntax while also thinking about the algorithm.",
           "learnItems": [
-            "make vs var for slices and maps",
-            "Two-value map lookup ok",
-            "Sort.Slice and custom comparators",
-            "Range over string with rune awareness"
+            "var vs := and the zero value of every built-in type",
+            "for as the only loop; if with an init statement",
+            "Multiple returns, the (T, error) convention, and closures",
+            "Constants, iota enums, and exported vs unexported names"
           ],
           "checklist": [
-            "Implement two-sum in Go with one pass map",
-            "Use sort.Slice for interval problems",
-            "Explain slice backing array pitfalls",
-            "Run go test on a small table-driven test"
+            "Write a package with an exported constructor and an iota enum",
+            "Explain why a nil map reads but does not write",
+            "Return and handle (value, error) without a helper",
+            "Say what a closure captures inside a loop"
           ],
-          "youtubeSearch": "Go slices maps interview coding",
+          "youtubeSearch": "Go basics variables loops functions tutorial",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "go-slices-maps",
+          "title": "Data types: strings, arrays, slices, maps",
+          "overview": "Numeric conversion and overflow, runes vs bytes, how a slice header differs from an array, append growth, and map existence checks — the types every DSA answer is built from.",
+          "whyGoogle": "Interviewers accept Go if you are fluent; awkward slice handling costs credibility before the algorithm is even judged.",
+          "learnItems": [
+            "Explicit numeric conversion and the overflow-safe midpoint",
+            "Range over a string with rune awareness",
+            "Arrays copy, slices alias: len, cap and append growth",
+            "Two-value map lookup and sort.Slice comparators"
+          ],
+          "checklist": [
+            "Implement two-sum in Go with a one-pass map",
+            "Use sort.Slice for an interval problem",
+            "Show two slices sharing a backing array, then break it with copy",
+            "Explain integer division and truncation"
+          ],
+          "youtubeSearch": "Go slices maps runes interview coding",
           "linkedProblemIds": [
             "p001",
             "p036"
@@ -150,45 +170,105 @@
         },
         {
           "slug": "go-interfaces-errors",
-          "title": "Interfaces, errors, and testing",
-          "overview": "Small interfaces, explicit error handling, and table-driven tests mirroring production Go style.",
-          "whyGoogle": "Design discussions often assume idiomatic error propagation and testability.",
+          "title": "Structs, interfaces, errors, and generics",
+          "overview": "Pointer vs value receivers, embedding instead of inheritance, small interfaces satisfied implicitly, error values with wrapping, and type parameters where they genuinely remove duplication.",
+          "whyGoogle": "Design discussions assume idiomatic error propagation and interfaces small enough to fake in a test.",
           "learnItems": [
-            "errors.Is / errors.As patterns",
-            "Constructor functions and struct encapsulation",
-            "Table-driven tests with subtests",
-            "When to use pointers in receivers"
+            "When a receiver must be a pointer",
+            "Embedding and composition over inheritance",
+            "Implicit satisfaction, type assertions, and io.Reader",
+            "errors.Is / errors.As, and defer, panic, recover"
           ],
           "checklist": [
-            "Write a tiny LRU or min-stack API in Go",
-            "Return structured errors for invalid input",
-            "Add two table tests including edge cases",
-            "Explain nil interface vs typed nil pointer"
+            "Write a tiny LRU or min-stack API with a constructor",
+            "Return a wrapped error and match it with errors.Is",
+            "Explain nil interface vs typed nil pointer",
+            "Write one generic helper and justify it over a concrete one"
           ],
-          "youtubeSearch": "Go interfaces errors best practices",
+          "youtubeSearch": "Go interfaces errors generics best practices",
           "linkedProblemIds": [
             "p017",
             "p136"
           ]
         },
         {
-          "slug": "go-concurrency-basics",
-          "title": "Goroutines, channels, and context",
-          "overview": "Enough concurrency to discuss worker pools, fan-in/fan-out, and cancellation—not full systems yet.",
-          "whyGoogle": "Go roles expect sane talk about goroutines even if coding rounds stay sequential.",
+          "slug": "go-testing",
+          "title": "Testing: table-driven, fakes, benchmarks",
+          "overview": "Table-driven tests with subtests, faking a dependency through the interface it already satisfies, and reading a benchmark or a pprof profile without guessing.",
+          "whyGoogle": "A take-home without tests reads as unfinished, and \"how would you test this?\" is a standard follow-up.",
           "learnItems": [
-            "Buffered vs unbuffered channels",
-            "select with context.Done",
-            "Worker pool pattern sketch",
-            "Data race awareness and mutex vs channel"
+            "Table-driven tests with t.Run subtests",
+            "Faking a small interface instead of mocking a framework",
+            "go test -race, -cover and what each actually proves",
+            "Benchmarks and a first pprof read"
           ],
           "checklist": [
-            "Sketch parallel URL fetcher with timeout",
-            "Explain happens-before for a simple channel",
-            "Know when NOT to use goroutines in interviews",
-            "Pair with Fundamentals OS threads module"
+            "Add two table tests including the edge cases",
+            "Replace one dependency with a hand-written fake",
+            "Run a benchmark and explain the allocation count",
+            "Say what a test that only asserts no error is worth"
           ],
-          "youtubeSearch": "Go concurrency interview worker pool",
+          "youtubeSearch": "Go table driven tests benchmarks pprof",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "go-concurrency-basics",
+          "title": "Concurrency: goroutines, channels, context",
+          "overview": "Goroutines over the scheduler model, unbuffered vs buffered channels, select, the sync primitives, then context cancellation, worker pools and errgroup once the primitives are solid.",
+          "whyGoogle": "Go roles expect sane talk about goroutines and cancellation even when the coding round stays sequential.",
+          "learnItems": [
+            "Buffered vs unbuffered channels and happens-before",
+            "select with context.Done, and mutex vs channel",
+            "WaitGroup, Once, and sync/atomic",
+            "Worker pool and errgroup with cancellation"
+          ],
+          "checklist": [
+            "Sketch a parallel URL fetcher with a timeout",
+            "Reproduce a data race and find it with -race",
+            "Explain when NOT to use goroutines in an interview",
+            "Pair with the Fundamentals OS threads module"
+          ],
+          "youtubeSearch": "Go concurrency interview worker pool context",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "go-services",
+          "title": "Services: net/http and database/sql",
+          "overview": "A handler, a middleware chain, JSON in and out with validation, httptest against real handlers, graceful shutdown — then the connection pool, NULL handling and transactions underneath it.",
+          "whyGoogle": "The backend take-home and the \"walk me through your service\" follow-up both live here.",
+          "learnItems": [
+            "Server, HandlerFunc, and a middleware chain",
+            "JSON encoding, validation, and error responses",
+            "httptest for handlers, and graceful shutdown",
+            "database/sql pooling, sql.Null types, and transactions"
+          ],
+          "checklist": [
+            "Ship one endpoint with middleware, tests and a timeout",
+            "Handle a nullable column without a panic",
+            "Explain an isolation level to a non-specialist",
+            "Shut the server down without dropping in-flight requests"
+          ],
+          "youtubeSearch": "Go net/http middleware database/sql transactions",
+          "linkedProblemIds": []
+        },
+        {
+          "slug": "go-production",
+          "title": "Operations and reading code you did not write",
+          "overview": "Twelve-factor configuration, structured logging with slog, health and readiness, a multi-stage image — then the comprehension drills: read an unfamiliar codebase, debug by hypothesis, and verify what an assistant hands you.",
+          "whyGoogle": "The 2026 loop includes a code-comprehension round, and operational judgement is what separates L3 from L4 answers.",
+          "learnItems": [
+            "Config from the environment, never from a committed file",
+            "Structured logging with log/slog and request context",
+            "Health vs readiness, and a multi-stage Docker build",
+            "Reading an unfamiliar codebase fast; debugging by hypothesis"
+          ],
+          "checklist": [
+            "Read a 300-line unfamiliar package aloud in 45 minutes",
+            "Find one bug by hypothesis, not by printf roulette",
+            "Take an assistant’s patch and verify it line by line",
+            "Improve code you did not write without rewriting it"
+          ],
+          "youtubeSearch": "Go slog configuration docker multi-stage code reading",
           "linkedProblemIds": []
         }
       ]

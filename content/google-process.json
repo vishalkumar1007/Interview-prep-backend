@@ -1,70 +1,201 @@
 {
+  "lastVerified": "2026-09-28",
+  "hiringAttributes": [
+    {
+      "id": "general-cognitive",
+      "title": "General Cognitive Ability (GCA)",
+      "description": "How you reason through an unfamiliar problem: structure, assumptions, and adaptation when the constraints move. Interviewers score the path, not only the destination.",
+      "howItShowsUp": "Embedded in coding and design rounds — clarifying questions, trade-off reasoning, and how you recover when your first idea fails."
+    },
+    {
+      "id": "role-related",
+      "title": "Role-Related Knowledge (RRK)",
+      "description": "Actual engineering depth: data structures, algorithms, language fluency, testing instinct, and — from L5 — system architecture judgement.",
+      "howItShowsUp": "Coding rounds and, where applicable, the systems round. Your language should be one you can write fluently without an IDE."
+    },
+    {
+      "id": "leadership",
+      "title": "Leadership (emergent)",
+      "description": "Stepping up when your skills fit the problem and stepping back when they do not. Assessed for individual contributors too, not just managers.",
+      "howItShowsUp": "Behavioural round; also in how you handle disagreement with the interviewer about an approach."
+    },
+    {
+      "id": "googleyness",
+      "title": "Googleyness",
+      "description": "Comfort with ambiguity, bias to action, intellectual humility, collaboration, and doing the right thing for users.",
+      "howItShowsUp": "The Googleyness & Leadership round, via STAR-L stories, and in your tone across every round."
+    }
+  ],
   "stages": [
     {
-      "name": "Recruiter screen",
-      "duration": "30 minutes",
-      "focus": "Background, timeline, role fit, and process overview.",
+      "name": "Application and resume screen",
+      "duration": "Days to weeks",
+      "focus": "Recruiter or automated screen against the posting's qualifications.",
       "tips": [
-        "Prepare a 90-second pitch aligned to Google scale problems.",
-        "Confirm interview format (virtual vs onsite) and timezone.",
-        "Ask about team matching timing—not compensation details yet.",
-        "Be ready to summarize one strong project with metrics."
+        "Lead each bullet with impact and a number, not with the technology list.",
+        "Name the language you want to be interviewed in and keep it consistent across the resume.",
+        "A referral moves the screen along faster than a cover letter does.",
+        "Apply to a small number of well-matched postings rather than many at once."
       ]
     },
     {
-      "name": "Phone / technical screen",
-      "duration": "45–60 minutes",
-      "focus": "One coding question with strong communication on a shared editor.",
+      "name": "Google Hiring Assessment (GHA)",
+      "duration": "~20–30 minutes",
+      "focus": "Non-technical work-style and situational-judgement questionnaire sent by the recruiter before or just after the screen.",
       "tips": [
-        "Clarify inputs, constraints, and edge cases before coding.",
-        "Propose brute force, then optimize; state time/space complexity.",
-        "Write clean, testable code; dry-run with a small example.",
-        "Google screens often favor medium array/hash/graph questions."
+        "Not a coding test — it asks how you work, prioritise, and handle ambiguity.",
+        "Answer consistently rather than strategically; contradictory answers are the visible failure mode.",
+        "Complete it promptly; the loop usually does not advance until it is in.",
+        "Some new-grad and intern pipelines add a separate timed coding assessment — confirm with your recruiter which applies to you."
+      ]
+    },
+    {
+      "name": "Recruiter screen",
+      "duration": "30 minutes",
+      "focus": "Background, timeline, target level, and process overview.",
+      "tips": [
+        "Prepare a 90-second pitch aligned to Google-scale problems.",
+        "Ask directly which rounds your loop contains — the format varies by region, level and team, and is changing in 2026.",
+        "Ask whether a systems round is in your loop and whether the code-comprehension pilot applies.",
+        "Confirm the level being targeted; it determines whether design is scored at all."
+      ]
+    },
+    {
+      "name": "Technical phone screen",
+      "duration": "45 minutes (one round; sometimes two)",
+      "focus": "One or two coding questions in a shared editor with no autocomplete.",
+      "tips": [
+        "Clarify inputs, constraints, and edge cases before writing code.",
+        "Propose brute force, then optimise; state time and space complexity out loud.",
+        "Write compiling, testable code and dry-run a small example.",
+        "Expect medium arrays/hashing/strings or a graph traversal; hard-only screens are rare."
       ]
     },
     {
       "name": "Onsite / virtual onsite loop",
-      "duration": "4–5 interviews (~45 min each)",
-      "focus": "Mix of coding (2–3), system design (1+ for L4+), and Googleyness/leadership.",
+      "duration": "4–5 interviews, ~45 minutes each",
+      "focus": "L3/L4: 3–4 coding rounds plus one Googleyness & Leadership round. L5+: a dedicated systems design round replaces a coding round.",
       "tips": [
-        "Treat each round independently—no carry-over frustration.",
-        "Coding: same clarity as phone; expect follow-ups and extensions.",
-        "Design: requirements, estimates, APIs, data model, bottlenecks, trade-offs.",
-        "Googleyness: STAR stories showing ambiguity, collaboration, and user focus."
+        "Treat each round independently — a weak round does not have to spread.",
+        "At L4 a systems round is often optional or substituted for a coding round; ask rather than assume.",
+        "Design scoring starts in earnest at L5; at L4 design usually surfaces inside a coding round as a follow-up.",
+        "Googleyness: STAR-L stories showing ambiguity, collaboration, user focus, and a real mistake.",
+        "Leave 3–5 minutes for follow-ups — they often decide the marginal hire/no-hire."
       ]
     },
     {
-      "name": "Team matching / hiring committee",
-      "duration": "Days to weeks",
-      "focus": "Packet review, level calibration, and team fit conversations.",
+      "name": "Code comprehension round (2026 pilot)",
+      "duration": "60 minutes",
+      "focus": "Read, debug, and improve a 200–500 line codebase you did not write, in CoderPad, with Gemini available as an assistant.",
       "tips": [
-        "Stay responsive to recruiters; prepare questions for hiring managers.",
-        "Reflect consistent signals: strong coding, communication, and values.",
-        "Level discussions weigh scope of past work and interview depth.",
-        "Politely compare teams by product impact and growth—not perks alone."
+        "Piloted from May 2026 for junior and mid-level SWE roles on select US teams — confirm whether your loop includes it.",
+        "Scored on three things: prompt quality, validation of the model's output, and your own debugging reasoning.",
+        "Never accept a generated answer without stating how you verified it; unverified acceptance is the failure mode.",
+        "Practise reading unfamiliar code aloud: entry points, data flow, invariants, then the suspicious edges.",
+        "The classic algorithm rounds remain AI-free — do not assume assistance is allowed elsewhere."
+      ]
+    },
+    {
+      "name": "Hiring committee and team matching",
+      "duration": "Days to weeks",
+      "focus": "Packet review by a committee that never met you, level calibration, then conversations with teams that have headcount.",
+      "tips": [
+        "The committee reads interviewer notes, so clearly verbalised reasoning is what survives into the packet.",
+        "Consistent signals across rounds matter more than one spectacular round.",
+        "Level is argued from the scope of your past work plus interview depth; prepare a scope narrative.",
+        "Compare teams on product impact and growth, and ask about on-call and roadmap ownership."
       ]
     }
   ],
   "codingTips": [
     "Start with examples and invariants; Google interviewers reward structured thinking over fast typing.",
-    "Name the pattern (BFS, binary search on answer, interval greedy) out loud—it helps partial credit.",
-    "For graphs, state representation (adj list vs matrix) and why before implementing.",
-    "When stuck, reduce the problem (smaller input, simpler constraint) and bridge back.",
-    "Always propose tests: empty input, single element, duplicates, max constraints.",
-    "Prefer readable variable names; Go/Java/Python style clarity matters at Google scale.",
-    "If you optimize mid-interview, explain what changed in complexity and why it is correct.",
-    "Save 3–5 minutes for follow-ups—they often separate hire vs no-hire at the margin."
+    "Name the pattern out loud (BFS, binary search on answer, interval greedy) — it earns partial credit when time runs short.",
+    "For graphs, state the representation (adjacency list vs matrix) and why before implementing.",
+    "When stuck, reduce the problem — smaller input, dropped constraint — then bridge back.",
+    "Always propose tests: empty input, single element, duplicates, maximum constraints.",
+    "Prefer readable names; no autocomplete means clarity beats cleverness.",
+    "If you optimise mid-round, say what changed in the complexity and why it is still correct.",
+    "Ask before assuming library help; then write the part being tested by hand."
+  ],
+  "roundPlaybooks": [
+    {
+      "id": "coding",
+      "title": "Coding round (45 min)",
+      "timebox": "5 clarify · 5 approach · 20 code · 10 test and follow-ups",
+      "signals": ["general-cognitive", "role-related"],
+      "steps": [
+        "Restate the problem and confirm input ranges, duplicates, and output shape.",
+        "State a brute force with complexity, then the target complexity.",
+        "Name the pattern, sketch the invariant, then write code top-down.",
+        "Dry-run one small and one degenerate case; fix in place, out loud.",
+        "Answer the follow-up as a design change, not a rewrite."
+      ]
+    },
+    {
+      "id": "code-comprehension",
+      "title": "Code comprehension round (60 min, 2026 pilot)",
+      "timebox": "10 orient · 20 trace and hypothesise · 20 fix and verify · 10 improve",
+      "signals": ["general-cognitive", "role-related"],
+      "steps": [
+        "Orient before reading line by line: entry points, module boundaries, data flow, tests.",
+        "Say your hypothesis before you prompt the assistant, so your reasoning is on record.",
+        "Use the assistant for breadth (where is X handled) and verify every claim against the code.",
+        "Fix the bug, then state how you would prove the fix — test, assertion, or log.",
+        "Close with one design-level improvement and its risk."
+      ]
+    },
+    {
+      "id": "systems",
+      "title": "Systems design round (45 min, L5+ or optional at L4)",
+      "timebox": "8 requirements · 5 estimates · 12 high level · 15 deep dive · 5 wrap",
+      "signals": ["general-cognitive", "role-related"],
+      "steps": [
+        "Separate functional requirements from NFRs (scale, latency, consistency, availability).",
+        "Do back-of-envelope numbers before drawing anything.",
+        "Draw the happy path end to end, then name the bottleneck.",
+        "Take one deep dive the interviewer cares about; state the trade-off you accept.",
+        "Close with failure modes and what you would monitor."
+      ]
+    },
+    {
+      "id": "googleyness",
+      "title": "Googleyness & Leadership round (45 min)",
+      "timebox": "2–3 minutes per story, 4–6 stories",
+      "signals": ["leadership", "googleyness"],
+      "steps": [
+        "Use STAR-L: situation, task, action, result, and the learning you carried forward.",
+        "Own the 'I' in the action; say what the team did separately from what you did.",
+        "Bring one genuine failure with a concrete change that followed.",
+        "In the 2026 pilot this round can include a technical deep dive on a past project — know your own architecture and its trade-offs.",
+        "End each story with the measurable outcome, then stop talking."
+      ]
+    }
   ],
   "eligibility": {
-    "l3": "Typically 0–2 years relevant experience (new grad or early career). Emphasis on coding fundamentals, learning velocity, and collaboration signals.",
-    "l4": "Typically ~2–5+ years. Strong independent delivery, medium/hard coding, and introductory system design on real components.",
-    "l5plus": "Staff+ loops add deep design, cross-team influence, and ambiguous problem ownership. Coding still rigorous but scope questions dominate.",
+    "l3": "Typically 0–2 years relevant experience (new grad or early career). Coding fundamentals, learning velocity, and collaboration signals dominate; no system design round.",
+    "l4": "Typically ~2–5 years. Strong independent delivery and medium/hard coding. A systems round is often optional or substituted for a coding round — design is not usually the deciding signal.",
+    "l5plus": "Senior and above. A dedicated systems design round is standard, scope and cross-team influence dominate, and coding stays rigorous.",
     "officialQuals": [
-      "Bachelor’s degree in CS or related field (or equivalent practical experience)—wording varies by posting.",
-      "Proficiency in one mainstream language (commonly C++, Java, Python, or Go).",
+      "Bachelor's degree in CS or a related field, or equivalent practical experience — wording varies by posting.",
+      "Proficiency in one mainstream language; C++, Java, Python, Go and JavaScript are all accepted for interviews.",
       "Demonstrated data structures, algorithms, and software engineering experience.",
-      "Ability to communicate clearly in English for technical discussions."
+      "Ability to discuss technical work clearly in English."
     ]
   },
-  "disclaimer": "Google’s hiring process and rubrics change by region, role, and year. Treat this file as study guidance aligned with public candidate reports—not an official Google document."
+  "verifyWithRecruiter": [
+    "Which rounds are in my loop, and how many are coding?",
+    "Is a systems design round included at my target level?",
+    "Does the code comprehension pilot apply to this team?",
+    "Is the Google Hiring Assessment required before scheduling?",
+    "Which language do you recommend I interview in for this team?"
+  ],
+  "sources": [
+    { "title": "Google Careers — How we hire", "url": "https://careers.google.com/how-we-hire/" },
+    { "title": "Google Careers — Interview", "url": "https://careers.google.com/how-we-hire/interview/" },
+    { "title": "Exponent — Google SWE interview guide (2026)", "url": "https://www.tryexponent.com/guides/google-software-engineer-interview" },
+    { "title": "Exponent — Google's AI-assisted coding interview (2026)", "url": "https://www.tryexponent.com/blog/google-ai-coding-interview" },
+    { "title": "Hello Interview — Google L4 guide (2026)", "url": "https://www.hellointerview.com/guides/google/l4" },
+    { "title": "Prepfully — Google SWE process, 2026 updates", "url": "https://prepfully.com/interview-guides/google-software-engineer" }
+  ],
+  "disclaimer": "Google's process and rubrics vary by region, level, team and year, and the 2026 code-comprehension round is a limited pilot. This file is study guidance compiled from Google's public careers pages and candidate reports on 2026-09-28 — not an official Google document. Confirm your loop's format with your recruiter."
 }
